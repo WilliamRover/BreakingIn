@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cxjwpjp454n36"]
+
+[ext_resource type="Texture2D" uid="uid://kk1klnstb60l" path="res://Assets/Tileset/Texture/poles-01.png" id="1_w7bfk"]
+[ext_resource type="Script" uid="uid://d1r6k8y8viuna" path="res://Scripts/Tileset/Poles/poles.gd" id="2_wu3c5"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w7bfk"]
+polygon = PackedVector2Array(-21.58323, -0.27320862, -19.409655, 4.0784845, -14.987202, 6.9285097, -8.795768, 9.385427, -1.3660278, 9.015778, 4.4715915, 8.894045, 11.44924, 6.8302326, 19.311378, 3.9802084, 24.315277, -0.8196182)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wu3c5"]
+polygon = PackedVector2Array(-21.153545, -10.359144, -18.019686, -6.180666, -10.881454, -2.3503952, -4.4396343, -1.6539822, 3.551674, -3.0052643, 10.1850395, -3.7432213, 15.234035, -5.8324585, 19.586617, -7.9216976, 22.129639, -11.747833)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu3c5"]
+texture = ExtResource("1_w7bfk")
+margins = Vector2i(218, 86)
+texture_region_size = Vector2i(290, 491)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-72, 205)
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_w7bfk")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.8196163, -8.469364, -22.129639, -0.27320862, -0.27320862, 10.655006, 25.408098, -1.9124374)
+0:0/0/custom_data_0 = true
+0:0/0/custom_data_1 = true
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(72, 205)
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wu3c5")
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.8196163, -21.036812, -21.583225, -11.20142, 0.2732048, -0.27320862, 22.129635, -8.469368)
+0:1/0/custom_data_0 = true
+0:1/0/custom_data_2 = true
+
+[sub_resource type="TileSet" id="TileSet_jriki"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(145, 80)
+occlusion_layer_0/light_mask = 7
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "lightPole"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "bulb1"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "bulb2"
+custom_data_layer_2/type = 1
+sources/0 = SubResource("TileSetAtlasSource_wu3c5")
+
+[node name="Poles" type="TileMapLayer" unique_id=1646463099]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_jriki")
+script = ExtResource("2_wu3c5")

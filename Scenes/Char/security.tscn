@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dw4vmhrjiymcy"]
+
+[ext_resource type="Texture2D" uid="uid://bud6l1a2wabsj" path="res://Assets/Character/Security/Idle/D-01.png" id="1_keqea"]
+[ext_resource type="Texture2D" uid="uid://coiwblssc4tj6" path="res://Assets/Character/Security/Idle/S-01.png" id="2_3iocf"]
+[ext_resource type="Texture2D" uid="uid://bhc70wfpuqa5m" path="res://Assets/Character/Security/Idle/SD-01.png" id="3_tf0yh"]
+[ext_resource type="Texture2D" uid="uid://bm1q2s2vjl8qi" path="res://Assets/Character/Security/Idle/W-01.png" id="4_8j6kj"]
+[ext_resource type="Texture2D" uid="uid://btharkgk3lg7d" path="res://Assets/Character/Security/Idle/WD-01.png" id="5_th83v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_keqea"]
+light_mode = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e8ee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_keqea")
+}],
+"loop": true,
+"name": &"Idle - D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3iocf")
+}],
+"loop": true,
+"name": &"Idle - S",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tf0yh")
+}],
+"loop": true,
+"name": &"Idle - SD",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8j6kj")
+}],
+"loop": true,
+"name": &"Idle - W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_th83v")
+}],
+"loop": true,
+"name": &"Idle - WD",
+"speed": 5.0
+}]
+
+[node name="Security" type="CharacterBody2D" unique_id=954244259]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143571185]
+light_mask = 6
+material = SubResource("CanvasItemMaterial_keqea")
+position = Vector2(-3.999999, -79)
+scale = Vector2(0.077, 0.077)
+sprite_frames = SubResource("SpriteFrames_7e8ee")
+animation = &"Idle - S"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2079732075]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1.59326, -5.943888)
+scale = Vector2(0.8292193, 0.5312378)
+polygon = PackedVector2Array(-25.815536, -3.8704176, 16, -6, 21, -5, 24, -2, 24, 2, 23, 6, 22, 6, 17, 8, 13, 10, -29.4334, 7.4239607)

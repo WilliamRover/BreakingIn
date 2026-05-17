@@ -1,0 +1,48 @@
+[gd_scene format=4 uid="uid://d1g2v1fpqilx8"]
+
+[ext_resource type="PackedScene" uid="uid://whvsotpfbhry" path="res://Scenes/Util/Tileset/ground.tscn" id="1_1ors6"]
+[ext_resource type="PackedScene" uid="uid://diprla2f4hauu" path="res://Scenes/Util/nearWindows.tscn" id="1_xnrbu"]
+[ext_resource type="PackedScene" uid="uid://c44pi4ldaxtw7" path="res://Scenes/Char/player.tscn" id="2_e8pav"]
+[ext_resource type="PackedScene" uid="uid://cw2l0g7ebgyd6" path="res://Scenes/Util/Tileset/walls.tscn" id="3_e8pav"]
+[ext_resource type="PackedScene" uid="uid://cxjwpjp454n36" path="res://Scenes/Util/Tileset/poles.tscn" id="4_1y30a"]
+[ext_resource type="PackedScene" uid="uid://dw4vmhrjiymcy" path="res://Scenes/Char/security.tscn" id="5_h06n6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8hm1"]
+
+[node name="Node2D" type="Node2D" unique_id=2086445594]
+y_sort_enabled = true
+
+[node name="Area2D" parent="." unique_id=925962930 instance=ExtResource("1_xnrbu")]
+visible = false
+position = Vector2(-153, -68)
+
+[node name="Ground" parent="." unique_id=1280087244 groups=["vision"] instance=ExtResource("1_1ors6")]
+z_index = -1
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_k8hm1")
+position = Vector2(203, 244)
+
+[node name="Wall" parent="." unique_id=706943602 groups=["vision"] instance=ExtResource("3_e8pav")]
+y_sort_enabled = true
+position = Vector2(1611, 459)
+tile_map_data = PackedByteArray("AAAUAAAAAAABAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAABAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAABAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAEAAAAcAAAAAAAAAAAAAAAdAAAAAQAAAAEAAAAeAAAAAAACAAAAAAAeAP//AQAAAAEAABAeAPr/AQAAAAEAABAeAPz/AQABAAAAABAeAP7/AAAAAAAAABAeAP3/AAAAAAAAABAeAPv/AAAAAAAAABATAAAAAAAAAAAAABATAP//AAAAAAAAABATAP7/AAAAAAAAABATAP3/AAAAAAAAABATAPz/AQABAAAAABATAPv/AQAAAAEAABATAPr/AQAAAAEAABAfAAAAAAAAAAAAAAAhAAAAAgAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAgAAAAEAAAAkAAAAAgAAAAEAAAAgAAAAAgAAAAAAAAAfAAEAAwAAAAAAAAAlAAAAAQAAAAEAAAAmAAAAAAACAAAAAAAnAAAAAwAAAAEAABA=")
+
+[node name="Poles" parent="." unique_id=1646463099 instance=ExtResource("4_1y30a")]
+z_index = 2
+position = Vector2(0, -1)
+tile_map_data = PackedByteArray("AAD/////AAAAAAEAAAD//wkAAAAAAAAAAAAKAP//AAAAAAEAAAAKAAkAAAAAAAAAAAAVAP//AAAAAAEAAAAVAAkAAAAAAAAAAAAgAP//AAAAAAEAAAAgAAkAAAAAAAAAAAArAP//AAAAAAEAAAArAAkAAAAAAAAAAAA2AP//AAAAAAEAAAA2AAkAAAAAAAAAAABBAP//AAAAAAEAAABBAAkAAAAAAAAAAAA=")
+
+[node name="Security" parent="." unique_id=954244259 instance=ExtResource("5_h06n6")]
+position = Vector2(3909, 1469)
+
+[node name="Security2" parent="." unique_id=802147579 instance=ExtResource("5_h06n6")]
+position = Vector2(3404, 1684)
+
+[node name="Player" parent="." unique_id=480374139 instance=ExtResource("2_e8pav")]
+position = Vector2(3057, 1552)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=92095272]
+visible = false
+light_mask = 5
+visibility_layer = 5
+color = Color(0.057856694, 0.11200697, 0.20951357, 1)

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwrn7b5cmm0r4"]
+
+[ext_resource type="Script" uid="uid://c6e55r0ali3vs" path="res://Scripts/Lockpick/lockpicktool.gd" id="1_3d3vc"]
+[ext_resource type="Texture2D" uid="uid://blxltnbibic4x" path="res://Assets/PickLock/lockPick.png" id="1_nxoih"]
+
+[node name="Lockpick" type="CharacterBody2D" unique_id=156052687]
+rotation = -0.061487485
+disable_mode = 2
+collision_layer = 1280
+collision_mask = 1280
+script = ExtResource("1_3d3vc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373404402]
+position = Vector2(1379.4, 90.100006)
+rotation = 0.05828405
+texture = ExtResource("1_nxoih")
+offset = Vector2(-500, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=784580605]
+position = Vector2(-298.59998, -561.9)
+polygon = PackedVector2Array(146, 439, 171, 440, 172, 471, 172, 488, 176, 515, 186, 526, 204, 538, 244, 538, 1609, 628, 1607, 696, 185, 571, 177, 564, 156, 537, 144, 512, 144, 502, 141, 476)

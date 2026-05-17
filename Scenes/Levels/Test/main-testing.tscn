@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccntrx36vdtpu"]
+
+[ext_resource type="PackedScene" uid="uid://c4p061r7qbyyl" path="res://Scenes/Levels/Test/ground-test.tscn" id="1_4u6cf"]
+[ext_resource type="PackedScene" uid="uid://c44pi4ldaxtw7" path="res://Scenes/Char/player.tscn" id="2_4u6cf"]
+[ext_resource type="PackedScene" uid="uid://cm0birpt6k6wy" path="res://Scenes/Levels/Test/wall - test.tscn" id="2_yc7o0"]
+
+[node name="Node2D" type="Node2D" unique_id=867312791]
+y_sort_enabled = true
+
+[node name="Ground" parent="." unique_id=905830930 instance=ExtResource("1_4u6cf")]
+position = Vector2(442, 302)
+
+[node name="TileMapLayer" parent="." unique_id=1735736332 instance=ExtResource("2_yc7o0")]
+position = Vector2(534, 346)
+
+[node name="CharacterBody2D" parent="." unique_id=480374139 instance=ExtResource("2_4u6cf")]
+position = Vector2(465, 324)
+scale = Vector2(0.2056692, 0.2056692)

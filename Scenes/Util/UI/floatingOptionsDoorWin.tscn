@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d48rdh7tdjh4"]
+
+[ext_resource type="Script" uid="uid://b4vdrptdnqueg" path="res://Scripts/Util/floating_options.gd" id="1_5vnq4"]
+[ext_resource type="AudioStream" uid="uid://qhdjm48ppk2w" path="res://Assets/Sounds/SFX/windowOpen.wav" id="2_h6mat"]
+[ext_resource type="AudioStream" uid="uid://b6kp1tk7sgkyq" path="res://Assets/Sounds/SFX/windowClose.wav" id="3_3klgt"]
+[ext_resource type="AudioStream" uid="uid://dq4hx76p0u3cv" path="res://Assets/Sounds/SFX/doorOpen.wav" id="4_4r4n5"]
+[ext_resource type="AudioStream" uid="uid://dxrynuglib2fa" path="res://Assets/Sounds/SFX/doorClose.wav" id="5_y3obm"]
+[ext_resource type="AudioStream" uid="uid://ca5d5277j0jhb" path="res://Assets/Sounds/SFX/locked.wav" id="6_3klgt"]
+[ext_resource type="AudioStream" uid="uid://5somywgaxhyt" path="res://Assets/Sounds/SFX/entryUnlock.wav" id="6_spb4q"]
+[ext_resource type="AudioStream" uid="uid://dxl1b6608q81y" path="res://Assets/Sounds/SFX/climbWindow.wav" id="7_4r4n5"]
+[ext_resource type="AudioStream" uid="uid://7tq6lot1rylb" path="res://Assets/Sounds/SFX/lockpicking.wav" id="7_aw6x7"]
+[ext_resource type="AudioStream" uid="uid://h5kvjcfmcae3" path="res://Assets/Sounds/SFX/doorKick.wav" id="8_6qd70"]
+[ext_resource type="AudioStream" uid="uid://cab2d37xmicnq" path="res://Assets/Sounds/SFX/windowSmash.wav" id="9_uvbg8"]
+[ext_resource type="AudioStream" uid="uid://xuvfhifig8xw" path="res://Assets/Sounds/SFX/entryPry.wav" id="10_lf52h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnq4"]
+
+[node name="FloatingOption" type="VBoxContainer" unique_id=996052063]
+top_level = true
+script = ExtResource("1_5vnq4")
+
+[node name="Open_Close" type="Button" parent="." unique_id=1951817072]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Open/Close"
+metadata/floatOptionId = "openClose"
+
+[node name="OpenWinSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1073947596]
+stream = ExtResource("2_h6mat")
+
+[node name="CloseWinSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=2019885151]
+stream = ExtResource("3_3klgt")
+
+[node name="OpenDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1123784789]
+stream = ExtResource("4_4r4n5")
+
+[node name="CloseDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1646894031]
+stream = ExtResource("5_y3obm")
+
+[node name="LockedSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=796652744]
+stream = ExtResource("6_3klgt")
+
+[node name="Climb" type="Button" parent="." unique_id=1430215298]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Climb"
+metadata/floatOptionId = "openClose"
+
+[node name="ClimbThroughSFX" type="AudioStreamPlayer" parent="Climb" unique_id=548402019]
+stream = ExtResource("7_4r4n5")
+
+[node name="Picklock" type="Button" parent="." unique_id=1712361188]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Picklock"
+metadata/floatOptionId = "picklock"
+
+[node name="UnlockSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=1068486414]
+stream = ExtResource("6_spb4q")
+
+[node name="lockpickingSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=213553240]
+stream = ExtResource("7_aw6x7")
+
+[node name="Kick_Break" type="Button" parent="." unique_id=1575599554]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Kick/Break"
+
+[node name="KickSFX" type="AudioStreamPlayer" parent="Kick_Break" unique_id=993518874]
+stream = ExtResource("8_6qd70")
+volume_db = 10.0
+
+[node name="SmashSFX" type="AudioStreamPlayer" parent="Kick_Break" unique_id=1486177187]
+stream = ExtResource("9_uvbg8")
+volume_db = 10.0
+
+[node name="Pry" type="Button" parent="." unique_id=1603070566]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Pry"
+
+[node name="PrySFX" type="AudioStreamPlayer" parent="Pry" unique_id=1519300042]
+stream = ExtResource("10_lf52h")

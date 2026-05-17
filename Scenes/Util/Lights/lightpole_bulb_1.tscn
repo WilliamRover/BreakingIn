@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3exwkyrc1fcx"]
+
+[ext_resource type="Texture2D" uid="uid://bp6dtq8ppkcxa" path="res://Assets/Lights/lightbulb1.png" id="1_vcdcb"]
+
+[node name="Lightpole_bulb1" type="PointLight2D" unique_id=2052765089]
+position = Vector2(124, -409)
+blend_mode = 2
+texture = ExtResource("1_vcdcb")

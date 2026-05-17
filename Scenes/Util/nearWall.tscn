@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://csfob5ia7rpyr"]
+
+[ext_resource type="Script" uid="uid://brldyxf3cnwpr" path="res://Scripts/Tileset/Walls/nearWall.gd" id="1_cjke7"]
+
+[node name="Nearwall" type="Area2D" unique_id=1556164804]
+script = ExtResource("1_cjke7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1399694860]
+position = Vector2(-43, 7)
+polygon = PackedVector2Array(-22, -15, 57, 27, 149, -61, 68, -94)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

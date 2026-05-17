@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bcpgcn8nktak"]
+
+[ext_resource type="Script" uid="uid://dnp48w0dawkgv" path="res://Scripts/Lockpick/lockpick_main.gd" id="1_f52an"]
+[ext_resource type="Texture2D" uid="uid://cyy466ilplpst" path="res://Assets/PickLock/bg.png" id="1_fifvq"]
+[ext_resource type="Script" uid="uid://xak0q8oo0h0p" path="res://Scripts/Lockpick/pin_zone.gd" id="3_716n8"]
+[ext_resource type="PackedScene" uid="uid://cwrn7b5cmm0r4" path="res://Scenes/Minigame/Lockpick/lockpicktool.tscn" id="3_ewgrx"]
+[ext_resource type="Texture2D" uid="uid://cfv0oeyu3pdee" path="res://Assets/PickLock/TensionPin.png" id="6_6g7nh"]
+[ext_resource type="AudioStream" uid="uid://nho84l1inafx" path="res://Assets/Sounds/SFX/pinPushed.wav" id="6_xukpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqco8"]
+size = Vector2(1183, 71)
+
+[node name="LockPick" type="Node2D" unique_id=2073764957]
+script = ExtResource("1_f52an")
+
+[node name="Bg" type="StaticBody2D" parent="." unique_id=1512689495]
+collision_layer = 256
+collision_mask = 256
+
+[node name="Sprite2D" type="Sprite2D" parent="Bg" unique_id=701097094]
+position = Vector2(710.5303, 656.49994)
+scale = Vector2(0.89860386, 0.8986038)
+texture = ExtResource("1_fifvq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bg" unique_id=469378912]
+polygon = PackedVector2Array(-3, 751, -5, 1116, 1281, 1116, 1291, 746)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bg" unique_id=1560067631]
+polygon = PackedVector2Array(-1, -73, 3, 1102, 88, 1116, 78, -69)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bg" unique_id=899480399]
+polygon = PackedVector2Array(-4, -324, 1296, -330, 1292, 439, 1, 440)
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=1108557737]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Ceiling" unique_id=1349436799]
+polygon = PackedVector2Array(3, -4, 1294, -17, 1293, 45, 1, 51)
+
+[node name="PinZone" type="Area2D" parent="." unique_id=1395228833]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("3_716n8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinZone" unique_id=1262705140]
+position = Vector2(682.5, 264)
+shape = SubResource("RectangleShape2D_aqco8")
+
+[node name="Lockpick" parent="." unique_id=1240517337 instance=ExtResource("3_ewgrx")]
+z_index = 1
+position = Vector2(457.99988, 638)
+
+[node name="Label" type="Label" parent="." unique_id=900293384]
+offset_left = 811.0
+offset_top = 958.0
+offset_right = 1075.0
+offset_bottom = 1003.0
+theme_override_font_sizes/font_size = 32
+text = "Press Q to cancel"
+
+[node name="Label2" type="Label" parent="." unique_id=1761192791]
+offset_left = 624.0
+offset_top = 903.0
+offset_right = 1282.0
+offset_bottom = 948.0
+theme_override_font_sizes/font_size = 32
+text = "Push the pin in correct sequence to unlock"
+
+[node name="TensionPin" type="Sprite2D" parent="." unique_id=1485149986]
+z_index = 1
+position = Vector2(1184, 1016)
+scale = Vector2(0.9, 1)
+texture = ExtResource("6_6g7nh")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1421534856]
+visible = false
+position = Vector2(80, 48)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=554520524]
+visible = false
+position = Vector2(1290, 48)
+
+[node name="PinPushed" type="AudioStreamPlayer" parent="." unique_id=1945045859]
+stream = ExtResource("6_xukpy")
+volume_db = -8.0
+
+[connection signal="body_entered" from="PinZone" to="PinZone" method="_on_body_entered"]
+[connection signal="pinEnter" from="PinZone" to="." method="_on_pin_zone_pin_enter"]

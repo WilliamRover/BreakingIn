@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://diprla2f4hauu"]
+
+[ext_resource type="Script" uid="uid://db2u2jwd5dwgl" path="res://Scripts/Tileset/Walls/nearWindows.gd" id="1_07ahd"]
+[ext_resource type="PackedScene" uid="uid://d48rdh7tdjh4" path="res://Scenes/Util/UI/floatingOptionsDoorWin.tscn" id="2_os8se"]
+[ext_resource type="Texture2D" uid="uid://f6pmvsobv7k5" path="res://Assets/Tileset/Normal/wall-01_n-01.png" id="2_tr64c"]
+
+[node name="Area2D" type="Area2D" unique_id=925962930]
+z_index = 10
+script = ExtResource("1_07ahd")
+
+[node name="UIAnchor" type="Marker2D" parent="." unique_id=1633199987]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=284466811]
+position = Vector2(-43, 7)
+polygon = PackedVector2Array(-49, 11, 11, 55, 91, -14, 28, -49)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=248189918]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=750260530]
+offset_right = 117.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "E: open/close
+Hold E: options"
+metadata/_edit_use_anchors_ = true
+
+[node name="FloatingOption" parent="CanvasLayer" unique_id=1680504572 instance=ExtResource("2_os8se")]
+z_index = 10
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 121.0
+offset_bottom = 197.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=160241988]
+visible = false
+position = Vector2(1964, -1117)
+scale = Vector2(1.9067588, 1.9067575)
+texture = ExtResource("2_tr64c")
+
+[node name="PointA" type="Marker2D" parent="." unique_id=1920475033]
+position = Vector2(-61, 37)
+
+[node name="PointB" type="Marker2D" parent="." unique_id=545391971]
+position = Vector2(10, -26)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

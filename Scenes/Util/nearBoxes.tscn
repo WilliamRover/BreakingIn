@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cns7sbj8p8f6i"]
+
+[ext_resource type="PackedScene" uid="uid://duraj0rh8y26q" path="res://Scenes/Util/UI/floatingOptionsBoxes.tscn" id="1_1gxjm"]
+[ext_resource type="Script" uid="uid://btiwt0w0csbjy" path="res://Scripts/Tileset/Walls/nearBoxes.gd" id="1_uksyg"]
+
+[node name="Area2D" type="Area2D" unique_id=439289499]
+script = ExtResource("1_uksyg")
+
+[node name="UIAnchor" type="Marker2D" parent="." unique_id=584601033]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1720205371]
+position = Vector2(-41, 5)
+polygon = PackedVector2Array(-9, -17, 54, 17, 91, -14, 28, -49)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1933636609]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1215381940]
+offset_right = 117.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "E: open/close
+Hold E: options"
+metadata/_edit_use_anchors_ = true
+
+[node name="FloatingOption" parent="CanvasLayer" unique_id=595020201 instance=ExtResource("1_1gxjm")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

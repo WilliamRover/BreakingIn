@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bab2etd2tb0io" path="res://Assets/PickLock/pinHole.png" id="1_50c5k"]
 [ext_resource type="Texture2D" uid="uid://d2v53t60pgf81" path="res://Assets/PickLock/spring.png" id="2_e7qg6"]
-[ext_resource type="Script" uid="uid://dbmxsi86gbvn4" path="res://Scripts/Lockpick/pin.gd" id="3_e7qg6"]
+[ext_resource type="Script" uid="uid://dbmxsi86gbvn4" path="res://Scripts/Minigame/Lockpick/pin.gd" id="3_e7qg6"]
 [ext_resource type="Texture2D" uid="uid://ea35yjdbggb6" path="res://Assets/PickLock/pin.png" id="3_yk00k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50c5k"]

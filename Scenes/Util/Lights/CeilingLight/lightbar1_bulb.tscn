@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c0wj8xqouipbx"]
+
+[ext_resource type="Texture2D" uid="uid://bd3af68d3apuy" path="res://Assets/Lights/CeilingLight/lightBar1.png" id="1_u18lr"]
+
+[node name="Lightbar1Bulb" type="PointLight2D" unique_id=97507368]
+z_index = 1
+blend_mode = 2
+texture = ExtResource("1_u18lr")

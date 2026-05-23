@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b1gvnrbj746n6"]
+
+[ext_resource type="Texture2D" uid="uid://bgmnegc2lyr2l" path="res://Assets/RewireGarage/terminalBox.png" id="1_ofvkp"]
+[ext_resource type="Script" uid="uid://df3af2itp7g7v" path="res://Scripts/Minigame/RewireGarage/terminal_box.gd" id="1_ygycc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofvkp"]
+size = Vector2(197.55582, 56.674583)
+
+[node name="TerminalBox" type="Area2D" unique_id=1108200161]
+scale = Vector2(0.91921395, 0.919214)
+script = ExtResource("1_ygycc")
+
+[node name="TerminalBox" type="Sprite2D" parent="." unique_id=690736217]
+position = Vector2(115.31591, 562.4371)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("1_ofvkp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1296758539]
+position = Vector2(114.22803, 636.4133)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_ofvkp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

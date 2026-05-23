@@ -1,0 +1,26 @@
+[
+  {
+	"title": "The rookie (TUTORIAL)",
+	"time": "00:45, 12th October, 1010",
+	"place": "Lavanda, United Island",
+	"desc": "You simply break into a resident house. Simple job: just steal a few valuables and get out",
+	"thumbnail": "res://Assets/Placebo/tutorial placebo-01.png",
+	"scenePath": "res://Scenes/Levels/Tutorial/main-tutorial.tscn"
+  },
+  {
+	"title": "The scout",
+	"time": "11:30, 20th November, 1011",
+	"place": "Lavanda, United Island",
+	"desc": "",
+	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
+	"scenePath": ""
+  },
+  {
+	"title": "The intel",
+	"time": "18:30, 26th Feburary, 1011",
+	"place": "Lavanda, United Island",
+	"desc": "",
+	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
+	"scenePath": ""
+  }
+]

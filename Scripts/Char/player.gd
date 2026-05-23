@@ -8,15 +8,20 @@ var movable: bool = true
 @onready var notifAnchor: Marker2D = $NotifAnchor
 @onready var flashlight: PointLight2D = $FlashLight
 @onready var visionCone = [
-	$VisionCone,
-	$VisionCone/ObjectCone,
-	$VisionCone/VisionCone2,
-	$VisionCone/PointLight2D3
+	$VisionCone
+	#$VisionCone/ObjectCone,
+	#$VisionCone/VisionCone2,
+	#$VisionCone/PointLight2D3
 ]
+
+var objInCones: Array[Node2D] = []
+@onready var visionRay: RayCast2D = $VisionRay
 @onready var walkSfx: AudioStreamPlayer = $Walk
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
-func _physics_process(delta: float) -> void:
+#var originalNotifPosition = notif.position
+func _physics_process(_delta: float) -> void:
 	var screen_pos = notifAnchor.get_global_transform_with_canvas().origin
+	#notif.position = originalNotifPosition
 	notif.global_position = screen_pos - (notif.size / 2.0)
 	if Input.is_action_just_pressed("ILLUMINATOR MENU - T"):
 		flashlight.visible = !flashlight.visible
@@ -81,7 +86,14 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
-
+	
+	for obj in objInCones:
+		visionRay.target_position = visionRay.to_local(obj.global_position + Vector2(0, -15)) * 1.05
+		visionRay.force_raycast_update()
+		
+		if visionRay.is_colliding() && visionRay.get_collider() == obj:
+			pass
+		#print(obj.name + " " + str(visionRay.get_collider()))
 func _on_window_stop_moving(canMove: bool) -> void:
 	movable = canMove
 	
@@ -90,7 +102,17 @@ func _on_label_set_text(text: String) -> void:
 	notif.visible = true
 	await get_tree().create_timer(2.5).timeout
 	notif.visible = false
-func _on_ready() -> void:
+func _ready() -> void:
 	flashlight.visible = false
 	notif.visible = false
 	pass # Replace with function body.
+
+
+func _on_vision_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Obj"):
+		objInCones.append(body)
+
+
+func _on_vision_detect_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Obj"):
+		objInCones.erase(body)

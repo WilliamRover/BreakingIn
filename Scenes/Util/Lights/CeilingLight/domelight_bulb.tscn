@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://6axic01v0ofn"]
+
+[ext_resource type="Texture2D" uid="uid://djwxyxn4yg4o6" path="res://Assets/Lights/CeilingLight/domelightBulb.png" id="1_lluw1"]
+
+[node name="DomeLightBulb" type="PointLight2D" unique_id=97507368]
+z_index = 1
+y_sort_enabled = true
+blend_mode = 2
+texture = ExtResource("1_lluw1")

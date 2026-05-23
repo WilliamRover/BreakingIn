@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://chupqdt4xsmpx"]
+
+[ext_resource type="Texture2D" uid="uid://4kivnn5046m1" path="res://Assets/Tileset/Texture/ceilingLights-01.png" id="1_1j46f"]
+[ext_resource type="Script" uid="uid://bnrfased7iqi8" path="res://Scripts/Tileset/Ceiling/ceiling.gd" id="2_0sqac"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sqac"]
+texture = ExtResource("1_1j46f")
+margins = Vector2i(72, 6)
+separation = Vector2i(0, 58)
+texture_region_size = Vector2i(145, 120)
+0:0/0 = 0
+0:0/0/custom_data_0 = "lightBar1"
+1:0/0 = 0
+1:0/0/custom_data_0 = "lightBar3"
+2:0/0 = 0
+2:0/0/custom_data_0 = "lightBar2"
+1:1/0 = 0
+1:1/0/custom_data_0 = "domeLight"
+0:1/0 = 0
+0:1/0/custom_data_0 = "hangLight"
+
+[sub_resource type="TileSet" id="TileSet_jqbfr"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(145, 80)
+custom_data_layer_0/name = "lightType"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_0sqac")
+
+[node name="Ceiling" type="TileMapLayer" unique_id=628361410]
+light_mask = 3
+tile_set = SubResource("TileSet_jqbfr")
+rendering_quadrant_size = 4
+script = ExtResource("2_0sqac")

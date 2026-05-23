@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bvl38s8e8rq3f"]
+
+[ext_resource type="Script" uid="uid://dosr1hvdx32jq" path="res://Scripts/UI/SkillTree/skill_node.gd" id="1_vbdri"]
+
+[node name="SkillNode" type="TextureButton" unique_id=948124642]
+offset_right = 40.0
+offset_bottom = 40.0
+toggle_mode = true
+script = ExtResource("1_vbdri")

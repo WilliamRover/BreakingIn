@@ -1,0 +1,292 @@
+[gd_scene format=3 uid="uid://cnb6goy702yp2"]
+
+[ext_resource type="Texture2D" uid="uid://nsqbtcsmbnln" path="res://Assets/SkillTree/picklockUnselected.png" id="1_3xtq0"]
+[ext_resource type="Script" uid="uid://cj8ikc8dm71wh" path="res://Scripts/UI/SkillTree/skill_tree.gd" id="1_mc40a"]
+[ext_resource type="Script" uid="uid://dosr1hvdx32jq" path="res://Scripts/UI/SkillTree/skill_node.gd" id="2_mc40a"]
+[ext_resource type="Texture2D" uid="uid://cuptron2rgwen" path="res://Assets/SkillTree/picklockSelected.png" id="3_ds2pu"]
+[ext_resource type="Texture2D" uid="uid://cyjnsve7oepde" path="res://Assets/SkillTree/rewireUnselected.png" id="3_ts33k"]
+[ext_resource type="Texture2D" uid="uid://c5uxf5j76lwmb" path="res://Assets/SkillTree/overloadPowerUnselected.png" id="4_cblfm"]
+[ext_resource type="Texture2D" uid="uid://b6sd0j7mvyd04" path="res://Assets/SkillTree/safeCrackUnselected.png" id="5_tvcqn"]
+[ext_resource type="Texture2D" uid="uid://bskpk0n4ury06" path="res://Assets/SkillTree/rewireSelected.png" id="6_515or"]
+[ext_resource type="Texture2D" uid="uid://dmolp33s60oir" path="res://Assets/SkillTree/overloadPowerSelected.png" id="6_cblfm"]
+[ext_resource type="Texture2D" uid="uid://b1v2oa5npbxts" path="res://Assets/SkillTree/kickDoorUnselected.png" id="6_da86b"]
+[ext_resource type="Texture2D" uid="uid://dyux8xk3sgqtp" path="res://Assets/SkillTree/pryDoorUnselected.png" id="7_q0j5r"]
+[ext_resource type="Texture2D" uid="uid://b1hyy2q1stmv6" path="res://Assets/SkillTree/slowDetectUnselected.png" id="8_gqbci"]
+[ext_resource type="Texture2D" uid="uid://bm5y4lpiwmjla" path="res://Assets/SkillTree/safeCrackSelected.png" id="8_tvcqn"]
+[ext_resource type="Texture2D" uid="uid://be05g2a8c4eq8" path="res://Assets/SkillTree/runFastUnselected.png" id="9_0dyjw"]
+[ext_resource type="Texture2D" uid="uid://wmt80ug0gsna" path="res://Assets/SkillTree/silentActionUnselected.png" id="10_65inl"]
+[ext_resource type="Texture2D" uid="uid://dpg77d8hpipno" path="res://Assets/SkillTree/knockOutUnselected.png" id="11_6t4hn"]
+[ext_resource type="Texture2D" uid="uid://bxt8dysiammm0" path="res://Assets/SkillTree/kickDoorSelected.png" id="12_pnd3r"]
+[ext_resource type="Texture2D" uid="uid://bboovajfwvfey" path="res://Assets/SkillTree/pryDoorSelected.png" id="14_iv77b"]
+[ext_resource type="Texture2D" uid="uid://yerci480gc1k" path="res://Assets/SkillTree/slowDetectSelected.png" id="16_oeecu"]
+[ext_resource type="Texture2D" uid="uid://dwemcbtj122gk" path="res://Assets/SkillTree/runFastSelected.png" id="18_0id14"]
+[ext_resource type="Texture2D" uid="uid://dh0jx3a1s5cnj" path="res://Assets/SkillTree/silentActionSelected.png" id="20_sx8cl"]
+[ext_resource type="Texture2D" uid="uid://sgeig8n2rile" path="res://Assets/SkillTree/knockOutSelected.png" id="22_v0m47"]
+
+[node name="SkillTree" type="Control" unique_id=1835263547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mc40a")
+
+[node name="TreeCanvas" type="Control" parent="." unique_id=1827857444]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ConnectLine" type="Control" parent="TreeCanvas" unique_id=1375594151]
+layout_mode = 1
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="SkillNodes" type="Control" parent="TreeCanvas" unique_id=2036685265]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ME" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=788204542]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 268.0
+offset_right = 581.0
+offset_bottom = 496.0
+toggle_mode = true
+texture_normal = ExtResource("1_3xtq0")
+texture_pressed = ExtResource("3_ds2pu")
+script = ExtResource("2_mc40a")
+skillId = "picklock"
+skillName = "Mechanical Engineer"
+desc = "Able to lockpick"
+cost = 2
+prerequisites = Array[String](["safeCrack", "pryDoor"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="EE" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=499777036]
+layout_mode = 0
+offset_left = 1209.0
+offset_top = 273.0
+offset_right = 1437.0
+offset_bottom = 501.0
+toggle_mode = true
+texture_normal = ExtResource("3_ts33k")
+texture_pressed = ExtResource("6_515or")
+script = ExtResource("2_mc40a")
+skillId = "rewire"
+skillName = "Electrical Engineer"
+desc = "Able to rewire"
+cost = 2
+prerequisites = Array[String](["overloadPower", "kickDoor"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="OverloadPower" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=968320532]
+layout_mode = 0
+offset_left = 1252.0
+offset_top = -7.0
+offset_right = 1406.0
+offset_bottom = 148.0
+toggle_mode = true
+texture_normal = ExtResource("4_cblfm")
+texture_pressed = ExtResource("6_cblfm")
+script = ExtResource("2_mc40a")
+skillId = "overloadPower"
+skillName = "Power overload"
+desc = "Can overload power"
+prerequisites = Array[String](["rewire"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="CrackSafe" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=737066057]
+layout_mode = 0
+offset_left = 383.0
+offset_top = -11.0
+offset_right = 537.0
+offset_bottom = 143.0
+toggle_mode = true
+texture_normal = ExtResource("5_tvcqn")
+texture_pressed = ExtResource("8_tvcqn")
+script = ExtResource("2_mc40a")
+skillId = "safeCrack"
+skillName = "Safe cracking"
+desc = "Can crack safe"
+prerequisites = Array[String](["picklock"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="DoorKick" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1162020715]
+layout_mode = 0
+offset_left = 1252.0
+offset_top = 666.0
+offset_right = 1406.0
+offset_bottom = 821.0
+toggle_mode = true
+texture_normal = ExtResource("6_da86b")
+texture_pressed = ExtResource("12_pnd3r")
+script = ExtResource("2_mc40a")
+skillId = "kickDoor"
+skillName = "Door kicker"
+desc = "Can kick door"
+prerequisites = Array[String](["rewire", "slowDetect"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="Pry" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1161361705]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 662.0
+offset_right = 537.0
+offset_bottom = 816.0
+toggle_mode = true
+texture_normal = ExtResource("7_q0j5r")
+texture_pressed = ExtResource("14_iv77b")
+script = ExtResource("2_mc40a")
+skillId = "pryDoor"
+skillName = "Pry"
+desc = "Can use crowbar"
+prerequisites = Array[String](["picklock", "runFast"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="SlowDetect" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=407427133]
+layout_mode = 0
+offset_left = 1252.0
+offset_top = 976.0
+offset_right = 1406.0
+offset_bottom = 1131.0
+toggle_mode = true
+texture_normal = ExtResource("8_gqbci")
+texture_pressed = ExtResource("16_oeecu")
+script = ExtResource("2_mc40a")
+skillId = "slowDetect"
+skillName = "Slow detect"
+desc = "Detection are much slower"
+prerequisites = Array[String](["kickDoor", "knockOut", "silentAction"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="RunFaster" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1841435187]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 972.0
+offset_right = 537.0
+offset_bottom = 1126.0
+toggle_mode = true
+texture_normal = ExtResource("9_0dyjw")
+texture_pressed = ExtResource("18_0id14")
+script = ExtResource("2_mc40a")
+skillId = "runFast"
+skillName = "Athletic"
+desc = "Can run faster"
+prerequisites = Array[String](["pryDoor", "knockOut", "silentAction"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="QuietAction" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1255278157]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 1161.0
+offset_right = 938.0
+offset_bottom = 1316.0
+toggle_mode = true
+texture_normal = ExtResource("10_65inl")
+texture_pressed = ExtResource("20_sx8cl")
+script = ExtResource("2_mc40a")
+skillId = "silentAction"
+skillName = "Silent action"
+desc = "Activities are much quieter"
+prerequisites = Array[String](["runFast", "slowDetect"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="Knockout" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=389347343]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 776.0
+offset_right = 959.0
+offset_bottom = 930.0
+toggle_mode = true
+texture_normal = ExtResource("11_6t4hn")
+texture_pressed = ExtResource("22_v0m47")
+script = ExtResource("2_mc40a")
+skillId = "knockOut"
+skillName = "Brute force"
+desc = "Can knockout people"
+prerequisites = Array[String](["runFast", "slowDetect"])
+metadata/_custom_type_script = "uid://dosr1hvdx32jq"
+
+[node name="FloatingDesc" type="Panel" parent="." unique_id=1044158828]
+visible = false
+layout_mode = 0
+offset_right = 241.0
+offset_bottom = 233.0
+
+[node name="SkillName" type="Label" parent="FloatingDesc" unique_id=2090571116]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pick lock"
+
+[node name="SkillDesc" type="Label" parent="FloatingDesc" unique_id=14754774]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 29.0
+offset_right = 241.0
+offset_bottom = 253.0
+text = "something something something something something something something something something something something something"
+autowrap_mode = 1
+
+[node name="Cost" type="Label" parent="FloatingDesc" unique_id=1061611071]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=114248001]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 63
+theme_override_constants/margin_top = 83
+
+[node name="BackToMenu" type="Button" parent="MarginContainer" unique_id=775374676]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "< Back to menu"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=573715297]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_bottom = 189.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 87
+theme_override_constants/margin_right = 78
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=490211441]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SkillPoint" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=274659768]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "3 skill points"
+
+[node name="ResetSkillTree" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=2116598108]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Reset skill"
+
+[node name="ConfirmSkillTree" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=223919561]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Confirm"

@@ -52,7 +52,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Security" type="CharacterBody2D" unique_id=954244259]
+[node name="Security" type="CharacterBody2D" unique_id=954244259 groups=["Obj"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143571185]
 light_mask = 6

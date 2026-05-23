@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b0fncv188o6yy"]
+
+[ext_resource type="Script" uid="uid://dugaenxr5gwn5" path="res://Scripts/UI/Menu/menu.gd" id="1_fxewk"]
+[ext_resource type="Texture2D" uid="uid://bnt8n0nmoyb5b" path="res://Assets/Character/Player/Idle/S-01.png" id="2_748jn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhmg3"]
+bg_color = Color(0.54673463, 0.5419922, 0.69375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk6bn"]
+bg_color = Color(0.25056735, 0.2483594, 0.425, 1)
+
+[node name="Menu" type="Control" unique_id=2057128127]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxewk")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=987279661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=326549107]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1712557754]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Missions" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=19190752]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Missions
+"
+
+[node name="Loadout" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=795521038]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Loadout"
+
+[node name="SkillTree" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=537499222]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Skill Tree"
+
+[node name="SkillPoint" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/SkillTree" unique_id=369805984]
+layout_mode = 0
+offset_left = 501.0
+offset_top = -3.0
+offset_right = 541.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 37
+text = "3"
+
+[node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=717988163]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings
+"
+
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1354215514]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Credits
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=308558437]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="CharSprite" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1846581642]
+custom_minimum_size = Vector2(257.667, 666)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_748jn")
+expand_mode = 1
+
+[node name="Exp" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=645515408]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Exp" unique_id=1884000800]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="XpBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2/Exp" unique_id=628529024]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_nhmg3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uk6bn")
+value = 50.0
+show_percentage = false
+
+[node name="XpTxt" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1951330354]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "3000/5000 XP"

@@ -4,8 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://dmpkqdatlwu21" path="res://Assets/Sounds/SFX/powerboxClose.wav" id="2_kv5da"]
 [ext_resource type="AudioStream" uid="uid://5somywgaxhyt" path="res://Assets/Sounds/SFX/entryUnlock.wav" id="2_lrbqr"]
 [ext_resource type="AudioStream" uid="uid://7tq6lot1rylb" path="res://Assets/Sounds/SFX/lockpicking.wav" id="3_5hmmg"]
+[ext_resource type="AudioStream" uid="uid://do48cdhhsd82t" path="res://Assets/Sounds/SFX/powerboxLock.wav" id="3_kv5da"]
 [ext_resource type="AudioStream" uid="uid://babyotg3jsq1x" path="res://Assets/Sounds/SFX/powerboxPry.wav" id="3_o6jny"]
+[ext_resource type="AudioStream" uid="uid://dnm5ovnusd5pf" path="res://Assets/Sounds/SFX/garageOpen.wav" id="4_l63u3"]
+[ext_resource type="AudioStream" uid="uid://bfjnt8p1qeqt3" path="res://Assets/Sounds/SFX/garageClose.wav" id="5_jttyx"]
 [ext_resource type="AudioStream" uid="uid://d2ciy3jobf3ou" path="res://Assets/Sounds/SFX/powerboxRewire.wav" id="6_1weav"]
+[ext_resource type="AudioStream" uid="uid://colvb5470yhlq" path="res://Assets/Sounds/SFX/garageLock.wav" id="6_orejv"]
 [ext_resource type="AudioStream" uid="uid://stuchr3h6b8e" path="res://Assets/Sounds/SFX/rewireSuccess.wav" id="7_l63u3"]
 [ext_resource type="AudioStream" uid="uid://dhlusx0jemch7" path="res://Assets/Sounds/SFX/rewireFail.wav" id="8_jttyx"]
 
@@ -15,17 +19,35 @@
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Open_Close" type="Button" parent="." unique_id=1321874865]
+[node name="Open_Close_Box" type="Button" parent="." unique_id=1321874865]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_ycckp")
-text = "Open/Close"
+text = "Open/Close box"
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=327638254]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="Open_Close_Box" unique_id=327638254]
 stream = ExtResource("1_02hmh")
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=717860078]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="Open_Close_Box" unique_id=717860078]
 stream = ExtResource("2_kv5da")
+
+[node name="LockSFX" type="AudioStreamPlayer" parent="Open_Close_Box" unique_id=496647900]
+stream = ExtResource("3_kv5da")
+
+[node name="Open_Close_Garage" type="Button" parent="." unique_id=1602147452]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ycckp")
+text = "Open/Close garage"
+
+[node name="OpenGarageSFX" type="AudioStreamPlayer" parent="Open_Close_Garage" unique_id=367548257]
+stream = ExtResource("4_l63u3")
+
+[node name="CloseGarageSFX" type="AudioStreamPlayer" parent="Open_Close_Garage" unique_id=787021742]
+stream = ExtResource("5_jttyx")
+
+[node name="LockGarageSFX" type="AudioStreamPlayer" parent="Open_Close_Garage" unique_id=2110934854]
+stream = ExtResource("6_orejv")
 
 [node name="Pry" type="Button" parent="." unique_id=1039945496]
 layout_mode = 2

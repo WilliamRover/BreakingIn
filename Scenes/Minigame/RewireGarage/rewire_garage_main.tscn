@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://653cyacsot4n"]
+
+[ext_resource type="Script" uid="uid://te2vuagk3mfv" path="res://Scripts/Minigame/RewireGarage/rewire_garage_main.gd" id="1_etb2n"]
+[ext_resource type="Texture2D" uid="uid://5tw0cmbsqc6b" path="res://Assets/RewireGarage/rewireNeutral.png" id="1_r02e0"]
+[ext_resource type="PackedScene" uid="uid://dxooq5wur3iiy" path="res://Scenes/Minigame/RewireGarage/wire.tscn" id="3_ak3hm"]
+
+[node name="RewireGarage" type="Node2D" unique_id=1444120866]
+script = ExtResource("1_etb2n")
+
+[node name="RewireStat" type="Sprite2D" parent="." unique_id=2062840717]
+position = Vector2(1694, 312)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("1_r02e0")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1693434211]
+position = Vector2(62, 94)
+
+[node name="Wire" parent="." unique_id=1657155752 instance=ExtResource("3_ak3hm")]
+z_index = 1
+position = Vector2(965, 1001)
+scale = Vector2(1.76, 1.76)
+
+[node name="Label" type="Label" parent="." unique_id=1158375847]
+z_index = 2
+offset_left = 806.0
+offset_top = 897.0
+offset_right = 1070.0
+offset_bottom = 942.0
+theme_override_font_sizes/font_size = 32
+text = "Press Q to cancel"
+
+[node name="Label2" type="Label" parent="." unique_id=2133800977]
+z_index = 2
+offset_left = 438.0
+offset_top = 831.0
+offset_right = 1454.0
+offset_bottom = 876.0
+theme_override_font_sizes/font_size = 32
+text = "Pair the correct terminal box combination (through the small slot)"

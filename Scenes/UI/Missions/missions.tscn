@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://c1tfcanpj68eq"]
+
+[ext_resource type="Script" uid="uid://8py85c7cayq4" path="res://Scripts/UI/Missions/missions.gd" id="1_twqck"]
+
+[node name="Missions" type="Control" unique_id=2132577320]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twqck")
+
+[node name="MidLine" type="ColorRect" parent="." unique_id=1215315988]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.90625, 0.90625, 0.90625, 1)
+
+[node name="MissionCardContainer" type="CenterContainer" parent="." unique_id=457266900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -73.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimelineScroll" type="Control" parent="." unique_id=2099227797]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="TimelineScroll" unique_id=1392988183]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DotContainer" type="HBoxContainer" parent="TimelineScroll" unique_id=1223105050]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2049427998]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_right = 270.0
+offset_bottom = 44.0
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=102255589]
+layout_mode = 2
+
+[node name="PrevMission" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1690895442]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "< Previous mission"
+horizontal_alignment = 1
+
+[node name="PressQ" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1713092276]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Press Q"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1266360515]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -44.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 45
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2" unique_id=1282427077]
+layout_mode = 2
+
+[node name="NextMission" type="Label" parent="MarginContainer2/VBoxContainer2" unique_id=1582080811]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Next mission >"
+horizontal_alignment = 1
+
+[node name="PressE" type="Label" parent="MarginContainer2/VBoxContainer2" unique_id=1278073874]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Press E"
+horizontal_alignment = 1
+
+[node name="BackToMenu" type="MarginContainer" parent="." unique_id=563998680]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="BackToMenu" unique_id=637397134]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "< Back to menu"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ca7p0eddlnhfj"]
+
+[ext_resource type="Texture2D" uid="uid://hkgm3x7vklcy" path="res://Assets/Lights/CeilingLight/hanglightBulb.png" id="1_62gmq"]
+
+[node name="HangLightBulb" type="PointLight2D" unique_id=97507368]
+z_index = 1
+blend_mode = 2
+texture = ExtResource("1_62gmq")

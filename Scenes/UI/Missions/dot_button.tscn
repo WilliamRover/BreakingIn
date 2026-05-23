@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chjokalgb2ciy"]
+
+[ext_resource type="Script" uid="uid://bwy6doujtmh2" path="res://Scripts/UI/Missions/dot_button.gd" id="1_wbvfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy40a"]
+bg_color = Color(0.94375, 0.94375, 0.94375, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 16
+
+[node name="Button" type="Button" unique_id=1389615965]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_wy40a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wy40a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wy40a")
+script = ExtResource("1_wbvfw")

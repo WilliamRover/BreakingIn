@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dvn1ibwiybii5"]
+
+[ext_resource type="Script" uid="uid://cvk0x2fmfyxa4" path="res://Scripts/UI/Missions/mission_card.gd" id="1_k0hgq"]
+[ext_resource type="Texture2D" uid="uid://cs77b1e1rbljs" path="res://Assets/Placebo/tutorial placebo-01.png" id="1_yj7g7"]
+
+[node name="MissionCard" type="TextureButton" unique_id=33882229]
+custom_minimum_size = Vector2(1000, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_yj7g7")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_k0hgq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=119256832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=784615756]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2104927151]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 28
+text = "Note (example: Tutorial)"
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1536075300]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 28
+text = "00:45 AM, 12th October, 1010"
+
+[node name="Location" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2120391353]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 28
+text = "Lavanda, United Island"

@@ -1,0 +1,1 @@
+class_name WireTip extends CharacterBody2D

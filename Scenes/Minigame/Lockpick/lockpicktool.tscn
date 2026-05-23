@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwrn7b5cmm0r4"]
 
-[ext_resource type="Script" uid="uid://c6e55r0ali3vs" path="res://Scripts/Lockpick/lockpicktool.gd" id="1_3d3vc"]
+[ext_resource type="Script" uid="uid://c6e55r0ali3vs" path="res://Scripts/Minigame/Lockpick/lockpicktool.gd" id="1_3d3vc"]
 [ext_resource type="Texture2D" uid="uid://blxltnbibic4x" path="res://Assets/PickLock/lockPick.png" id="1_nxoih"]
 
 [node name="Lockpick" type="CharacterBody2D" unique_id=156052687]

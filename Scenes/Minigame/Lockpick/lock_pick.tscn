@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bcpgcn8nktak"]
 
-[ext_resource type="Script" uid="uid://dnp48w0dawkgv" path="res://Scripts/Lockpick/lockpick_main.gd" id="1_f52an"]
+[ext_resource type="Script" uid="uid://dnp48w0dawkgv" path="res://Scripts/Minigame/Lockpick/lockpick_main.gd" id="1_f52an"]
 [ext_resource type="Texture2D" uid="uid://cyy466ilplpst" path="res://Assets/PickLock/bg.png" id="1_fifvq"]
-[ext_resource type="Script" uid="uid://xak0q8oo0h0p" path="res://Scripts/Lockpick/pin_zone.gd" id="3_716n8"]
+[ext_resource type="Script" uid="uid://xak0q8oo0h0p" path="res://Scripts/Minigame/Lockpick/pin_zone.gd" id="3_716n8"]
 [ext_resource type="PackedScene" uid="uid://cwrn7b5cmm0r4" path="res://Scenes/Minigame/Lockpick/lockpicktool.tscn" id="3_ewgrx"]
 [ext_resource type="Texture2D" uid="uid://cfv0oeyu3pdee" path="res://Assets/PickLock/TensionPin.png" id="6_6g7nh"]
 [ext_resource type="AudioStream" uid="uid://nho84l1inafx" path="res://Assets/Sounds/SFX/pinPushed.wav" id="6_xukpy"]

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://b1kgpllxd0bho"]
-
-[ext_resource type="Texture2D" uid="uid://dtt2mkk3h5ceg" path="res://Assets/Lights/lightCast.png" id="1_mlqhx"]
-
-[node name="Lightpole_cast" type="PointLight2D" unique_id=837125948]
-scale = Vector2(0.7392127, 0.73921245)
-energy = 2.0
-blend_mode = 2
-texture = ExtResource("1_mlqhx")

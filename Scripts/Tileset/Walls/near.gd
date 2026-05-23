@@ -64,7 +64,7 @@ func _on_body_exited(body: Node2D) -> void:
 # ABSTRACT FUNC. OVERRIDE TS
 func get_available_actions() -> Array[String]:
 	return [] # ex: [Pry, Open/close, ...]
-func execute_action(action_name: String, button: Button) -> void:
+func execute_action(_action_name: String, _button: Button) -> void:
 	#if btnName != "":
 		#btnGlobal = floatingOption.get_node(btnName)
 		#stopMoving.emit(false)

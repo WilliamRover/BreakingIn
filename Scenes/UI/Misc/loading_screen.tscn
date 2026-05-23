@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://btuxqwj88a6h3"]
+
+[ext_resource type="Script" uid="uid://bffwsk4ultnc3" path="res://Scripts/UI/Misc/loading_screen.gd" id="1_iplpd"]
+
+[node name="LoadingScreen" type="Control" unique_id=130627375]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iplpd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=301842921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_right = 270
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1232629397]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 55
+
+[node name="LoadingTxt" type="Label" parent="MarginContainer/VBoxContainer" unique_id=64534339]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Map loading..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=446481988]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+show_percentage = false
+
+[node name="PercentNum" type="Label" parent="MarginContainer/VBoxContainer" unique_id=355889801]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "20%"
+horizontal_alignment = 1

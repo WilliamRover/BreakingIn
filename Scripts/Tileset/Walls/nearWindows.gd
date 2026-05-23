@@ -15,13 +15,12 @@ var lock_seed: int = -1
 # Overide thingy
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
+	actions.append("Open_Close")
 	if locked:
 		actions.append("Picklock")
 		actions.append("Pry")
 		actions.append("Kick_Break")
 	else:
-		if !isBroken:
-			actions.append("Open_Close")
 		if open:
 			actions.append("Climb")
 			

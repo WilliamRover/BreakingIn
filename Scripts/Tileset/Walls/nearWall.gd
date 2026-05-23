@@ -7,12 +7,6 @@ var playerInsideCheck := 0
 func _ready() -> void:
 	curTileMap = get_parent() as TileMapLayer
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		playerInsideCheck += 1

@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://te2vuagk3mfv" path="res://Scripts/Minigame/RewireGarage/rewire_garage_main.gd" id="1_etb2n"]
 [ext_resource type="Texture2D" uid="uid://5tw0cmbsqc6b" path="res://Assets/RewireGarage/rewireNeutral.png" id="1_r02e0"]
 [ext_resource type="PackedScene" uid="uid://dxooq5wur3iiy" path="res://Scenes/Minigame/RewireGarage/wire.tscn" id="3_ak3hm"]
+[ext_resource type="Texture2D" uid="uid://b8bvnml1t2ydt" path="res://Assets/RewireGarage/bg.png" id="4_p0j10"]
 
 [node name="RewireGarage" type="Node2D" unique_id=1444120866]
 script = ExtResource("1_etb2n")
 
 [node name="RewireStat" type="Sprite2D" parent="." unique_id=2062840717]
+z_index = 1
 position = Vector2(1694, 312)
 scale = Vector2(0.78, 0.78)
 texture = ExtResource("1_r02e0")
@@ -37,3 +39,8 @@ offset_right = 1454.0
 offset_bottom = 876.0
 theme_override_font_sizes/font_size = 32
 text = "Pair the correct terminal box combination (through the small slot)"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1058352369]
+position = Vector2(941.25, 567.25)
+scale = Vector2(1.019673, 1.0387355)
+texture = ExtResource("4_p0j10")

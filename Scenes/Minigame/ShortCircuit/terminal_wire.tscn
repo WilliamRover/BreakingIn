@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://xt6kqv4vrdys"]
+
+[ext_resource type="Texture2D" uid="uid://cewkloion4fw" path="res://Assets/Overload/wire.png" id="1_xkosl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwqsh"]
+
+[node name="TerminalWire" type="Area2D" unique_id=1946479821]
+scale = Vector2(0.96, 0.96)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650570874]
+texture = ExtResource("1_xkosl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2380964]
+position = Vector2(-1, 133)
+scale = Vector2(0.7447156, 0.7447156)
+shape = SubResource("CircleShape2D_rwqsh")

@@ -163,7 +163,8 @@ func _on_finished_lockpick(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("lockpickingSFX", btn)
 	awaitSfx("UnlockSFX", btn)
-	pickGame.queue_free()
+	if is_instance_valid(pickGame):
+		pickGame.queue_free()
 	locked = false
 	isLockPick = false
 
@@ -174,7 +175,8 @@ func _on_rewire_success(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("RewiringSFX", btn)
 	awaitSfx("RewireSuccessSFX", btn)
-	rewireGarageGame.queue_free()
+	if is_instance_valid(rewireGarageGame):
+		rewireGarageGame.queue_free()
 	isRewiring = false
 	rewire = true
 
@@ -186,7 +188,8 @@ func _on_drill_success() -> void:
 	stopMoving.emit(true)
 	minigameProg = false
 	locked = false
-	drillGame.queue_free()
+	if is_instance_valid(drillGame):
+		drillGame.queue_free()
 	isDrilling = false
 
 func cancelMinigame() -> void:

@@ -20,7 +20,7 @@ position = Vector2(62, 94)
 [node name="Wire" parent="." unique_id=1657155752 instance=ExtResource("3_ak3hm")]
 z_index = 1
 position = Vector2(965, 1001)
-scale = Vector2(1.76, 1.76)
+scale = Vector2(1.24, 1.24)
 
 [node name="Label" type="Label" parent="." unique_id=1158375847]
 z_index = 2
@@ -41,6 +41,6 @@ theme_override_font_sizes/font_size = 32
 text = "Pair the correct terminal box combination (through the small slot)"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1058352369]
-position = Vector2(941.25, 567.25)
-scale = Vector2(1.019673, 1.0387355)
+position = Vector2(1161.25, 567.25)
+scale = Vector2(1.244507, 1.0387355)
 texture = ExtResource("4_p0j10")

@@ -106,7 +106,8 @@ func _on_finished_lockpick(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("lockpickingSFX", btn)
 	awaitSfx("UnlockSFX", btn)
-	pickGame.queue_free()
+	if is_instance_valid(pickGame):
+		pickGame.queue_free()
 	locked = false
 	
 func climb() -> void:
@@ -143,5 +144,6 @@ func _on_drill_success() -> void:
 	stopMoving.emit(true)
 	minigameProg = false
 	locked = false
-	drillGame.queue_free()
+	if is_instance_valid(drillGame):
+		drillGame.queue_free()
 	isDrilling = false

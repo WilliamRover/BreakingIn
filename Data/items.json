@@ -33,5 +33,12 @@
 		"capacity": 4,
 		"reqSkill": "",
 		"imgPath": "res://Assets/Loadout/drill.png"
+	},
+	{
+		"id": "flashlight",
+		"itemName": "Flash light",
+		"capacity": 2,
+		"reqSkill": "",
+		"imgPath": "res://Assets/Loadout/flashlight.png"
 	}
 ]

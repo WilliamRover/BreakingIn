@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ccxqb4dnhdewg"]
+
+[ext_resource type="Texture2D" uid="uid://qrdh0wxljd1q" path="res://Assets/Overload/bg.png" id="1_d2ctx"]
+[ext_resource type="Script" uid="uid://bqm5tovyhlxhy" path="res://Scripts/Minigame/ShortCircuit/short_circuit_main.gd" id="1_ji7u0"]
+[ext_resource type="PackedScene" uid="uid://ql3mjstvfs87" path="res://Scenes/Minigame/ShortCircuit/wire2.tscn" id="2_ahga7"]
+[ext_resource type="PackedScene" uid="uid://cqqc1b335mbap" path="res://Scenes/Minigame/ShortCircuit/multimeter.tscn" id="3_cvshs"]
+[ext_resource type="PackedScene" uid="uid://xt6kqv4vrdys" path="res://Scenes/Minigame/ShortCircuit/terminal_wire.tscn" id="4_rvjkg"]
+
+[node name="ShortCircuit" type="Node2D" unique_id=1952413391]
+script = ExtResource("1_ji7u0")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=707520023]
+position = Vector2(967.09125, 597)
+scale = Vector2(0.9578499, 0.95785)
+texture = ExtResource("1_d2ctx")
+
+[node name="Wire" parent="." unique_id=1657155752 instance=ExtResource("2_ahga7")]
+position = Vector2(1211, 953)
+
+[node name="Multimeter" parent="." unique_id=179900110 instance=ExtResource("3_cvshs")]
+z_index = 1
+position = Vector2(502, 1092)
+scale = Vector2(0.79999876, 0.79999876)
+
+[node name="TerminalWire" parent="." unique_id=1946479821 instance=ExtResource("4_rvjkg")]
+visible = false
+position = Vector2(277.00003, 410)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1809214437]
+position = Vector2(250, 552)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=566889832]
+position = Vector2(1188, 406)

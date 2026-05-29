@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhuphxncw18h0"]
+
+[ext_resource type="Texture2D" uid="uid://cl6a0kauykjme" path="res://Assets/Overload/boom.png" id="1_gwnmx"]
+
+[node name="Boom" type="Sprite2D" unique_id=1836442091]
+texture = ExtResource("1_gwnmx")

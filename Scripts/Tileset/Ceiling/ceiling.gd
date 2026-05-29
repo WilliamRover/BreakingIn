@@ -6,24 +6,44 @@ class_name Ceiling extends TileSetGen
 @export var lightBarBulb3: PackedScene = preload("res://Scenes/Util/Lights/CeilingLight/lightbar3_bulb.tscn")
 @export var hangLightBulb: PackedScene = preload("res://Scenes/Util/Lights/CeilingLight/hanglight_bulb.tscn")
 @export var domeLightBulb: PackedScene = preload("res://Scenes/Util/Lights/CeilingLight/domelight_bulb.tscn")
-#@export var ceilinglight_domelightBulb: PackedScene = preload()
 
+var lightGroup: Dictionary = {}
+var on: bool = true
+#@export var ceilinglight_domelightBulb: PackedScene = preload()
+func _ready() -> void:
+	GlobalSignal.turnLight.connect(_on_global_light_toggle)
+	spawnChild()
+	
+	
 func spawnChild() -> void:
 	var cells = get_used_cells()
 	for cell in cells:
 		var data = get_cell_tile_data(cell)
-		instantiateArea(ceilinglight_cast, cell)
+		var linkId = data.get_custom_data("linkId")
+		#print(linkId)
+		if !lightGroup.has(linkId):
+			lightGroup[linkId] = {"on": true, "pairs": []}
+		var castLight = instantiateArea(ceilinglight_cast, cell)
+		var bulb: Node2D = null
+		#lightCastIns = ins
 		match data.get_custom_data("lightType"):
 			"lightBar1":
-				instantiateArea(lightBarBulb1, cell)
+				bulb = instantiateArea(lightBarBulb1, cell)
 			"lightBar2":
-				instantiateArea(lightBarBulb2, cell)
+				bulb = instantiateArea(lightBarBulb2, cell)
 			"lightBar3":
-				instantiateArea(lightBarBulb3, cell)
+				bulb = instantiateArea(lightBarBulb3, cell)
 			"hangLight":
-				instantiateArea(hangLightBulb, cell)
+				bulb = instantiateArea(hangLightBulb, cell)
 			"domeLight":
-				instantiateArea(domeLightBulb, cell)
+				bulb = instantiateArea(domeLightBulb, cell)
+		#bulbArr.append(bulb)
+		#bulb.set("powerId", linkId)
+		if bulb:
+			lightGroup[linkId]["pairs"].append({
+				"cast": castLight,
+				"bulb": bulb
+			})
 		#if data.get_custom_data("lightPole"):
 			#if data.get_custom_data("bulb1"):
 				#instantiateArea(lightpole_bulb1, cell)
@@ -33,24 +53,46 @@ func spawnChild() -> void:
 				#instantiateArea(lightpole_beam, cell, "bulb2")
 
 func instantiateArea(scene: PackedScene, cell):
-	super(scene, cell)
+	var ins = super(scene, cell)
 	match scene:
 		ceilinglight_cast:
-			globalIns.translate(Vector2(0, 140))
-			globalIns.scale = Vector2(5, 5)
+			ins.translate(Vector2(0, 140))
+			ins.scale = Vector2(5, 5)
 		lightBarBulb1:
-			globalIns.scale = Vector2(2.1, 1.96)
-			globalIns.translate(Vector2(-2, 14))
+			ins.scale = Vector2(2.1, 1.96)
+			ins.translate(Vector2(-2, 14))
 		lightBarBulb2:
-			globalIns.scale = Vector2(2.1, 2.1)
-			globalIns.translate(Vector2(-7, 16))
+			ins.scale = Vector2(2.1, 2.1)
+			ins.translate(Vector2(-7, 16))
 		lightBarBulb3:
-			globalIns.scale = Vector2(2.1, 2.1)
-			globalIns.translate(Vector2(-11, 16))
+			ins.scale = Vector2(2.1, 2.1)
+			ins.translate(Vector2(-11, 16))
 		hangLightBulb:
-			globalIns.scale = Vector2(1.5, 1.5)
-			globalIns.translate(Vector2(3, 34))
+			ins.scale = Vector2(1.5, 1.5)
+			ins.translate(Vector2(3, 34))
 		domeLightBulb:
-			globalIns.scale = Vector2(1.2, 1.2)
-			globalIns.translate(Vector2(0, 14))
-	#print(globalIns)
+			ins.scale = Vector2(1.2, 1.2)
+			ins.translate(Vector2(0, 14))
+	
+	return ins
+	#print(ins)
+
+func _on_global_light_toggle(broadcastedId: String, overload: bool):
+	#print(broadcastedId)
+	if lightGroup.has(broadcastedId):
+		var group = lightGroup[broadcastedId]
+		#print(group["on"])
+		if overload:
+			group["on"] = false
+		else:
+			group["on"] = !group["on"]
+		for pair in group["pairs"]:
+			pair["cast"].visible = group["on"]
+			pair["bulb"].visible = group["on"]
+	
+#func switchLight() -> void:
+	#on = !on
+	#for cast in castLightArr:
+		#cast.visible = on
+	#for bulb in bulbArr:
+		#bulb.visible = on

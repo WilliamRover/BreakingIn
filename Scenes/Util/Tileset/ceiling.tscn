@@ -8,16 +8,36 @@ texture = ExtResource("1_1j46f")
 margins = Vector2i(72, 6)
 separation = Vector2i(0, 58)
 texture_region_size = Vector2i(145, 120)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/custom_data_0 = "lightBar1"
+0:0/1 = 1
+0:0/1/custom_data_0 = "lightBar1"
+0:0/1/custom_data_1 = "Power1"
+1:0/next_alternative_id = 2
 1:0/0 = 0
 1:0/0/custom_data_0 = "lightBar3"
+1:0/1 = 1
+1:0/1/custom_data_0 = "lightBar3"
+1:0/1/custom_data_1 = "Power1"
+2:0/next_alternative_id = 2
 2:0/0 = 0
 2:0/0/custom_data_0 = "lightBar2"
+2:0/1 = 1
+2:0/1/custom_data_0 = "lightBar2"
+2:0/1/custom_data_1 = "Power1"
+1:1/next_alternative_id = 2
 1:1/0 = 0
 1:1/0/custom_data_0 = "domeLight"
+1:1/1 = 1
+1:1/1/custom_data_0 = "domeLight"
+1:1/1/custom_data_1 = "Power1"
+0:1/next_alternative_id = 2
 0:1/0 = 0
 0:1/0/custom_data_0 = "hangLight"
+0:1/1 = 1
+0:1/1/custom_data_0 = "hangLight"
+0:1/1/custom_data_1 = "Power1"
 
 [sub_resource type="TileSet" id="TileSet_jqbfr"]
 tile_shape = 1
@@ -25,6 +45,8 @@ tile_layout = 5
 tile_size = Vector2i(145, 80)
 custom_data_layer_0/name = "lightType"
 custom_data_layer_0/type = 4
+custom_data_layer_1/name = "linkId"
+custom_data_layer_1/type = 4
 sources/0 = SubResource("TileSetAtlasSource_0sqac")
 
 [node name="Ceiling" type="TileMapLayer" unique_id=628361410]

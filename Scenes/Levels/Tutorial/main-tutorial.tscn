@@ -294,13 +294,14 @@ tile_map_data = PackedByteArray("AAAUAAAAAAABAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAABAAA
 [node name="Ceiling" parent="Level0" unique_id=628361410 instance=ExtResource("2_8o30c")]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAlAPT/AAAAAAAAAAApAPT/AAABAAAAAAAoAPT/AAACAAAAAAAnAPT/AAACAAAAAAAmAPT/AAACAAAAAAAqAPf/AAAAAAEAAAAlAPf/AAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAlAPT/AAAAAAAAAQApAPT/AAABAAAAAQAoAPT/AAACAAAAAQAnAPT/AAACAAAAAQAmAPT/AAACAAAAAQAqAPf/AAAAAAEAAQAlAPf/AAAAAAEAAQAwAPb/AAABAAEAAQA=")
 
 [node name="Poles" parent="Level0" unique_id=1646463099 instance=ExtResource("4_1y30a")]
 position = Vector2(0, -1)
 tile_map_data = PackedByteArray("AAD/////AAAAAAEAAAD//wkAAAAAAAAAAAAKAP//AAAAAAEAAAAKAAkAAAAAAAAAAAAVAP//AAAAAAEAAAAVAAkAAAAAAAAAAAAgAP//AAAAAAEAAAAgAAkAAAAAAAAAAAArAP//AAAAAAEAAAArAAkAAAAAAAAAAAA2AP//AAAAAAEAAAA2AAkAAAAAAAAAAABBAP//AAAAAAEAAABBAAkAAAAAAAAAAAA=")
 
 [node name="Level1" type="Node2D" parent="." unique_id=2051487199]
+visible = false
 z_index = 2
 y_sort_enabled = true
 
@@ -337,7 +338,7 @@ position = Vector2(3036, 1815)
 position = Vector2(3057, 1552)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=92095272]
-visible = false
+light_mask = 17
 color = Color(0.057856694, 0.11200697, 0.20951357, 1)
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="." unique_id=520657999]

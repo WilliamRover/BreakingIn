@@ -1,5 +1,4 @@
 class_name TileSetGen extends TileMapLayer
-var globalIns
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,9 +8,9 @@ func _ready() -> void:
 func spawnChild() -> void:
 	pass
 
-func instantiateArea(scene: PackedScene, cell):
+func instantiateArea(scene: PackedScene, cell) -> Node2D:
 	var ins = scene.instantiate()
-	globalIns = ins
+	#globalIns = ins
 	var alt_id = get_cell_alternative_tile(cell)
 	
 	var is_flipped_h = bool(alt_id & TileSetAtlasSource.TRANSFORM_FLIP_H)
@@ -35,3 +34,4 @@ func instantiateArea(scene: PackedScene, cell):
 	#ins.translate(Vector2(-40, 10))
 	
 	add_child(ins)
+	return ins

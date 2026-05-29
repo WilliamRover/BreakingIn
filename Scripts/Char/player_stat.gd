@@ -14,9 +14,27 @@ func defaultSave() -> void:
 		"skillPoint": 2,
 		"unlockMission": ["The rookie"],
 		"skills": [],
-		"unlockLoadout": [],
-		"bagLoadout": [],
-		"heldLoadout": []
+		"inventory": {
+			"availableLoadout": ["lockPick", "multimeter", "wirex5", "crowbar", "drill"],
+			"containerOrder": ["heldLoadout", "bagLoadout", "beltLoadout"],
+			"container": {
+				"heldLoadout": {
+					"name": "On body",
+					"capacity": 6,
+					"items": []
+				},
+				"bagLoadout": {
+					"name": "Backpack",
+					"capacity": 20,
+					"items": []
+				},
+				"beltLoadout":  {
+					"name": "Belt",
+					"capacity": 4,
+					"items": []
+				},
+			}
+		}
 	}
 	saveGame()
 func saveGame() -> void:

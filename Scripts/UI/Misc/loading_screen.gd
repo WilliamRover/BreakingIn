@@ -5,7 +5,7 @@ func _ready():
 	if target != "":
 		ResourceLoader.load_threaded_request(target)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var targetScene = GlobalSignal.targetScenePath
 	var progress = []
 	ResourceLoader.load_threaded_request(targetScene)

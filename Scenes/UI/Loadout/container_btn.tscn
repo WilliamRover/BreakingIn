@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cj5wefpw2ru6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_087dr"]
+bg_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+
+[node name="OnBody" type="Button" unique_id=1706781371]
+custom_minimum_size = Vector2(0, 71.005)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_087dr")
+toggle_mode = true
+text = "On body"

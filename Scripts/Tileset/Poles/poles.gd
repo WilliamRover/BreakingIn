@@ -19,13 +19,13 @@ func spawnChild() -> void:
 				instantiateArea(lightpole_beam, cell, "bulb2")
 
 func instantiateArea(scene: PackedScene, cell, bulb: String = ""):
-	super(scene, cell)
+	var ins = super(scene, cell)
 	
 	if scene == lightpole_bulb1 || bulb == "bulb1":
-		globalIns.translate(Vector2(124, -409))
+		ins.translate(Vector2(124, -409))
 		if bulb == "bulb1":
-			globalIns.scale = Vector2(1, 0.8)
+			ins.scale = Vector2(1, 0.8)
 	elif scene == lightpole_bulb2 || bulb == "bulb2":
-		globalIns.translate(Vector2(-117, -283))
+		ins.translate(Vector2(-117, -283))
 		if bulb != "bulb2":
-			globalIns.scale = Vector2(1.85, 1.871)
+			ins.scale = Vector2(1.85, 1.871)

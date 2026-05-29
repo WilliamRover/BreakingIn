@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nsqbtcsmbnln"
-path="res://.godot/imported/picklockUnselected.png-ca1559a882109922f40f624df6a8d5f5.ctex"
+path="res://.godot/imported/mechanicalEngineerUnselected.png-6ba0aa75d7c6ef499bd5596facbecacb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SkillTree/picklockUnselected.png"
-dest_files=["res://.godot/imported/picklockUnselected.png-ca1559a882109922f40f624df6a8d5f5.ctex"]
+source_file="res://Assets/SkillTree/mechanicalEngineerUnselected.png"
+dest_files=["res://.godot/imported/mechanicalEngineerUnselected.png-6ba0aa75d7c6ef499bd5596facbecacb.ctex"]
 
 [params]
 

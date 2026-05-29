@@ -13,14 +13,22 @@ var rewire: bool = false
 # Lockpick
 @export var lockpickMinigame: PackedScene = preload("res://Scenes/Minigame/Lockpick/lock_pick.tscn")
 @export var rewireGarageMinigame: PackedScene = preload("res://Scenes/Minigame/RewireGarage/rewire_garage_main.tscn")
+@export var drillLockMinigame: PackedScene = preload("res://Scenes/Minigame/DrillLock/drill_lock_minigame.tscn")
 var pickGame: Node
 var lock_seed: int = -1
 var rewireGarageGame: Node
 var rewire_seed: int = -1
+var drillGame: Node
+var curPosDrill: Vector2 = Vector2(0, 0)
+var overload: bool = false
+var powerOn: bool = true
 
 var isLockPick: bool = false
 var isRewiring: bool = false
+var isDrilling: bool = false
+var firstDrill: bool = true
 var target_garageId: String = ""
+var target_powerId: String = ""
 # Rewire
 
 # Overide thingy
@@ -28,11 +36,16 @@ func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
 	actions.append("Open_Close_Box")
 	if locked:
+		actions.append("Drill")
 		actions.append("Picklock")
 		actions.append("Pry")
 	else:
-		if open && !rewire:
+		if open && !rewire && smallBox:
 			actions.append("Rewire")
+		elif open && !rewire && bigBox:
+			if !overload:
+				actions.append("SwitchPower")
+				actions.append("ShortCircuit")
 	if rewire && open && smallBox:
 		actions.append("Open_Close_Garage")
 	return actions
@@ -62,6 +75,31 @@ func execute_action(action_name: String, button: Button) -> void:
 						update_tile_visual(close_big_box_atlas, 3)
 					#update_tile_visual(close_win_atlas, 0)
 					awaitSfx("CloseSFX", button)
+		"SwitchPower":
+			if bigBox:
+				GlobalSignal.turnLight.emit(target_powerId, overload)
+				if powerOn:
+					awaitSfx("PowerOff", button)
+					awaitSfx("ElectricGridDown", button)
+				else:
+					awaitSfx("PowerOn", button)
+				powerOn = !powerOn
+				#print(target_powerId)
+		"ShortCircuit":
+			if bigBox:
+				overload = true
+				GlobalSignal.turnLight.emit(target_powerId, overload)
+		"Drill":
+			stopMoving.emit(false)
+			isDrilling = true
+			drillGame = innitMinigame(drillLockMinigame)
+			minigameProg = true
+			if firstDrill:
+				curPosDrill = drillGame.getDrillPos()
+			drillGame.setDrillPos(curPosDrill)
+			firstDrill = false
+			drillGame.lockDrilled.connect(_on_drill_success)
+			await drillGame.tree_exited
 		"Open_Close_Garage":
 			if smallBox:
 				GlobalSignal.openGarage.emit(target_garageId)
@@ -143,6 +181,14 @@ func _on_rewire_success(btn: Button) -> void:
 func _on_rewire_fail(btn: Button) -> void:
 	awaitSfx("RewireFailSFX", btn)
 
+func _on_drill_success() -> void:
+	await get_tree().create_timer(0.55).timeout
+	stopMoving.emit(true)
+	minigameProg = false
+	locked = false
+	drillGame.queue_free()
+	isDrilling = false
+
 func cancelMinigame() -> void:
 	if isRewiring:
 		stopSfx("RewiringSFX", btnGlobal)
@@ -150,4 +196,7 @@ func cancelMinigame() -> void:
 	if isLockPick:
 		stopSfx("lockpickingSFX", btnGlobal)
 		isLockPick = false
+	if isDrilling:
+		curPosDrill = drillGame.getDrillPos()
+		isDrilling = false
 	closeMinigame()

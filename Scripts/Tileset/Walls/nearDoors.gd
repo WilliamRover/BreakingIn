@@ -5,13 +5,21 @@ class_name NearDoor extends Near
 @export var open_door_atlas := Vector2i(1, 1)
 
 @export var lockpickMinigame: PackedScene = preload("res://Scenes/Minigame/Lockpick/lock_pick.tscn")
+@export var drillLockMinigame: PackedScene = preload("res://Scenes/Minigame/DrillLock/drill_lock_minigame.tscn")
 var pickGame: Node
 var lock_seed: int = -1
+var drillGame: Node
+var curPosDrill: Vector2 = Vector2(0, 0)
+
+var isLockPick: bool = false
+var isDrilling: bool = false
+var firstDrill: bool = true
 # Overide thingy
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
 	actions.append("Open_Close")
 	if locked:
+		actions.append("Drill")
 		actions.append("Picklock")
 		actions.append("Pry")
 		actions.append("Kick_Break")
@@ -35,8 +43,20 @@ func execute_action(action_name: String, button: Button) -> void:
 				else:
 					update_tile_visual(close_door_atlas, 0)
 					awaitSfx("CloseDoorSFX", button)
+		"Drill":
+			stopMoving.emit(false)
+			isDrilling = true
+			drillGame = innitMinigame(drillLockMinigame)
+			minigameProg = true
+			if firstDrill:
+				curPosDrill = drillGame.getDrillPos()
+			drillGame.setDrillPos(curPosDrill)
+			firstDrill = false
+			drillGame.lockDrilled.connect(_on_drill_success)
+			await drillGame.tree_exited
 		"Picklock":
 			stopMoving.emit(false)
+			isLockPick = true
 			minigameProg = true
 			pickGame = innitMinigame(lockpickMinigame)
 			awaitSfx("lockpickingSFX", button)
@@ -69,3 +89,20 @@ func _on_finished_lockpick(btn: Button) -> void:
 	awaitSfx("UnlockSFX", btn)
 	pickGame.queue_free()
 	locked = false
+
+func cancelMinigame() -> void:
+	if isLockPick:
+		stopSfx("lockpickingSFX", btnGlobal)
+		isLockPick = false
+	if isDrilling:
+		curPosDrill = drillGame.getDrillPos()
+		isDrilling = false
+	closeMinigame()
+
+func _on_drill_success() -> void:
+	await get_tree().create_timer(0.55).timeout
+	stopMoving.emit(true)
+	minigameProg = false
+	locked = false
+	drillGame.queue_free()
+	isDrilling = false

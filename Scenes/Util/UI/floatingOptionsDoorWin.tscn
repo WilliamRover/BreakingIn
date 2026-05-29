@@ -41,6 +41,11 @@ stream = ExtResource("5_y3obm")
 [node name="LockedSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=796652744]
 stream = ExtResource("6_3klgt")
 
+[node name="Drill" type="Button" parent="." unique_id=1093985498]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Drill"
+
 [node name="Climb" type="Button" parent="." unique_id=1430215298]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20

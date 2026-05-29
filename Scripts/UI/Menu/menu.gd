@@ -13,6 +13,7 @@ class_name Menu extends Control
 func _ready() -> void:
 	missionsBtn.pressed.connect(loadScene.bind("Missions"))
 	skillBtn.pressed.connect(loadScene.bind("SkillTree"))
+	loadoutBtn.pressed.connect(loadScene.bind("Loadout"))
 	skillPoint.text = str(int(PlayerStat.data["skillPoint"]))
 	updateXp()
 	
@@ -25,6 +26,8 @@ func loadScene(sceneName: String) -> void:
 				get_tree().change_scene_to_file("res://Scenes/UI/SkillTree/baseSkill.tscn")
 				return
 			get_tree().change_scene_to_file("res://Scenes/UI/SkillTree/skillTree.tscn")
+		"Loadout":
+			get_tree().change_scene_to_file("res://Scenes/UI/Loadout/loadout.tscn")
 func updateXp() -> void:
 	level.text = "Level " + str(int(PlayerStat.data["level"]))
 	xpBar.max_value = PlayerStat.getMaxExp()

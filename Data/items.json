@@ -1,0 +1,37 @@
+[
+	{
+		"id": "lockPick",
+		"itemName": "Lockpick kit",
+		"capacity": 2,
+		"reqSkill": "mechanicalEngineer",
+		"imgPath": "res://Assets/Loadout/lockPick.png"
+	},
+	{
+		"id": "multimeter",
+		"itemName": "Multimeter",
+		"capacity": 2,
+		"reqSkill": "electricalEngineer",
+		"imgPath": "res://Assets/Loadout/multiMeter.png"
+	},
+	{
+		"id": "wirex5",
+		"itemName": "Wires x5",
+		"capacity": 1,
+		"reqSkill": "electricalEngineer",
+		"imgPath": "res://Assets/Loadout/wire.png"
+	},
+	{
+		"id": "crowbar",
+		"itemName": "Crowbar",
+		"capacity": 6,
+		"reqSkill": "",
+		"imgPath": "res://Assets/Loadout/crowbar.png"
+	},
+	{
+		"id": "drill",
+		"itemName": "Drill",
+		"capacity": 4,
+		"reqSkill": "",
+		"imgPath": "res://Assets/Loadout/drill.png"
+	}
+]

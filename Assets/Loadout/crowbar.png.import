@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuptron2rgwen"
-path="res://.godot/imported/picklockSelected.png-e7e24b9cea3e8964dcf5115c185ee489.ctex"
+uid="uid://rf52f1usndc6"
+path="res://.godot/imported/crowbar.png-f1d739a16cc817330efa8b8167bda8a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SkillTree/picklockSelected.png"
-dest_files=["res://.godot/imported/picklockSelected.png-e7e24b9cea3e8964dcf5115c185ee489.ctex"]
+source_file="res://Assets/Loadout/crowbar.png"
+dest_files=["res://.godot/imported/crowbar.png-f1d739a16cc817330efa8b8167bda8a3.ctex"]
 
 [params]
 

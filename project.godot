@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalSignal="*uid://ds6ij8qh6ya10"
 PlayerStat="*uid://duvtoim3j6hee"
+DatabaseManager="*uid://ids7i57k2u4e"
 
 [display]
 

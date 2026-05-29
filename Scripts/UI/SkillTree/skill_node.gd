@@ -1,10 +1,10 @@
 class_name SkillNode extends TextureButton
 
 @export var skillId: String = ""
-@export var skillName: String = ""
-@export var desc: String = ""
-@export var cost := 1
-@export var prerequisites: Array[String] = []
+var skillName: String = ""
+var desc: String = ""
+var cost: int = 1
+var prerequisites: Array = []
 var texturePathSelected: Texture2D
 var texturePathUnselected: Texture2D
 
@@ -17,6 +17,13 @@ func _ready() -> void:
 	texture_normal = texturePathUnselected
 	texture_pressed = texturePathSelected
 # Called when the node enters the scene tree for the first time.
+func assignData(data: Dictionary) -> void:
+	skillName = data["skillName"]
+	desc = data["desc"]
+	cost = int(data["cost"])
+	var preSkill: Array = data["prerequisites"]
+	prerequisites.assign(preSkill)
+	
 func checkCondition() -> void:
 	if unlocked == true:
 		disabled = true

@@ -1,9 +1,122 @@
 [gd_scene format=3 uid="uid://bc8t7o8tr0ug6"]
 
-[node name="Loadout" type="Control" unique_id=563214473]
+[ext_resource type="Script" uid="uid://bg8p3klpatgi" path="res://Scripts/UI/Loadout/loadout.gd" id="1_jahfa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5i7x"]
+bg_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jahfa"]
+bg_color = Color(0.69140625, 0.69140625, 0.69140625, 1)
+
+[node name="Loadout" type="Control" unique_id=1184753937]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jahfa")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1265647012]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26875, 0.26875, 0.26875, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=85388546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryChoice" type="VBoxContainer" parent="HBoxContainer" unique_id=714627706]
+custom_minimum_size = Vector2(451.67, 0)
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InventoryChoice" unique_id=531841541]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 63
+theme_override_constants/margin_top = 52
+theme_override_constants/margin_right = 63
+theme_override_constants/margin_bottom = 47
+
+[node name="BackToMenu" type="Button" parent="HBoxContainer/InventoryChoice/MarginContainer" unique_id=1766417293]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "< Back to menu"
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=787056822]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.51875, 0.51875, 0.51875, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ColorRect" unique_id=151003026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 55
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorRect/MarginContainer" unique_id=1099461213]
+layout_mode = 2
+theme_override_constants/separation = 154
+
+[node name="MainContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer" unique_id=2092025782]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="InventoryType" type="Label" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/MainContainer" unique_id=907099601]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "On body"
+
+[node name="Size" type="Label" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/MainContainer" unique_id=1406464486]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0 / 6"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/MainContainer" unique_id=846551424]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n5i7x")
+
+[node name="EquipItem" type="VBoxContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/MainContainer/ScrollContainer" unique_id=1425107280]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="AvailableItems" type="VBoxContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer" unique_id=2054383788]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Available" type="Label" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/AvailableItems" unique_id=1396383223]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Available"
+
+[node name="Available2" type="Label" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/AvailableItems" unique_id=158956058]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Click on item to equip or unequip"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/AvailableItems" unique_id=1748236098]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jahfa")
+
+[node name="AvailableItems" type="VBoxContainer" parent="HBoxContainer/ColorRect/MarginContainer/HBoxContainer/AvailableItems/ScrollContainer" unique_id=1820960469]
+layout_mode = 2
+size_flags_horizontal = 3

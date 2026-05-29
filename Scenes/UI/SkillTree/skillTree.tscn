@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cnb6goy702yp2"]
 
-[ext_resource type="Texture2D" uid="uid://nsqbtcsmbnln" path="res://Assets/SkillTree/picklockUnselected.png" id="1_3xtq0"]
+[ext_resource type="Texture2D" uid="uid://nsqbtcsmbnln" path="res://Assets/SkillTree/mechanicalEngineerUnselected.png" id="1_3xtq0"]
 [ext_resource type="Script" uid="uid://cj8ikc8dm71wh" path="res://Scripts/UI/SkillTree/skill_tree.gd" id="1_mc40a"]
 [ext_resource type="Script" uid="uid://dosr1hvdx32jq" path="res://Scripts/UI/SkillTree/skill_node.gd" id="2_mc40a"]
-[ext_resource type="Texture2D" uid="uid://cuptron2rgwen" path="res://Assets/SkillTree/picklockSelected.png" id="3_ds2pu"]
-[ext_resource type="Texture2D" uid="uid://cyjnsve7oepde" path="res://Assets/SkillTree/rewireUnselected.png" id="3_ts33k"]
+[ext_resource type="Texture2D" uid="uid://cuptron2rgwen" path="res://Assets/SkillTree/mechanicalEngineerSelected.png" id="3_ds2pu"]
+[ext_resource type="Texture2D" uid="uid://cyjnsve7oepde" path="res://Assets/SkillTree/electricalEngineerUnselected.png" id="3_ts33k"]
 [ext_resource type="Texture2D" uid="uid://c5uxf5j76lwmb" path="res://Assets/SkillTree/overloadPowerUnselected.png" id="4_cblfm"]
 [ext_resource type="Texture2D" uid="uid://b6sd0j7mvyd04" path="res://Assets/SkillTree/safeCrackUnselected.png" id="5_tvcqn"]
-[ext_resource type="Texture2D" uid="uid://bskpk0n4ury06" path="res://Assets/SkillTree/rewireSelected.png" id="6_515or"]
+[ext_resource type="Texture2D" uid="uid://bskpk0n4ury06" path="res://Assets/SkillTree/electricalEngineerSelected.png" id="6_515or"]
 [ext_resource type="Texture2D" uid="uid://dmolp33s60oir" path="res://Assets/SkillTree/overloadPowerSelected.png" id="6_cblfm"]
 [ext_resource type="Texture2D" uid="uid://b1v2oa5npbxts" path="res://Assets/SkillTree/kickDoorUnselected.png" id="6_da86b"]
 [ext_resource type="Texture2D" uid="uid://dyux8xk3sgqtp" path="res://Assets/SkillTree/pryDoorUnselected.png" id="7_q0j5r"]
@@ -63,11 +63,7 @@ toggle_mode = true
 texture_normal = ExtResource("1_3xtq0")
 texture_pressed = ExtResource("3_ds2pu")
 script = ExtResource("2_mc40a")
-skillId = "picklock"
-skillName = "Mechanical Engineer"
-desc = "Able to lockpick"
-cost = 2
-prerequisites = Array[String](["safeCrack", "pryDoor"])
+skillId = "mechanicalEngineer"
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="EE" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=499777036]
@@ -80,11 +76,7 @@ toggle_mode = true
 texture_normal = ExtResource("3_ts33k")
 texture_pressed = ExtResource("6_515or")
 script = ExtResource("2_mc40a")
-skillId = "rewire"
-skillName = "Electrical Engineer"
-desc = "Able to rewire"
-cost = 2
-prerequisites = Array[String](["overloadPower", "kickDoor"])
+skillId = "electricalEngineer"
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="OverloadPower" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=968320532]
@@ -98,9 +90,6 @@ texture_normal = ExtResource("4_cblfm")
 texture_pressed = ExtResource("6_cblfm")
 script = ExtResource("2_mc40a")
 skillId = "overloadPower"
-skillName = "Power overload"
-desc = "Can overload power"
-prerequisites = Array[String](["rewire"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="CrackSafe" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=737066057]
@@ -114,9 +103,6 @@ texture_normal = ExtResource("5_tvcqn")
 texture_pressed = ExtResource("8_tvcqn")
 script = ExtResource("2_mc40a")
 skillId = "safeCrack"
-skillName = "Safe cracking"
-desc = "Can crack safe"
-prerequisites = Array[String](["picklock"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="DoorKick" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1162020715]
@@ -130,9 +116,6 @@ texture_normal = ExtResource("6_da86b")
 texture_pressed = ExtResource("12_pnd3r")
 script = ExtResource("2_mc40a")
 skillId = "kickDoor"
-skillName = "Door kicker"
-desc = "Can kick door"
-prerequisites = Array[String](["rewire", "slowDetect"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="Pry" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1161361705]
@@ -146,9 +129,6 @@ texture_normal = ExtResource("7_q0j5r")
 texture_pressed = ExtResource("14_iv77b")
 script = ExtResource("2_mc40a")
 skillId = "pryDoor"
-skillName = "Pry"
-desc = "Can use crowbar"
-prerequisites = Array[String](["picklock", "runFast"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="SlowDetect" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=407427133]
@@ -162,9 +142,6 @@ texture_normal = ExtResource("8_gqbci")
 texture_pressed = ExtResource("16_oeecu")
 script = ExtResource("2_mc40a")
 skillId = "slowDetect"
-skillName = "Slow detect"
-desc = "Detection are much slower"
-prerequisites = Array[String](["kickDoor", "knockOut", "silentAction"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="RunFaster" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1841435187]
@@ -178,9 +155,6 @@ texture_normal = ExtResource("9_0dyjw")
 texture_pressed = ExtResource("18_0id14")
 script = ExtResource("2_mc40a")
 skillId = "runFast"
-skillName = "Athletic"
-desc = "Can run faster"
-prerequisites = Array[String](["pryDoor", "knockOut", "silentAction"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="QuietAction" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=1255278157]
@@ -194,9 +168,6 @@ texture_normal = ExtResource("10_65inl")
 texture_pressed = ExtResource("20_sx8cl")
 script = ExtResource("2_mc40a")
 skillId = "silentAction"
-skillName = "Silent action"
-desc = "Activities are much quieter"
-prerequisites = Array[String](["runFast", "slowDetect"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="Knockout" type="TextureButton" parent="TreeCanvas/SkillNodes" unique_id=389347343]
@@ -210,9 +181,6 @@ texture_normal = ExtResource("11_6t4hn")
 texture_pressed = ExtResource("22_v0m47")
 script = ExtResource("2_mc40a")
 skillId = "knockOut"
-skillName = "Brute force"
-desc = "Can knockout people"
-prerequisites = Array[String](["runFast", "slowDetect"])
 metadata/_custom_type_script = "uid://dosr1hvdx32jq"
 
 [node name="FloatingDesc" type="Panel" parent="." unique_id=1044158828]
@@ -223,18 +191,19 @@ offset_bottom = 233.0
 
 [node name="SkillName" type="Label" parent="FloatingDesc" unique_id=2090571116]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 241.0
+offset_bottom = 29.0
 text = "Pick lock"
+autowrap_mode = 1
 
 [node name="SkillDesc" type="Label" parent="FloatingDesc" unique_id=14754774]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 29.0
 offset_right = 241.0
-offset_bottom = 253.0
+offset_bottom = 182.0
 text = "something something something something something something something something something something something something"
-autowrap_mode = 1
+autowrap_mode = 3
 
 [node name="Cost" type="Label" parent="FloatingDesc" unique_id=1061611071]
 layout_mode = 1
@@ -242,8 +211,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -23.0
-offset_right = 40.0
+offset_right = 239.0
 grow_vertical = 0
+autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=114248001]
 z_index = 1

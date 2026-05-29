@@ -1,0 +1,72 @@
+[
+	{
+		"id": "mechanicalEngineer",
+		"skillName": "Mechanical Engineer",
+		"desc": "Unlock the lockpick kit. Can picklock lock",
+		"cost": 2,
+		"prerequisites": ["safeCrack", "pryDoor"]
+	},
+	{
+		"id": "electricalEngineer",
+		"skillName": "Electrical Engineer",
+		"desc": "Unlock electrical kit. Able to rewire",
+		"cost": 2,
+		"prerequisites": ["overloadPower", "kickDoor"]
+	},
+	{
+		"id": "overloadPower",
+		"skillName": "Sabotager",
+		"desc": "Can overload power. Required multimeter and wire",
+		"cost": 1,
+		"prerequisites": ["electricalEngineer"]
+	},
+	{
+		"id": "safeCrack",
+		"skillName": "Safe cracking",
+		"desc": "Can crack safe",
+		"cost": 1,
+		"prerequisites": ["mechanicalEngineer"]
+	},
+	{
+		"id": "kickDoor",
+		"skillName": "Door kicker",
+		"desc": "Can kick door",
+		"cost": 1,
+		"prerequisites": ["electricalEngineer", "slowDetect"]
+	},
+	{
+		"id": "pryDoor",
+		"skillName": "Entry pryer",
+		"desc": "Prying door is much quieter and won't leave door in open",
+		"cost": 1,
+		"prerequisites": ["mechanicalEngineer", "runFast"]
+	},
+	{
+		"id": "slowDetect",
+		"skillName": "Slow detect",
+		"desc": "Detection are much slower",
+		"cost": 1,
+		"prerequisites": ["kickDoor", "knockOut", "silentAction"]
+	},
+	{
+		"id": "runFast",
+		"skillName": "Athletic",
+		"desc": "Can run faster",
+		"cost": 1,
+		"prerequisites": ["pryDoor", "knockOut", "silentAction"]
+	},
+	{
+		"id": "silentAction",
+		"skillName": "Silent action",
+		"desc": "Activities are much quieter",
+		"cost": 1,
+		"prerequisites": ["runFast", "slowDetect"]
+	},
+	{
+		"id": "knockOut",
+		"skillName": "Brute force",
+		"desc": "Can knockout people",
+		"cost": 1,
+		"prerequisites": ["runFast", "slowDetect"]
+	}
+]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://thhjmm56v65u"]
+
+[ext_resource type="Texture2D" uid="uid://rf52f1usndc6" path="res://Assets/Loadout/crowbar.png" id="1_6rh28"]
+[ext_resource type="Script" uid="uid://cn0l7ktotplg2" path="res://Scripts/UI/Loadout/item_slot.gd" id="1_8m5fo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m5fo"]
+bg_color = Color(0.484375, 0.484375, 0.484375, 1)
+
+[node name="ItemSlot" type="MarginContainer" unique_id=256556774]
+offset_right = 1844.0
+offset_bottom = 1044.0
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 38
+script = ExtResource("1_8m5fo")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=851503436]
+custom_minimum_size = Vector2(0, 162)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8m5fo")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=947256736]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=431114500]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1240958264]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_6rh28")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1789032048]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = -69
+
+[node name="ItemName" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=590382050]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
+text = "Crowbar"
+horizontal_alignment = 1
+
+[node name="ItemReq" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=973837608]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.76171875, 0.2796936, 0.2796936, 1)
+theme_override_font_sizes/font_size = 18
+text = "Required Pry Door"
+horizontal_alignment = 1

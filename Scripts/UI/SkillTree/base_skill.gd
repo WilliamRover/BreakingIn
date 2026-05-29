@@ -1,5 +1,7 @@
 class_name BaseSkill extends Control
 
+var jsonPath = "res://Data/skills.json"
+
 # Drag your buttons from the Scene Tree here
 @onready var mechanicalEngBtn: TextureButton = $HBoxContainer/ME
 @onready var electricalEngBtn: TextureButton = $HBoxContainer/EE
@@ -10,19 +12,29 @@ class_name BaseSkill extends Control
 @onready var floatingSkillCost: Label = $FloatingDesc/Cost
 
 @onready var backBtn: Button = $MarginContainer/BackToMenu
+var jsonSkillDict: Dictionary = {}
 var skillDict: Dictionary = {}
 var dragging: bool = false
 var selectedSkillId: String = ""
 
 func _ready() -> void:
-	mechanicalEngBtn.pressed.connect(_on_base_skill_selected.bind("picklock")) 
-	electricalEngBtn.pressed.connect(_on_base_skill_selected.bind("rewire"))
+	mechanicalEngBtn.pressed.connect(_on_base_skill_selected.bind("mechanicalEngineer")) 
+	electricalEngBtn.pressed.connect(_on_base_skill_selected.bind("electricalEngineer"))
 	backBtn.pressed.connect(backToMenu)
 	for child in baseSkillContainer.get_children():
 		if child is SkillNode:
 			skillDict[child.skillId] = child
 			child.mouse_entered.connect(_on_skill_hover.bind(child))
 			child.mouse_exited.connect(_on_skill_unhover)
+
+func loadSkill() -> void:
+	var file = FileAccess.open(jsonPath, FileAccess.READ)
+	var jsonStr = file.get_as_text()
+	var parseJson = JSON.parse_string(jsonStr)
+	file.close()
+	for skill in parseJson:
+		jsonSkillDict[skill["id"]] = skill
+
 
 func _on_base_skill_selected(chosenSkillId: String) -> void:
 	PlayerStat.data["skills"].append(chosenSkillId)

@@ -13,21 +13,20 @@ func spawnChild() -> void:
 		var linkId = data.get_custom_data("linkId")
 		if data.get_custom_data("isWindow"):
 			instantiateArea(nearWindow, cell)
-		if data.get_custom_data("garageDoor"):
+		elif data.get_custom_data("garageDoor"):
 			var garageIns = instantiateArea(nearGarage, cell)
 			garageIns.set("garageId", linkId)
-		if data.get_custom_data("isDoor"):
+		elif data.get_custom_data("isDoor"):
 			instantiateArea(nearDoor, cell)
-		if data.get_custom_data("powerbox"):
+		elif data.get_custom_data("powerbox"):
 			var boxIns = instantiateArea(nearBoxes, cell)
-			boxIns.set("target_garageId", linkId)
+			if data.get_custom_data("smallBox"):
+				boxIns.set("target_garageId", linkId)
+			else:
+				boxIns.set("target_powerId", linkId)
 		else:
 			instantiateArea(nearWall, cell)
 func clearArea2D():
 	for child in get_children():
 		if child is Area2D:
 			child.queue_free()
-
-func instantiateArea(scene: PackedScene, cell) -> Node:
-	super(scene, cell)
-	return globalIns

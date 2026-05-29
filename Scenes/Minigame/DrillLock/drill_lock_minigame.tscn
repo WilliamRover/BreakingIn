@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b2kpkc5sgoiem"]
+
+[ext_resource type="Script" uid="uid://dygejdp4vckwd" path="res://Scripts/Minigame/DrillLock/drill_lock_main.gd" id="1_ibeyo"]
+[ext_resource type="Texture2D" uid="uid://51odnuv6u1bb" path="res://Assets/DrillLock/lock.png" id="1_kyaoo"]
+[ext_resource type="Texture2D" uid="uid://cybyts2c32if6" path="res://Assets/DrillLock/drillBit.png" id="2_jfnm7"]
+[ext_resource type="Texture2D" uid="uid://d3ksu0knflv5x" path="res://Assets/DrillLock/drill.png" id="3_v3q5w"]
+[ext_resource type="AudioStream" uid="uid://cf7aay5qk8ays" path="res://Assets/Sounds/SFX/drillStart.wav" id="4_5bc5w"]
+[ext_resource type="Script" uid="uid://2cun8lu8h5xi" path="res://Scripts/Minigame/DrillLock/drillMainPart.gd" id="4_r6di4"]
+[ext_resource type="AudioStream" uid="uid://c5effx62y42s7" path="res://Assets/Sounds/SFX/drillEnd.wav" id="5_ibeyo"]
+[ext_resource type="AudioStream" uid="uid://bsjbpjq7wlbfd" path="res://Assets/Sounds/SFX/drillLoop.wav" id="6_uk1ix"]
+[ext_resource type="AudioStream" uid="uid://c7yq5vq5aqusx" path="res://Assets/Sounds/SFX/lockBreak.wav" id="8_uk1ix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibeyo"]
+radius = 160.32779
+
+[node name="DrillLockMinigame" type="Node2D" unique_id=1622614129]
+position = Vector2(108, 0)
+script = ExtResource("1_ibeyo")
+
+[node name="Lock" type="Area2D" parent="." unique_id=650285333]
+
+[node name="Lock" type="Sprite2D" parent="Lock" unique_id=1213059349]
+position = Vector2(924.00006, 346)
+scale = Vector2(0.8291036, 0.82910335)
+texture = ExtResource("1_kyaoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lock" unique_id=458184547]
+position = Vector2(922.00006, 347.00003)
+scale = Vector2(1.5011954, 1.8666672)
+shape = SubResource("CircleShape2D_ibeyo")
+
+[node name="DrillBit" type="Sprite2D" parent="." unique_id=129659996]
+position = Vector2(924, 710)
+scale = Vector2(1.0344824, 1.143214)
+texture = ExtResource("2_jfnm7")
+
+[node name="Drill" type="CharacterBody2D" parent="." unique_id=199312021]
+position = Vector2(0, 371)
+script = ExtResource("4_r6di4")
+
+[node name="Drill" type="Sprite2D" parent="Drill" unique_id=1576419105]
+position = Vector2(1074, 870.0001)
+scale = Vector2(1.1364315, 1.2809533)
+texture = ExtResource("3_v3q5w")
+offset = Vector2(-130.16248, -13.587524)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drill" unique_id=1340946585]
+polygon = PackedVector2Array(831, 638, 853, 630, 873, 625, 895, 621, 923, 619, 947, 621, 969, 624, 990, 630, 1012, 639, 1016, 690, 828, 689)
+
+[node name="DrillStart" type="AudioStreamPlayer" parent="Drill" unique_id=2104531466]
+stream = ExtResource("4_5bc5w")
+
+[node name="DrillEnd" type="AudioStreamPlayer" parent="Drill" unique_id=1617934758]
+stream = ExtResource("5_ibeyo")
+
+[node name="DrillLoop" type="AudioStreamPlayer" parent="Drill" unique_id=350019177]
+stream = ExtResource("6_uk1ix")
+volume_db = -3.841
+
+[node name="LockBreak" type="AudioStreamPlayer" parent="." unique_id=296009322]
+stream = ExtResource("8_uk1ix")
+volume_db = 8.864
+
+[node name="Label2" type="Label" parent="." unique_id=1016924083]
+offset_left = 811.0
+offset_top = 958.0
+offset_right = 1075.0
+offset_bottom = 1003.0
+theme_override_font_sizes/font_size = 32
+text = "Press Q to cancel"
+
+[node name="Label3" type="Label" parent="." unique_id=1932192218]
+offset_left = 495.0
+offset_top = 903.0
+offset_right = 1374.0
+offset_bottom = 948.0
+theme_override_font_sizes/font_size = 32
+text = "Hold Right mouse button to start drilling. Release to stop"
+
+[connection signal="body_entered" from="Lock" to="." method="_on_lock_body_entered"]

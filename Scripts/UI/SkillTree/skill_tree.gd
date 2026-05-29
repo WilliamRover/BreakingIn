@@ -1,5 +1,7 @@
 class_name SkillTree extends Control
 
+var jsonPath = "res://Data/skills.json"
+
 @onready var treeCanvas: Control = $TreeCanvas
 @onready var connectLine: Control = $TreeCanvas/ConnectLine
 @onready var skillNodes: Control = $TreeCanvas/SkillNodes
@@ -14,6 +16,7 @@ class_name SkillTree extends Control
 
 @onready var backBtn: Button = $MarginContainer/BackToMenu
 
+var jsonSkillDict: Dictionary = {}
 var skillDict: Dictionary = {}
 var dragging: bool = false
 var selectedSkillId: String = ""
@@ -26,9 +29,13 @@ func _ready() -> void:
 	resetSkill.pressed.connect(_on_reset_pressed)
 	
 	backBtn.pressed.connect(backToMenu)
+	loadSkill()
 	
 	for child in skillNodes.get_children():
 		if child is SkillNode:
+			var data = jsonSkillDict[child.skillId]
+			child.assignData(data)
+			
 			skillDict[child.skillId] = child
 			child.mouse_entered.connect(_on_skill_hover.bind(child))
 			child.mouse_exited.connect(_on_skill_unhover)
@@ -37,7 +44,13 @@ func _ready() -> void:
 	drawLine()
 	updateVisual()
 
-
+func loadSkill() -> void:
+	var file = FileAccess.open(jsonPath, FileAccess.READ)
+	var jsonStr = file.get_as_text()
+	var parseJson = JSON.parse_string(jsonStr)
+	file.close()
+	for skill in parseJson:
+		jsonSkillDict[skill["id"]] = skill
 # Drag the screen
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

@@ -1,4 +1,4 @@
-extends Node2D
+class_name RewireGarage extends Minigame
 
 @export var box: PackedScene = preload("res://Scenes/Minigame/RewireGarage/terminal_box.tscn")
 
@@ -7,8 +7,6 @@ extends Node2D
 @export var spawnY: float = 0
 
 @onready var rewireStat: Sprite2D = $RewireStat
-var boxRng = RandomNumberGenerator.new()
-var savedSeed: int
 var boxSeqHash: Dictionary = {}
 
 signal rewireSuccess()
@@ -23,19 +21,9 @@ var activeTip: Dictionary = {}
 #func _ready() -> void:
 	#generateTerminalBox()
 
-func retry_saved_box(old_seed: int) -> void:
-	boxRng.seed = old_seed 
-	spawnRandomBox()
-	
-func generateTerminalBox() -> int:
-	boxRng.randomize()
-	savedSeed = boxRng.seed
-	spawnRandomBox()
-	return savedSeed
-	
-func spawnRandomBox() -> void:
+func execution() -> void:
 	boxSeqHash.clear()
-	var numBox = boxRng.randi_range(4, 7)
+	var numBox = rng.randi_range(4, 7)
 	# Shuffling
 	#var ranNum: Array = []
 	#for i in range(numBox):

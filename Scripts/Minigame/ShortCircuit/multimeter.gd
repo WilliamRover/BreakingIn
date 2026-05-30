@@ -3,6 +3,7 @@ class_name Multimeter extends Node2D
 @onready var wire: Line2D = $Line2D
 @onready var fixedPoint: Marker2D = $FixedPoint
 @onready var wireEnd: Node2D = $WireEnd
+@onready var voltLabel: Label = $Voltage
 
 @export var sagAmount := 200
 @export var segment := 100
@@ -12,7 +13,7 @@ var dragNode: Node2D = null
 func _ready() -> void:
 	var drag1 = wireEnd.get_node("Entire")
 	drag1.input_event.connect(_on_drag_area_input_event.bind(wireEnd))
-	
+	voltLabel.text = "0V"
 	updateWire()
 
 func _physics_process(delta: float) -> void:
@@ -47,3 +48,13 @@ func _calculate_bezier_point(t: float, p0: Vector2, p1: Vector2, p2: Vector2) ->
 	var q0 = p0.lerp(p1, t)
 	var q1 = p1.lerp(p2, t)
 	return q0.lerp(q1, t)
+
+
+func displayVoltage(lowVoltage: bool = true) -> void:
+	if lowVoltage:
+		voltLabel.text = str(round_place(RandomNumberGenerator.new().randf_range(0, 6), 1)) + "V"
+	else:
+		voltLabel.text = str(round_place(RandomNumberGenerator.new().randf_range(230, 260), 1)) + "V"
+		
+func round_place(num,places):
+	return (round(num*pow(10,places))/pow(10,places))

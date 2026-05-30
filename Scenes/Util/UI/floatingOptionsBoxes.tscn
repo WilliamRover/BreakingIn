@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dhlusx0jemch7" path="res://Assets/Sounds/SFX/rewireFail.wav" id="8_jttyx"]
 [ext_resource type="AudioStream" uid="uid://feaj8ewmn8fe" path="res://Assets/Sounds/SFX/electricGridDown.wav" id="13_77ccv"]
 [ext_resource type="AudioStream" uid="uid://c30tt5a8kokxq" path="res://Assets/Sounds/SFX/powerOn.wav" id="14_4nloj"]
+[ext_resource type="AudioStream" uid="uid://dm4nu50ep4v0x" path="res://Assets/Sounds/SFX/powerSwitch.wav" id="15_4nloj"]
 [ext_resource type="AudioStream" uid="uid://btxoki0ibqik" path="res://Assets/Sounds/SFX/powerOff.wav" id="15_8a4my"]
 [ext_resource type="AudioStream" uid="uid://6e3856cc4xjs" path="res://Assets/Sounds/SFX/powerShortCircuit.wav" id="16_4nloj"]
 
@@ -103,13 +104,15 @@ text = "Switch on / off power"
 [node name="ElectricGridDown" type="AudioStreamPlayer" parent="SwitchPower" unique_id=1894658450]
 stream = ExtResource("13_77ccv")
 
-[node name="PowerOn" type="AudioStreamPlayer" parent="SwitchPower" unique_id=560612297]
-stream = ExtResource("14_4nloj")
-volume_db = 6.0
-
 [node name="PowerOff" type="AudioStreamPlayer" parent="SwitchPower" unique_id=693374190]
 stream = ExtResource("15_8a4my")
 volume_db = 6.0
+
+[node name="PowerSwitch" type="AudioStreamPlayer" parent="SwitchPower" unique_id=183002607]
+stream = ExtResource("15_4nloj")
+
+[node name="PowerOn" type="AudioStreamPlayer" parent="SwitchPower" unique_id=87791104]
+stream = ExtResource("14_4nloj")
 
 [node name="ShortCircuit" type="Button" parent="." unique_id=745945416]
 layout_mode = 2
@@ -125,4 +128,7 @@ volume_db = 6.0
 
 [node name="PowerShortCircuit" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=1394186398]
 stream = ExtResource("16_4nloj")
-volume_db = 10.0
+volume_db = -2.0
+
+[node name="RewiringSFX" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=1281743637]
+stream = ExtResource("6_1weav")

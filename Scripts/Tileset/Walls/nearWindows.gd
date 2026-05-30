@@ -80,9 +80,9 @@ func execute_action(action_name: String, button: Button) -> void:
 			awaitSfx("lockpickingSFX", button)
 			isLockPick = true
 			if lock_seed == -1:
-				lock_seed = pickGame.generateNewLock()
+				lock_seed = pickGame.generateNewGame()
 			else:
-				pickGame.retry_saved_lock(lock_seed)
+				pickGame.retryGame(lock_seed)
 				
 			pickGame.allPinPushed.connect(_on_finished_lockpick.bind(button))
 			await pickGame.tree_exited

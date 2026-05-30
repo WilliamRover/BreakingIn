@@ -8,8 +8,19 @@
 script = ExtResource("1_qe4i5")
 
 [node name="MainMulti" type="Sprite2D" parent="." unique_id=1567397746]
+z_index = -1
 position = Vector2(-201, -248)
 texture = ExtResource("1_h8ebr")
+
+[node name="Voltage" type="Label" parent="." unique_id=1838389549]
+z_index = -1
+offset_left = -109.0
+offset_top = -453.0
+offset_right = 73.0
+offset_bottom = -346.0
+theme_override_colors/font_color = Color(0.2833844, 0.28338444, 0.2833844, 1)
+theme_override_font_sizes/font_size = 67
+text = "240V"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=813202406]
 points = PackedVector2Array(-195, -1, -66.93274, 63.945633, 114, -24)

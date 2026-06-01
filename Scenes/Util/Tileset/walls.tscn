@@ -170,6 +170,9 @@ texture_region_size = Vector2i(143, 246)
 0:0/1/custom_data_4 = true
 0:0/1/custom_data_5 = true
 0:0/1/custom_data_9 = "Garage1"
+1:0/0 = 0
+1:1/0 = 0
+1:1/0/custom_data_3 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu56"]
 texture = ExtResource("5_sgi4p")

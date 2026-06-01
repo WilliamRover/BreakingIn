@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bj2ffy0t7kixj"]
+
+[ext_resource type="Texture2D" uid="uid://dww81dd2ifgqy" path="res://Assets/Tileset/Texture/furniture-01.png" id="1_0nd8g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ghva"]
+texture = ExtResource("1_0nd8g")
+margins = Vector2i(74, 20)
+separation = Vector2i(0, 75)
+texture_region_size = Vector2i(143, 246)
+0:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hnrde"]
+tile_size = Vector2i(145, 80)
+sources/0 = SubResource("TileSetAtlasSource_4ghva")
+
+[node name="Furniture" type="TileMapLayer" unique_id=1745984925]
+tile_set = SubResource("TileSet_hnrde")

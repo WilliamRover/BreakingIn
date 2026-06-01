@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://buajxt07awe7o"]
+
+[ext_resource type="Script" uid="uid://nkrwlwdednut" path="res://Scripts/Tileset/Stairs/near_stairs.gd" id="1_4m2bh"]
+
+[node name="StairZones" type="Node2D" unique_id=876035519]
+script = ExtResource("1_4m2bh")
+
+[node name="Top" type="Area2D" parent="." unique_id=2064334018]
+position = Vector2(200, -267)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top" unique_id=1055088405]
+position = Vector2(-200, 268)
+polygon = PackedVector2Array(98, -289, 101.94346, -291.33496, 174, -334, 316, -249, 246.83493, -213.94374, 243, -212)
+
+[node name="Bot" type="Area2D" parent="." unique_id=955640133]
+position = Vector2(-91.94, 45.82)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bot" unique_id=1478383058]
+position = Vector2(91.94, -45.82)
+polygon = PackedVector2Array(-137, -23, -140, -20, -141, -1, -158, 8, -9, 95, 2, 79, 3, 58, 9, 57)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=375742690]
+position = Vector2(-92, 46)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=775304604]
+position = Vector2(199, -267)
+
+[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
+[connection signal="body_exited" from="Top" to="." method="_on_top_body_exited"]
+[connection signal="body_entered" from="Bot" to="." method="_on_bot_body_entered"]
+[connection signal="body_exited" from="Bot" to="." method="_on_bot_body_exited"]

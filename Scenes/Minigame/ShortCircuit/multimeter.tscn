@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cqqc1b335mbap"]
+
+[ext_resource type="Texture2D" uid="uid://x8vjkl6u5olg" path="res://Assets/Overload/Multimeter.png" id="1_h8ebr"]
+[ext_resource type="Script" uid="uid://d0s0bk860ssnl" path="res://Scripts/Minigame/ShortCircuit/multimeter.gd" id="1_qe4i5"]
+[ext_resource type="PackedScene" uid="uid://pmb7ub4trxh" path="res://Scenes/Minigame/ShortCircuit/wire_end2.tscn" id="2_qe4i5"]
+
+[node name="Multimeter" type="Node2D" unique_id=179900110]
+script = ExtResource("1_qe4i5")
+
+[node name="MainMulti" type="Sprite2D" parent="." unique_id=1567397746]
+z_index = -1
+position = Vector2(-201, -248)
+texture = ExtResource("1_h8ebr")
+
+[node name="Voltage" type="Label" parent="." unique_id=1838389549]
+z_index = -1
+offset_left = -109.0
+offset_top = -453.0
+offset_right = 73.0
+offset_bottom = -346.0
+theme_override_colors/font_color = Color(0.2833844, 0.28338444, 0.2833844, 1)
+theme_override_font_sizes/font_size = 67
+text = "240V"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=813202406]
+points = PackedVector2Array(-195, -1, -66.93274, 63.945633, 114, -24)
+width = 13.34
+default_color = Color(0.5871663, 1.311563e-06, 5.2943824e-07, 1)
+joint_mode = 2
+
+[node name="WireEnd" parent="." unique_id=267116766 instance=ExtResource("2_qe4i5")]
+position = Vector2(513.00006, -347)
+scale = Vector2(1.6399975, 1.6399975)
+
+[node name="FixedPoint" type="Marker2D" parent="." unique_id=881210030]
+position = Vector2(895, 811)

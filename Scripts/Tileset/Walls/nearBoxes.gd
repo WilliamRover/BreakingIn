@@ -14,13 +14,18 @@ var rewire: bool = false
 @export var lockpickMinigame: PackedScene = preload("res://Scenes/Minigame/Lockpick/lock_pick.tscn")
 @export var rewireGarageMinigame: PackedScene = preload("res://Scenes/Minigame/RewireGarage/rewire_garage_main.tscn")
 @export var drillLockMinigame: PackedScene = preload("res://Scenes/Minigame/DrillLock/drill_lock_minigame.tscn")
+@export var shortCircuitMinigame: PackedScene = preload("res://Scenes/Minigame/ShortCircuit/short_circuit_main.tscn")
+
 var pickGame: Node
 var lock_seed: int = -1
 var rewireGarageGame: Node
 var rewire_seed: int = -1
 var drillGame: Node
 var curPosDrill: Vector2 = Vector2(0, 0)
-var overload: bool = false
+var shortCircuitGame: Node
+var shortCircuit_seed: int = -1
+
+var shortCircuit: bool = false
 var powerOn: bool = true
 
 var isLockPick: bool = false
@@ -43,7 +48,7 @@ func get_available_actions() -> Array[String]:
 		if open && !rewire && smallBox:
 			actions.append("Rewire")
 		elif open && !rewire && bigBox:
-			if !overload:
+			if !shortCircuit:
 				actions.append("SwitchPower")
 				actions.append("ShortCircuit")
 	if rewire && open && smallBox:
@@ -77,18 +82,32 @@ func execute_action(action_name: String, button: Button) -> void:
 					awaitSfx("CloseSFX", button)
 		"SwitchPower":
 			if bigBox:
-				GlobalSignal.turnLight.emit(target_powerId, overload)
+				GlobalSignal.turnLight.emit(target_powerId, shortCircuit)
 				if powerOn:
 					awaitSfx("PowerOff", button)
 					awaitSfx("ElectricGridDown", button)
+					awaitSfx("PowerSwitch", button)
 				else:
+					awaitSfx("PowerSwitch", button)
 					awaitSfx("PowerOn", button)
 				powerOn = !powerOn
 				#print(target_powerId)
 		"ShortCircuit":
 			if bigBox:
-				overload = true
-				GlobalSignal.turnLight.emit(target_powerId, overload)
+				isRewiring = true
+				stopMoving.emit(false)
+				minigameProg = true
+				awaitSfx("RewiringSFX", button)
+				shortCircuitGame = innitMinigame(shortCircuitMinigame)
+				#shortCircuit = true
+				
+				if shortCircuit_seed == -1:
+					shortCircuit_seed = shortCircuitGame.generateNewGame()
+				else:
+					shortCircuitGame.retryGame(shortCircuit_seed)
+					
+				shortCircuitGame.overload.connect(_on_finished_shortCircuit.bind(button))
+				await shortCircuitGame.tree_exited
 		"Drill":
 			stopMoving.emit(false)
 			isDrilling = true
@@ -114,9 +133,9 @@ func execute_action(action_name: String, button: Button) -> void:
 			awaitSfx("lockpickingSFX", button)
 			
 			if lock_seed == -1:
-				lock_seed = pickGame.generateNewLock()
+				lock_seed = pickGame.generateNewGame()
 			else:
-				pickGame.retry_saved_lock(lock_seed)
+				pickGame.retryGame(lock_seed)
 				
 			pickGame.allPinPushed.connect(_on_finished_lockpick.bind(button))
 			await pickGame.tree_exited
@@ -138,9 +157,9 @@ func execute_action(action_name: String, button: Button) -> void:
 				awaitSfx("RewiringSFX", button)
 				
 				if rewire_seed == -1:
-					rewire_seed = rewireGarageGame.generateTerminalBox()
+					rewire_seed = rewireGarageGame.generateNewGame()
 				else:
-					rewireGarageGame.retry_saved_box(rewire_seed)
+					rewireGarageGame.retryGame(rewire_seed)
 					
 				rewireGarageGame.rewireSuccess.connect(_on_rewire_success.bind(button))
 				rewireGarageGame.rewireFail.connect(_on_rewire_fail.bind(button))
@@ -163,10 +182,33 @@ func _on_finished_lockpick(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("lockpickingSFX", btn)
 	awaitSfx("UnlockSFX", btn)
-	pickGame.queue_free()
+	if is_instance_valid(pickGame):
+		pickGame.queue_free()
 	locked = false
 	isLockPick = false
 
+func _on_finished_shortCircuit(flag: bool, btn: Button) -> void:
+	await get_tree().create_timer(0.55).timeout
+	stopMoving.emit(true)
+	minigameProg = false
+	stopSfx("RewiringSFX", btn)
+	if is_instance_valid(shortCircuitGame):
+		shortCircuitGame.queue_free()
+	if flag == false:
+		if powerOn:
+			awaitSfx("PowerOff", btn)
+			awaitSfx("ElectricGridDown", btn)
+		else:
+			awaitSfx("ElectricGridDown", btn)
+		powerOn = false
+	else:
+		awaitSfx("PowerOff", btn)
+		awaitSfx("ElectricGridDown", btn)
+		awaitSfx("PowerShortCircuit", btn)
+		shortCircuit = true
+		isRewiring = false
+		
+	GlobalSignal.turnLight.emit(target_powerId, shortCircuit)
 func _on_rewire_success(btn: Button) -> void:
 	#rewireGarageGame.paused = true
 	await get_tree().create_timer(0.55).timeout
@@ -174,7 +216,8 @@ func _on_rewire_success(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("RewiringSFX", btn)
 	awaitSfx("RewireSuccessSFX", btn)
-	rewireGarageGame.queue_free()
+	if is_instance_valid(rewireGarageGame):
+		rewireGarageGame.queue_free()
 	isRewiring = false
 	rewire = true
 
@@ -186,7 +229,8 @@ func _on_drill_success() -> void:
 	stopMoving.emit(true)
 	minigameProg = false
 	locked = false
-	drillGame.queue_free()
+	if is_instance_valid(drillGame):
+		drillGame.queue_free()
 	isDrilling = false
 
 func cancelMinigame() -> void:

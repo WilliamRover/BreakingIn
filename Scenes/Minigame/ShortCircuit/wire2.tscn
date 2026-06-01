@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ql3mjstvfs87"]
+
+[ext_resource type="Script" uid="uid://ctombofcjlprd" path="res://Scripts/Minigame/RewireGarage/wire.gd" id="1_nfc5a"]
+[ext_resource type="PackedScene" uid="uid://c1et3pu63gx4q" path="res://Scenes/Minigame/RewireGarage/wire_end.tscn" id="2_4f7i4"]
+
+[node name="Wire" type="Node2D" unique_id=1657155752]
+script = ExtResource("1_nfc5a")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1913370449]
+position = Vector2(-16, 115)
+points = PackedVector2Array(-87, -26, 114, -24)
+width = 3.0
+default_color = Color(0.92085016, 0.81293625, 0, 1)
+joint_mode = 2
+
+[node name="WireEnd" parent="." unique_id=267116766 instance=ExtResource("2_4f7i4")]
+z_index = 1
+position = Vector2(-126, -100)
+rotation = 0.27266046
+
+[node name="WireEnd2" parent="." unique_id=563417142 instance=ExtResource("2_4f7i4")]
+z_index = 1
+position = Vector2(92, -100)
+rotation = -0.23890042

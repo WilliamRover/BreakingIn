@@ -15,7 +15,7 @@ func defaultSave() -> void:
 		"unlockMission": ["The rookie"],
 		"skills": [],
 		"inventory": {
-			"availableLoadout": ["lockPick", "multimeter", "wirex5", "crowbar", "drill"],
+			"availableLoadout": ["lockPick", "multimeter", "wirex5", "crowbar", "drill", "flashlight"],
 			"containerOrder": ["heldLoadout", "bagLoadout", "beltLoadout"],
 			"container": {
 				"heldLoadout": {

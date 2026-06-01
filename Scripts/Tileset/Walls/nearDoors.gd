@@ -62,9 +62,9 @@ func execute_action(action_name: String, button: Button) -> void:
 			awaitSfx("lockpickingSFX", button)
 			
 			if lock_seed == -1:
-				lock_seed = pickGame.generateNewLock()
+				lock_seed = pickGame.generateNewGame()
 			else:
-				pickGame.retry_saved_lock(lock_seed)
+				pickGame.retryGame(lock_seed)
 				
 			pickGame.allPinPushed.connect(_on_finished_lockpick.bind(button))
 			await pickGame.tree_exited
@@ -87,7 +87,8 @@ func _on_finished_lockpick(btn: Button) -> void:
 	minigameProg = false
 	stopSfx("lockpickingSFX", btn)
 	awaitSfx("UnlockSFX", btn)
-	pickGame.queue_free()
+	if is_instance_valid(pickGame):
+		pickGame.queue_free()
 	locked = false
 
 func cancelMinigame() -> void:
@@ -104,5 +105,6 @@ func _on_drill_success() -> void:
 	stopMoving.emit(true)
 	minigameProg = false
 	locked = false
-	drillGame.queue_free()
+	if is_instance_valid(drillGame):
+		drillGame.queue_free()
 	isDrilling = false

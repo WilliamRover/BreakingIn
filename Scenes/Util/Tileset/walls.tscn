@@ -91,7 +91,7 @@ texture_region_size = Vector2i(143, 246)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, 82)
 2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ukbaq")
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-72.5, 0, 0, 40, 44.761166, 15.304184, -35.50206, -20.412657)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -72.5, 0, 0, 40, 72.5, 0)
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 82)
 1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1eg3g")
@@ -171,7 +171,9 @@ texture_region_size = Vector2i(143, 246)
 0:0/1/custom_data_5 = true
 0:0/1/custom_data_9 = "Garage1"
 1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 82)
 1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 82)
 1:1/0/custom_data_3 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu56"]
@@ -265,7 +267,7 @@ sources/2 = SubResource("TileSetAtlasSource_sgi4p")
 sources/3 = SubResource("TileSetAtlasSource_avu56")
 
 [node name="Wall" type="TileMapLayer" unique_id=706943602]
-light_mask = 30
+light_mask = 31
 tile_set = SubResource("TileSet_8krmg")
 rendering_quadrant_size = 4
 script = ExtResource("4_xxu2k")

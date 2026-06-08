@@ -5,15 +5,14 @@
 [node name="CeilinglightCast" type="PointLight2D" unique_id=1619477387 groups=["vision"]]
 z_index = -1
 y_sort_enabled = true
-energy = 1.58
+energy = 2.13
 range_item_cull_mask = 16
 shadow_enabled = true
-shadow_item_cull_mask = 0
+shadow_item_cull_mask = 7
 texture = ExtResource("1_fxhjn")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=417920117]
-energy = 0.6
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=417920117 groups=["ShineLights"]]
+energy = 2.07
 range_item_cull_mask = 9
-shadow_enabled = true
 shadow_item_cull_mask = 7
 texture = ExtResource("1_fxhjn")

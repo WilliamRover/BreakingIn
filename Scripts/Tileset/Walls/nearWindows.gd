@@ -19,6 +19,7 @@ var firstDrill: bool = true
 @onready var pointA: Marker2D = $PointA
 @onready var pointB: Marker2D = $PointB
 
+var pointBInside: bool = true
 # Overide thingy
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
@@ -118,10 +119,13 @@ func climb() -> void:
 	var distA = player.global_position.distance_to(pointA.global_position)
 	var distB = player.global_position.distance_to(pointB.global_position)
 	var dest: Vector2
+	var enteringHouse: bool
 	if distA < distB:
 		dest = pointB.global_position
+		enteringHouse = pointBInside
 	else:
 		dest = pointA.global_position
+		enteringHouse = !pointBInside
 		
 	var tween = create_tween()
 	tween.tween_property(player, "global_position", dest, 0.7).set_trans(Tween.TRANS_SINE)
@@ -129,6 +133,7 @@ func climb() -> void:
 	await tween.finished
 	player.set_collision_mask_value(1, true)
 	stopMoving.emit(true)
+	GlobalSignal.playerClimbed.emit(enteringHouse)
 
 func cancelMinigame() -> void:
 	if isLockPick:

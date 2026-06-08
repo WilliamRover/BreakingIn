@@ -7,18 +7,22 @@ var movable: bool = true
 @onready var notif: Label = $CanvasLayerNotif/Notification
 @onready var notifAnchor: Marker2D = $NotifAnchor
 @onready var flashlight: PointLight2D = $FlashLight
-@onready var visionCone = [
-	$VisionCone
-	#$VisionCone/ObjectCone,
-	#$VisionCone/VisionCone2,
-	#$VisionCone/PointLight2D3
-]
+@onready var flashLight2: PointLight2D = $FlashLight/PointLight2D2
+@onready var visionCone: PointLight2D = $VisionCone
+@onready var visionCone2: PointLight2D = $VisionCone/VisionCone2
+@export var visionLayer:= 10
 
 var objInCones: Array[Node2D] = []
 @onready var visionRay: RayCast2D = $VisionRay
 @onready var walkSfx: AudioStreamPlayer = $Walk
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
-#var originalNotifPosition = notif.position
+
+@export var startingFloor := 1	
+	
+func _ready() -> void:
+	flashlight.visible = false
+	notif.visible = false
+	updateLightningFloor(startingFloor)
 func _physics_process(_delta: float) -> void:
 	var screen_pos = notifAnchor.get_global_transform_with_canvas().origin
 	#notif.position = originalNotifPosition
@@ -31,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 		if direction:
 			velocity = direction * SPEED
 			flashlight.rotation = direction.angle()
-			visionCone[0].rotation = direction.angle()
+			visionCone.rotation = direction.angle()
 			if not walkSfx.playing:
 				walkSfx.play()
 			# D
@@ -74,15 +78,15 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 	if Input.is_action_pressed("RMOUSE"):
 		flashlight.look_at(get_global_mouse_position())
-		visionCone[0].look_at(get_global_mouse_position())
+		visionCone.look_at(get_global_mouse_position())
 		velocity *= 0.45
-		walkSfx.pitch_scale *= 0.6 
+		walkSfx.pitch_scale = 0.6 
 	else:
 		walkSfx.pitch_scale = 1.0
 	
 	if Input.is_action_pressed("RUN - LSHIFT"):
 		velocity *= 2
-		walkSfx.pitch_scale *= 1.5
+		walkSfx.pitch_scale = 1.5
 	
 	
 	move_and_slide()
@@ -102,10 +106,7 @@ func _on_label_set_text(text: String) -> void:
 	notif.visible = true
 	await get_tree().create_timer(2.5).timeout
 	notif.visible = false
-func _ready() -> void:
-	flashlight.visible = false
-	notif.visible = false
-	pass # Replace with function body.
+	
 
 
 func _on_vision_detect_body_entered(body: Node2D) -> void:
@@ -116,3 +117,23 @@ func _on_vision_detect_body_entered(body: Node2D) -> void:
 func _on_vision_detect_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Obj"):
 		objInCones.erase(body)
+
+func updateLightningFloor(floorLayer: int) -> void:
+	var floorBitmask:= 1 << (floorLayer - 1)
+	var wallBitmask := 1 << ((floorLayer - 1) + 10)
+	var visionBitmask := 1 << (visionLayer - 1)
+	var combinedMask := floorBitmask | visionBitmask
+	
+	if visionCone:
+		visionCone.range_item_cull_mask = combinedMask
+		visionCone.shadow_item_cull_mask = combinedMask
+	if flashlight:
+		flashlight.range_item_cull_mask = combinedMask
+		flashlight.shadow_item_cull_mask = combinedMask
+		
+	var shineMask := wallBitmask
+	if visionCone2:
+		visionCone2.range_item_cull_mask = shineMask
+	if flashLight2:
+		flashLight2.range_item_cull_mask = shineMask
+	light_mask = floorBitmask

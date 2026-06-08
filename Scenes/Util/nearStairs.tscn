@@ -17,12 +17,12 @@ position = Vector2(-91.94, 45.82)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bot" unique_id=1478383058]
 position = Vector2(91.94, -45.82)
-polygon = PackedVector2Array(-137, -23, -140, -20, -141, -1, -158, 8, -9, 95, 2, 79, 3, 58, 9, 57)
+polygon = PackedVector2Array(-141, -4, -141, -3, -141, -1, -158, 8, -9, 95, 2, 79, 2, 74, 2, 74)
 
 [node name="StairZone" type="Area2D" parent="." unique_id=963705513]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StairZone" unique_id=1995714230]
-polygon = PackedVector2Array(-140, -17, -140, -20, -109, -46, 100, -289, 115, -297, 256, -218, 244, -212, 8, 58, 3, 59, 2, 70)
+polygon = PackedVector2Array(-141, -1, -140, -20, -109, -46, 100, -289, 115, -297, 256, -218, 244, -212, 8, 58, 3, 59, 2, 79)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=375742690]
 position = Vector2(-92, 46)

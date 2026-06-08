@@ -54,10 +54,9 @@ animations = [{
 
 [node name="Security" type="CharacterBody2D" unique_id=954244259 groups=["Obj"]]
 modulate = Color(0.578125, 0.578125, 0.578125, 1)
-light_mask = 9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143571185]
-light_mask = 6
+light_mask = 512
 material = SubResource("CanvasItemMaterial_keqea")
 position = Vector2(-3.999999, -79)
 scale = Vector2(0.077, 0.077)

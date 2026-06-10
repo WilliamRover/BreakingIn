@@ -17,8 +17,12 @@ var objInCones: Array[Node2D] = []
 @onready var walkSfx: AudioStreamPlayer = $Walk
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var startingFloor := 1	
-	
+@export var startingFloor := 1
+var curFloor := startingFloor
+
+@export var inside: bool = false
+@export var onStair: bool = false
+var climbing: bool = false
 func _ready() -> void:
 	flashlight.visible = false
 	notif.visible = false
@@ -119,6 +123,10 @@ func _on_vision_detect_body_exited(body: Node2D) -> void:
 		objInCones.erase(body)
 
 func updateLightningFloor(floorLayer: int) -> void:
+	z_index = floorLayer - 1
+	#print(z_index)
+	curFloor = floorLayer
+	#print(curFloor)
 	var floorBitmask:= 1 << (floorLayer - 1)
 	var wallBitmask := 1 << ((floorLayer - 1) + 10)
 	var visionBitmask := 1 << (visionLayer - 1)

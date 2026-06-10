@@ -45,20 +45,25 @@ func _process(delta: float) -> void:
 		cancelMinigame()
 		stopMoving.emit(true)
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player: # Make sure class_name Player exists on your player script
+	if body is Player:
+		#print("Floor:" + str(get_parent().get_parent().targetPhysLayer))
+		#print("Player:" + str(body.curFloor))
+		if get_parent().get_parent().targetPhysLayer != body.curFloor:
+			return
 		player = body
 		active_window = self
 		label.show()
 		_connect_player_signals()
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body == player:
 		label.hide()
 		if active_window == self:
 			active_window = null
 		if floatingOptionLock:
 			_close_floating_options()
 		_disconnect_player_signals()
+		player = null
 
 
 # ABSTRACT FUNC. OVERRIDE TS

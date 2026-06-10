@@ -34,3 +34,5 @@ position = Vector2(199, -267)
 [connection signal="body_exited" from="Top" to="." method="_on_top_body_exited"]
 [connection signal="body_entered" from="Bot" to="." method="_on_bot_body_entered"]
 [connection signal="body_exited" from="Bot" to="." method="_on_bot_body_exited"]
+[connection signal="body_entered" from="StairZone" to="." method="_on_stair_zone_body_entered"]
+[connection signal="body_exited" from="StairZone" to="." method="_on_stair_zone_body_exited"]

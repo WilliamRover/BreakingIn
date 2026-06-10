@@ -36,6 +36,7 @@ func _ready() -> void:
 				child.tile_set = tempTilesetDict[originalTileset]
 				
 	recursConfLight(self, floorBitmask, wallBitmask)
+	GlobalSignal.updRoofVisibility.connect(changeRoofVisibility)
 
 func recursConfLight(curNode: Node, floorMask: int, wallMask: int) -> void:
 	for child in curNode.get_children():
@@ -46,3 +47,12 @@ func recursConfLight(curNode: Node, floorMask: int, wallMask: int) -> void:
 				child.range_item_cull_mask = floorMask
 				child.shadow_item_cull_mask = floorMask
 		recursConfLight(child, floorMask, wallMask)
+
+func changeRoofVisibility(aboveFloors: int) -> void:
+	if aboveFloors == 0:
+		visible = true
+	else:
+		if targetPhysLayer <= aboveFloors:
+			visible = true
+		else:
+			visible = false

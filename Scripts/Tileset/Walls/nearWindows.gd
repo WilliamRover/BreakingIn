@@ -19,7 +19,7 @@ var firstDrill: bool = true
 @onready var pointA: Marker2D = $PointA
 @onready var pointB: Marker2D = $PointB
 
-var pointBInside: bool = true
+
 # Overide thingy
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
@@ -112,28 +112,39 @@ func _on_finished_lockpick(btn: Button) -> void:
 	locked = false
 	
 func climb() -> void:
-	print("climbed")
+	#print("climbed")
+	var tempPlayer = player
+	if tempPlayer == null:
+		return
+	var enteringHouse: bool = !tempPlayer.inside
+	tempPlayer.climbing = true
 	stopMoving.emit(false)
-	player.set_collision_mask_value(1, false)
+	tempPlayer.set_collision_mask_value(tempPlayer.curFloor, false)
 	
-	var distA = player.global_position.distance_to(pointA.global_position)
-	var distB = player.global_position.distance_to(pointB.global_position)
+	var distA = tempPlayer.global_position.distance_to(pointA.global_position)
+	var distB = tempPlayer.global_position.distance_to(pointB.global_position)
 	var dest: Vector2
-	var enteringHouse: bool
+	
 	if distA < distB:
 		dest = pointB.global_position
-		enteringHouse = pointBInside
 	else:
 		dest = pointA.global_position
-		enteringHouse = !pointBInside
-		
+	#inside = !inside
+	#print(inside)
 	var tween = create_tween()
-	tween.tween_property(player, "global_position", dest, 0.7).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(tempPlayer, "global_position", dest, 0.7).set_trans(Tween.TRANS_SINE)
 	
 	await tween.finished
-	player.set_collision_mask_value(1, true)
+	tempPlayer.inside = enteringHouse
+	tempPlayer.set_collision_mask_value(tempPlayer.curFloor, true)
 	stopMoving.emit(true)
-	GlobalSignal.playerClimbed.emit(enteringHouse)
+	if enteringHouse:
+		GlobalSignal.updRoofVisibility.emit(tempPlayer.curFloor)
+	else:
+		GlobalSignal.updRoofVisibility.emit(0)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	tempPlayer.climbing = false
 
 func cancelMinigame() -> void:
 	if isLockPick:

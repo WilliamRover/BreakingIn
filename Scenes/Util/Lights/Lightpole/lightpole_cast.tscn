@@ -5,7 +5,7 @@
 
 [node name="Lightpole_cast" type="PointLight2D" unique_id=837125948 groups=["vision"]]
 scale = Vector2(0.7392127, 0.73921245)
-energy = 2.5
+energy = 2.95
 blend_mode = 2
 range_item_cull_mask = 16
 shadow_enabled = true
@@ -15,7 +15,7 @@ script = ExtResource("2_4cutk")
 
 [node name="Lightpole_cast" type="PointLight2D" parent="." unique_id=1972023187 groups=["ShineLights"]]
 scale = Vector2(0.7392127, 0.73921245)
-energy = 1.48
+energy = 2.61
 blend_mode = 2
 range_item_cull_mask = 9
 shadow_item_cull_mask = 7

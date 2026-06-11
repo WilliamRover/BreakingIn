@@ -34,12 +34,15 @@ text = "Open/Close"
 
 [node name="OpenDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1901076404]
 stream = ExtResource("3_384wm")
+volume_db = 5.0
 
 [node name="CloseDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=2081732309]
 stream = ExtResource("4_0jda7")
+volume_db = 5.0
 
 [node name="LockSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1758749691]
 stream = ExtResource("5_pn57u")
+volume_db = 5.0
 
 [node name="Drill" type="Button" parent="." unique_id=967714030]
 layout_mode = 2

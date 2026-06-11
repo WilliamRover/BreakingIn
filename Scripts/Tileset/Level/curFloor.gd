@@ -12,11 +12,17 @@ func _ready() -> void:
 	var shadowBitmask: int = floorBitmask | visionBitmask
 	for child in get_children():
 		if child is TileMapLayer && child.tile_set:
-			if child is Wall || Furniture || Ceiling || Stairs:
+			if child is Wall:
 				child.light_mask = wallBitmask
 			else:
 				child.light_mask = floorBitmask
 			
+			if child is Furniture:
+				child.light_mask = wallBitmask
+			if child is Stairs:
+				child.light_mask = wallBitmask
+			if child is Ceiling:
+				child.light_mask = wallBitmask
 			var originalTileset = child.tile_set
 			if !tempTilesetDict.has(originalTileset):
 				var cpy = originalTileset.duplicate()

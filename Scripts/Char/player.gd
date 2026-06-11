@@ -134,10 +134,10 @@ func updateLightningFloor(floorLayer: int) -> void:
 	
 	if visionCone:
 		visionCone.range_item_cull_mask = combinedMask
-		visionCone.shadow_item_cull_mask = combinedMask
+		visionCone.shadow_item_cull_mask = floorBitmask
 	if flashlight:
 		flashlight.range_item_cull_mask = combinedMask
-		flashlight.shadow_item_cull_mask = combinedMask
+		flashlight.shadow_item_cull_mask = floorBitmask
 		
 	var shineMask := wallBitmask
 	if visionCone2:
@@ -145,3 +145,4 @@ func updateLightningFloor(floorLayer: int) -> void:
 	if flashLight2:
 		flashLight2.range_item_cull_mask = shineMask
 	light_mask = floorBitmask
+	animSprite.light_mask = wallBitmask

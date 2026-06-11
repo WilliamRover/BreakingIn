@@ -1,10 +1,23 @@
 [gd_scene format=3 uid="uid://b1kgpllxd0bho"]
 
 [ext_resource type="Texture2D" uid="uid://dtt2mkk3h5ceg" path="res://Assets/Lights/Lightpole/lightCast.png" id="1_mlqhx"]
+[ext_resource type="Script" uid="uid://0xskgyc6cajo" path="res://Scripts/Tileset/Lights/lightpole_cast.gd" id="2_4cutk"]
 
-[node name="Lightpole_cast" type="PointLight2D" unique_id=837125948]
+[node name="Lightpole_cast" type="PointLight2D" unique_id=837125948 groups=["vision"]]
 scale = Vector2(0.7392127, 0.73921245)
 energy = 2.5
 blend_mode = 2
+range_item_cull_mask = 16
+shadow_enabled = true
 shadow_item_cull_mask = 0
 texture = ExtResource("1_mlqhx")
+script = ExtResource("2_4cutk")
+
+[node name="Lightpole_cast" type="PointLight2D" parent="." unique_id=1972023187 groups=["ShineLights"]]
+scale = Vector2(0.7392127, 0.73921245)
+energy = 1.48
+blend_mode = 2
+range_item_cull_mask = 9
+shadow_item_cull_mask = 7
+texture = ExtResource("1_mlqhx")
+script = ExtResource("2_4cutk")

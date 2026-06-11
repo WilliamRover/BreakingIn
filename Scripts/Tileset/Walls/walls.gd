@@ -5,6 +5,7 @@ class_name Wall extends TileSetGen
 @export var nearWall: PackedScene = preload("res://Scenes/Util/nearWall.tscn")
 @export var nearBoxes: PackedScene = preload("res://Scenes/Util/nearBoxes.tscn")
 @export var nearGarage: PackedScene = preload("res://Scenes/Util/nearGarage.tscn")
+@export var nearSecDoor: PackedScene = preload("res://Scenes/Util/nearSecurityDoor.tscn")
 # Called when the node enters the scene tree for the first time.
 func spawnChild() -> void:
 	var cells = get_used_cells()
@@ -24,6 +25,9 @@ func spawnChild() -> void:
 				boxIns.set("target_garageId", linkId)
 			else:
 				boxIns.set("target_powerId", linkId)
+		elif data.get_custom_data("securityDoor"):
+			var secDoorIns = instantiateArea(nearSecDoor, cell)
+			secDoorIns.set("secDoorId", linkId)
 		else:
 			instantiateArea(nearWall, cell)
 func clearArea2D():

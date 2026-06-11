@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bj2ffy0t7kixj"]
 
 [ext_resource type="Texture2D" uid="uid://dww81dd2ifgqy" path="res://Assets/Tileset/Texture/furniture-01.png" id="1_0nd8g"]
+[ext_resource type="Script" uid="uid://cl7xmr35eou2n" path="res://Scripts/Tileset/Furniture/furniture.gd" id="2_4ghva"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ghva"]
 texture = ExtResource("1_0nd8g")
@@ -13,9 +14,11 @@ texture_region_size = Vector2i(143, 246)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, 82)
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -72.5, 0, -57.139835, 8.474574, -41.103363, 0.63726044, 15.461653, 31.469433, 72.5, 0)
+2:0/0/custom_data_1 = true
 2:1/0 = 0
 2:1/0/texture_origin = Vector2i(0, 82)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -50.418083, -12.183128, 9.240295, 21.666885, -10.643551, 34.127697, 0, 40, 72.5, 0)
+2:1/0/custom_data_1 = true
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, 82)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -61.12402, -6.2764015, -10.83345, 23.26004, 44.403893, -15.501301)
@@ -25,19 +28,38 @@ texture_region_size = Vector2i(143, 246)
 0:3/0 = 0
 0:3/0/texture_origin = Vector2i(0, 82)
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -72.5, 0, 0, 40, 72.5, 0)
+0:3/0/custom_data_0 = true
+0:3/0/custom_data_4 = true
 0:4/0 = 0
 0:4/0/texture_origin = Vector2i(0, 82)
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.2304077, -34.730755, -61.81436, -1.5931549, -8.603027, 26.764984, 50.34366, -6.691246)
+0:4/0/custom_data_0 = true
+0:4/0/custom_data_2 = true
+0:4/0/custom_data_3 = true
 0:5/0 = 0
 0:5/0/texture_origin = Vector2i(0, 82)
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.2304077, -34.730755, -61.81436, -1.5931549, -8.603027, 26.764984, 50.34366, -6.691246)
+0:5/0/custom_data_0 = true
+0:5/0/custom_data_2 = true
 
 [sub_resource type="TileSet" id="TileSet_hnrde"]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(145, 80)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "safe"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "bookshelf"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "open"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "filled"
+custom_data_layer_3/type = 1
+custom_data_layer_4/name = "locked"
+custom_data_layer_4/type = 1
 sources/0 = SubResource("TileSetAtlasSource_4ghva")
 
 [node name="Furniture" type="TileMapLayer" unique_id=1745984925]
+light_mask = 1024
 tile_set = SubResource("TileSet_hnrde")
+script = ExtResource("2_4ghva")

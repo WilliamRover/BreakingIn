@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://vh682djgbaf"]
+
+[ext_resource type="Script" uid="uid://b4vdrptdnqueg" path="res://Scripts/Util/floating_options.gd" id="1_jemuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnq4"]
+
+[node name="FloatingOption" type="VBoxContainer" unique_id=996052063]
+top_level = true
+script = ExtResource("1_jemuq")
+
+[node name="Open" type="Button" parent="." unique_id=1951817072]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
+text = "Open safe"
+metadata/floatOptionId = "openClose"
+
+[node name="Crack" type="Button" parent="." unique_id=1093985498]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Crack safe"
+
+[node name="Grab" type="Button" parent="." unique_id=1603061416]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Grab money"

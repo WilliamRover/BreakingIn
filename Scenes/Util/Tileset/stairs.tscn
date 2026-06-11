@@ -33,6 +33,7 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qtu3h")
 
 [node name="Stairs" type="TileMapLayer" unique_id=1426188391]
+light_mask = 1024
 tile_map_data = PackedByteArray(0, 0, 224, 255, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 224, 255, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 255, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 236, 255, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_384xp")
 script = ExtResource("2_qtu3h")

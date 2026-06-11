@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://berty6s5wh5cg"]
+
+[ext_resource type="AudioStream" uid="uid://cir3uuy4tws6o" path="res://Assets/Sounds/SFX/secDoorOpen.wav" id="3_384wm"]
+[ext_resource type="AudioStream" uid="uid://cyxbj22xbfnf4" path="res://Assets/Sounds/SFX/secDoorClose.wav" id="4_0jda7"]
+[ext_resource type="AudioStream" uid="uid://5somywgaxhyt" path="res://Assets/Sounds/SFX/entryUnlock.wav" id="5_5ubsp"]
+[ext_resource type="AudioStream" uid="uid://jy346fd8ff1q" path="res://Assets/Sounds/SFX/secDoorLock.wav" id="5_pn57u"]
+[ext_resource type="AudioStream" uid="uid://7tq6lot1rylb" path="res://Assets/Sounds/SFX/lockpicking.wav" id="6_13bbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p8g6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycckp"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=595020201]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Picklock" type="Button" parent="." unique_id=2021634553]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_8p8g6")
+text = "Picklock"
+
+[node name="UnlockSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=354841890]
+stream = ExtResource("5_5ubsp")
+
+[node name="lockpickingSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=464336154]
+stream = ExtResource("6_13bbs")
+
+[node name="Open_Close" type="Button" parent="." unique_id=1321874865]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ycckp")
+text = "Open/Close"
+
+[node name="OpenDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1901076404]
+stream = ExtResource("3_384wm")
+
+[node name="CloseDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=2081732309]
+stream = ExtResource("4_0jda7")
+
+[node name="LockSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1758749691]
+stream = ExtResource("5_pn57u")
+
+[node name="Drill" type="Button" parent="." unique_id=967714030]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Drill"

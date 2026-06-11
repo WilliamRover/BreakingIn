@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cd2k6osfj81l7"]
+
+[ext_resource type="Script" uid="uid://d0m2kbin6qw7d" path="res://Scripts/Tileset/Furniture/nearSafe.gd" id="1_kl0ts"]
+[ext_resource type="PackedScene" uid="uid://vh682djgbaf" path="res://Scenes/Util/UI/floatingOptionsSafe.tscn" id="2_qn2mq"]
+
+[node name="Area2D" type="Area2D" unique_id=1435179070]
+script = ExtResource("1_kl0ts")
+
+[node name="UIAnchor" type="Marker2D" parent="." unique_id=883573284]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1656761149]
+position = Vector2(-43, 7)
+polygon = PackedVector2Array(3, -1, 58, 33, 116, -2, 53, -35)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=8144893]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=678435781]
+offset_right = 117.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "Hold E: options"
+metadata/_edit_use_anchors_ = true
+
+[node name="FloatingOption" parent="CanvasLayer" unique_id=996052063 instance=ExtResource("2_qn2mq")]
+offset_right = 108.0
+offset_bottom = 76.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

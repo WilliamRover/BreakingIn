@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bh0mn1l30wrwm"]
+
+[ext_resource type="Script" uid="uid://dn1iqvfxeh0qn" path="res://Scripts/Tileset/Furniture/nearBookshelf.gd" id="1_wl4ee"]
+[ext_resource type="PackedScene" uid="uid://cgcwg8guqshf3" path="res://Scenes/Util/UI/floatingOptionsBookshelf.tscn" id="2_wl4ee"]
+
+[node name="Area2D" type="Area2D" unique_id=1435179070]
+script = ExtResource("1_wl4ee")
+
+[node name="UIAnchor" type="Marker2D" parent="." unique_id=883573284]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1656761149]
+position = Vector2(-43, 7)
+polygon = PackedVector2Array(-52, 7, 11, 55, 104, -5, 35, -44)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=8144893]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=678435781]
+offset_right = 117.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "Hold E: options"
+metadata/_edit_use_anchors_ = true
+
+[node name="FloatingOption" parent="CanvasLayer" unique_id=996052063 instance=ExtResource("2_wl4ee")]
+offset_right = 119.0
+offset_bottom = 36.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

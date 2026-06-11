@@ -124,10 +124,12 @@ texture = ExtResource("7_3smsa")
 offset = Vector2(2000, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786747984]
+light_mask = 1024
 position = Vector2(0, 0.9999924)
 scale = Vector2(0.07675696, 0.07675699)
 sprite_frames = SubResource("SpriteFrames_gymyn")
 animation = &"Idle - D"
+frame_progress = 0.7250253
 offset = Vector2(-100, -1000)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=755437677]

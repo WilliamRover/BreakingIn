@@ -12,7 +12,7 @@ func _ready() -> void:
 	var shadowBitmask: int = floorBitmask | visionBitmask
 	for child in get_children():
 		if child is TileMapLayer && child.tile_set:
-			if child is Wall:
+			if child is Wall || Furniture || Ceiling || Stairs:
 				child.light_mask = wallBitmask
 			else:
 				child.light_mask = floorBitmask
@@ -45,7 +45,8 @@ func recursConfLight(curNode: Node, floorMask: int, wallMask: int) -> void:
 				child.range_item_cull_mask = wallMask
 			else:
 				child.range_item_cull_mask = floorMask
-				child.shadow_item_cull_mask = floorMask
+				if child is not LightPoleCast:
+					child.shadow_item_cull_mask = floorMask
 		recursConfLight(child, floorMask, wallMask)
 
 func changeRoofVisibility(aboveFloors: int) -> void:

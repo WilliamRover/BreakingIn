@@ -141,6 +141,12 @@ polygon = PackedVector2Array(-63.14935, -5.1589813, 8.411061, 35.359413, 15.6094
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sgi4p"]
 polygon = PackedVector2Array(-51.001358, -11.8613205, -65.296906, -3.974121, 7.4581437, 35.885162, 20.515139, 28.681303)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_avu56"]
+polygon = PackedVector2Array(-55.869354, -9.1755295, -72.5, 0, 0, 40, 17.061506, 30.586756)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ssf1q"]
+polygon = PackedVector2Array(-55.869354, -9.1755295, -72.5, 0, 0, 40, 17.061506, 30.586756)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgi4p"]
 texture = ExtResource("4_j1uxr")
 margins = Vector2i(74, 20)
@@ -170,11 +176,30 @@ texture_region_size = Vector2i(143, 246)
 0:0/1/custom_data_4 = true
 0:0/1/custom_data_5 = true
 0:0/1/custom_data_9 = "Garage1"
+1:0/next_alternative_id = 2
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, 82)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47.18728, -13.965641, -72.5, 0, 0, 40, 22.881254, 27.37586)
+1:0/0/custom_data_4 = true
+1:0/0/custom_data_10 = true
+1:0/1 = 1
+1:0/1/texture_origin = Vector2i(0, 82)
+1:0/1/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_avu56")
+1:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-47.18728, -13.965641, -72.5, 0, 0, 40, 22.881254, 27.37586)
+1:0/1/custom_data_4 = true
+1:0/1/custom_data_9 = "SecurityDoor1"
+1:0/1/custom_data_10 = true
+1:1/next_alternative_id = 2
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 82)
 1:1/0/custom_data_3 = true
+1:1/0/custom_data_10 = true
+1:1/1 = 1
+1:1/1/texture_origin = Vector2i(0, 82)
+1:1/1/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ssf1q")
+1:1/1/custom_data_3 = true
+1:1/1/custom_data_9 = "SecurityDoor1"
+1:1/1/custom_data_10 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu56"]
 texture = ExtResource("5_sgi4p")
@@ -261,6 +286,8 @@ custom_data_layer_8/name = "bigBox"
 custom_data_layer_8/type = 1
 custom_data_layer_9/name = "linkId"
 custom_data_layer_9/type = 4
+custom_data_layer_10/name = "securityDoor"
+custom_data_layer_10/type = 1
 sources/0 = SubResource("TileSetAtlasSource_ca201")
 sources/1 = SubResource("TileSetAtlasSource_vmacb")
 sources/2 = SubResource("TileSetAtlasSource_sgi4p")

@@ -145,7 +145,10 @@ polygon = PackedVector2Array(-51.001358, -11.8613205, -65.296906, -3.974121, 7.4
 polygon = PackedVector2Array(-55.869354, -9.1755295, -72.5, 0, 0, 40, 17.061506, 30.586756)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ssf1q"]
-polygon = PackedVector2Array(-55.869354, -9.1755295, -72.5, 0, 0, 40, 17.061506, 30.586756)
+polygon = PackedVector2Array(-50.767567, -11.990309, -72.5, 0, -59.316505, 7.273652, -44.604965, -3.95689)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0dx8x"]
+polygon = PackedVector2Array(-11.213234, 33.81339, 0, 40, 16.80951, 30.725788, 5.3957596, 25.899658)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgi4p"]
 texture = ExtResource("4_j1uxr")
@@ -187,7 +190,7 @@ texture_region_size = Vector2i(143, 246)
 1:0/1/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_avu56")
 1:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-47.18728, -13.965641, -72.5, 0, 0, 40, 22.881254, 27.37586)
 1:0/1/custom_data_4 = true
-1:0/1/custom_data_9 = "SecurityDoor1"
+1:0/1/custom_data_9 = "Power1"
 1:0/1/custom_data_10 = true
 1:1/next_alternative_id = 2
 1:1/0 = 0
@@ -197,8 +200,9 @@ texture_region_size = Vector2i(143, 246)
 1:1/1 = 1
 1:1/1/texture_origin = Vector2i(0, 82)
 1:1/1/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ssf1q")
+1:1/1/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_0dx8x")
 1:1/1/custom_data_3 = true
-1:1/1/custom_data_9 = "SecurityDoor1"
+1:1/1/custom_data_9 = "Power1"
 1:1/1/custom_data_10 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu56"]

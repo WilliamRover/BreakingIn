@@ -7,7 +7,7 @@ func _ready() -> void:
 	var tempTilesetDict: Dictionary = {}
 	var floorBitmask: int = 1 << (targetPhysLayer - 1)
 	var wallBitmask: int = 1 << ((targetPhysLayer -1) + 10)
-	var visionBitmask: int = 1 << (visionLayer - 1)
+	var visionBitmask: int = 1 << ((visionLayer - 1) + 15)
 	
 	var shadowBitmask: int = floorBitmask | visionBitmask
 	for child in get_children():

@@ -38,7 +38,7 @@ func _on_top_body_exited(body: Node2D) -> void:
 				#print("top f ex")
 				#body.z_index = 0
 				body.set_collision_mask_value(stairsLayer, false)
-				body.updateLightningFloor(nxtFloor)
+				#body.updateLightningFloor(nxtFloor)
 				tempPlayer = null
 			
 

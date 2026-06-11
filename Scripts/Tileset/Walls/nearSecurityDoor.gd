@@ -1,6 +1,7 @@
 class_name NearSecurityDoor extends Near
 
 var secDoorId: String = ""
+@onready var alarm: AudioStreamPlayer2D = $Alarm
 
 # ID 2
 @export var close_door_atlas := Vector2i(1, 0)
@@ -21,6 +22,7 @@ var powerDown: bool = false
 
 func _ready() -> void:
 	super()
+	GlobalSignal.turnLight.connect(_on_global_light_toggle)
 	
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
@@ -42,6 +44,8 @@ func execute_action(action_name: String, button: Button) -> void:
 				showNotif.emit("Seems like it's locked")
 			else:
 				open = !open
+				if powerDown == false:
+					alarm.play()
 				if open:
 					update_tile_visual(open_door_atlas, 2)
 					awaitSfx("OpenDoorSFX", button)
@@ -104,3 +108,9 @@ func cancelMinigame() -> void:
 		curPosDrill = drillGame.getDrillPos()
 		isDrilling = false
 	closeMinigame()
+
+func _on_global_light_toggle(broadcastedId: String, overload: bool):
+	if secDoorId == broadcastedId:
+		powerDown = !powerDown
+		if powerDown == false:
+			alarm.play()

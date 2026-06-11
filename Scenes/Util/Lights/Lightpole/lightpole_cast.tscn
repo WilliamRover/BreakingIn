@@ -14,8 +14,8 @@ texture = ExtResource("1_mlqhx")
 script = ExtResource("2_4cutk")
 
 [node name="Lightpole_cast" type="PointLight2D" parent="." unique_id=1972023187 groups=["ShineLights"]]
-scale = Vector2(0.7392127, 0.73921245)
-energy = 2.61
+scale = Vector2(0.979, 0.739)
+energy = 3.54
 blend_mode = 2
 range_item_cull_mask = 9
 shadow_item_cull_mask = 7

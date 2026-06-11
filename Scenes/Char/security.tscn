@@ -56,7 +56,7 @@ animations = [{
 modulate = Color(0.578125, 0.578125, 0.578125, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143571185]
-light_mask = 512
+light_mask = 16384
 material = SubResource("CanvasItemMaterial_keqea")
 position = Vector2(-3.999999, -79)
 scale = Vector2(0.077, 0.077)

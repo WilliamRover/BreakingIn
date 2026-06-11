@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1g5jgnuf5kwp" path="res://Scripts/Tileset/Walls/nearSecurityDoor.gd" id="1_wexes"]
 [ext_resource type="PackedScene" uid="uid://berty6s5wh5cg" path="res://Scenes/Util/UI/floatingOptionsSecurityDoor.tscn" id="2_wexes"]
+[ext_resource type="AudioStream" uid="uid://dehigc2xol54x" path="res://Assets/Sounds/SFX/burglarAlarm.wav" id="3_73vk2"]
 
 [node name="Area2D" type="Area2D" unique_id=1476717280]
 script = ExtResource("1_wexes")
@@ -25,6 +26,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FloatingOption" parent="CanvasLayer" unique_id=595020201 instance=ExtResource("2_wexes")]
 offset_right = 120.0
 offset_bottom = 116.0
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="." unique_id=1686412254]
+stream = ExtResource("3_73vk2")
+max_distance = 4000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _btn_pressed(btnName: String):
 	btn_pressed.emit(btnName)
-	print("signal sent")
+	#print("signal sent")
 	hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 		

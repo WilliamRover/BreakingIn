@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dlwpafwleuaal"]
+
+[ext_resource type="Texture2D" uid="uid://bf0c1fahb4vio" path="res://Assets/SafeCrack/safeMark.png" id="1_2a48i"]
+[ext_resource type="Script" uid="uid://cqudb05r7x6um" path="res://Scripts/Minigame/SafeCracking/safe_cracking_minigame.gd" id="1_pxyvb"]
+[ext_resource type="Texture2D" uid="uid://daxy0s4ijmun7" path="res://Assets/SafeCrack/safeDial.png" id="2_pxyvb"]
+[ext_resource type="AudioStream" uid="uid://c80owdv84pimg" path="res://Assets/Sounds/SFX/safeTurn.wav" id="4_a8x2m"]
+[ext_resource type="AudioStream" uid="uid://de0mi52il2igh" path="res://Assets/Sounds/SFX/safeCorrect.wav" id="5_54gr1"]
+[ext_resource type="AudioStream" uid="uid://m7l0vr60hgil" path="res://Assets/Sounds/SFX/safeLocked.wav" id="6_ldeif"]
+[ext_resource type="AudioStream" uid="uid://b2j58pb2rbd3a" path="res://Assets/Sounds/SFX/safeUnlocked.wav" id="7_jk5og"]
+
+[node name="SafeCracking" type="Node2D" unique_id=163404556]
+script = ExtResource("1_pxyvb")
+
+[node name="SafeMark" type="Sprite2D" parent="." unique_id=720184154]
+position = Vector2(970, 453.75)
+scale = Vector2(0.23138212, 0.23138212)
+texture = ExtResource("1_2a48i")
+
+[node name="SafeDial" type="Sprite2D" parent="." unique_id=531421477]
+position = Vector2(970, 453.75)
+scale = Vector2(0.231, 0.231)
+texture = ExtResource("2_pxyvb")
+
+[node name="Code" type="Label" parent="." unique_id=2047669237]
+offset_left = 819.0
+offset_top = 914.0
+offset_right = 1083.0
+offset_bottom = 1002.0
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 64
+text = " _ _ _ _ _ _"
+
+[node name="Label2" type="Label" parent="." unique_id=97392648]
+offset_left = 825.0
+offset_top = 828.0
+offset_right = 1151.0
+offset_bottom = 916.0
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 64
+text = "PASSCODE"
+
+[node name="Label3" type="Label" parent="." unique_id=1818072473]
+offset_left = 63.0
+offset_top = 466.0
+offset_right = 327.0
+offset_bottom = 511.0
+theme_override_font_sizes/font_size = 32
+text = "Press Q to cancel"
+
+[node name="Label4" type="Label" parent="." unique_id=670240077]
+offset_left = 56.0
+offset_top = 137.0
+offset_right = 1053.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 32
+text = "Press A to turn left, D to turn right. 
+Starts from turning left.
+Rotate the opposite direction 
+to confirm.
+Rotate left 3 times to 
+reset combination.
+"
+
+[node name="Label5" type="Label" parent="." unique_id=1475371387]
+offset_left = 1386.0
+offset_top = 172.0
+offset_right = 2383.0
+offset_bottom = 505.0
+theme_override_font_sizes/font_size = 32
+text = "If you have safe cracking
+skill, when you turn to the
+correct number, you should
+hear a click"
+
+[node name="SafeTurn" type="AudioStreamPlayer" parent="." unique_id=1494972968]
+stream = ExtResource("4_a8x2m")
+volume_db = 2.0
+
+[node name="SafeCorrect" type="AudioStreamPlayer" parent="." unique_id=973286156]
+stream = ExtResource("5_54gr1")
+volume_db = 5.0
+
+[node name="SafeLocked" type="AudioStreamPlayer" parent="." unique_id=1815183207]
+stream = ExtResource("6_ldeif")
+volume_db = 2.0
+
+[node name="SafeUnlocked" type="AudioStreamPlayer" parent="." unique_id=461144176]
+stream = ExtResource("7_jk5og")
+volume_db = 2.0

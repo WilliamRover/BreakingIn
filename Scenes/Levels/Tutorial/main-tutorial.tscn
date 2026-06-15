@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d1g2v1fpqilx8"]
 
 [ext_resource type="PackedScene" uid="uid://whvsotpfbhry" path="res://Scenes/Util/Tileset/ground.tscn" id="1_1ors6"]
+[ext_resource type="Script" uid="uid://b4wiy6yk84wdh" path="res://Scripts/Level/levelMain.gd" id="1_8o30c"]
 [ext_resource type="PackedScene" uid="uid://diprla2f4hauu" path="res://Scenes/Util/nearWindows.tscn" id="1_xnrbu"]
 [ext_resource type="PackedScene" uid="uid://chupqdt4xsmpx" path="res://Scenes/Util/Tileset/ceiling.tscn" id="2_8o30c"]
 [ext_resource type="PackedScene" uid="uid://c44pi4ldaxtw7" path="res://Scenes/Char/player.tscn" id="2_e8pav"]
@@ -10,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://dw4vmhrjiymcy" path="res://Scenes/Char/security.tscn" id="5_h06n6"]
 [ext_resource type="PackedScene" uid="uid://bj2ffy0t7kixj" path="res://Scenes/Util/Tileset/furniture.tscn" id="7_32653"]
 [ext_resource type="AudioStream" uid="uid://d3hswasixaq63" path="res://Assets/Sounds/Music/Stealth/sb_contagion.mp3" id="7_k8hm1"]
-[ext_resource type="Script" uid="uid://dtxgcrw1gllun" path="res://Scripts/Tileset/Level/interior_zone.gd" id="8_xj3ei"]
-[ext_resource type="Script" uid="uid://bec2tbj8ll8d" path="res://Scripts/Tileset/Level/curFloor.gd" id="9_xpp27"]
+[ext_resource type="Script" uid="uid://dtxgcrw1gllun" path="res://Scripts/Level/interior_zone.gd" id="8_xj3ei"]
+[ext_resource type="Script" uid="uid://bec2tbj8ll8d" path="res://Scripts/Level/curFloor.gd" id="9_xpp27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k8hm1"]
 
 [node name="Main" type="Node2D" unique_id=2086445594]
 y_sort_enabled = true
+script = ExtResource("1_8o30c")
 
 [node name="Level0" type="Node2D" parent="." unique_id=1590698669]
 y_sort_enabled = true
@@ -149,14 +151,15 @@ tile_map_data = PackedByteArray("AABEAN//AAABAAEAAQA9AOb/AAAAAAEAAQBAAOb/AAAAAAE
 position = Vector2(6693, 1455)
 
 [node name="Security2" parent="." unique_id=802147579 instance=ExtResource("5_h06n6")]
+visible = false
 position = Vector2(5083, 2477)
 
 [node name="Player" parent="." unique_id=480374139 instance=ExtResource("2_e8pav")]
-position = Vector2(5448, 2481)
+position = Vector2(4814, 3027)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=92095272]
 light_mask = 17
-color = Color(0.057856694, 0.11200697, 0.20951357, 1)
+color = Color(0.05130005, 0.090884104, 0.16015625, 1)
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="." unique_id=520657999]
 stream = ExtResource("7_k8hm1")

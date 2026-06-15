@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://vh682djgbaf"]
 
 [ext_resource type="Script" uid="uid://b4vdrptdnqueg" path="res://Scripts/Util/floating_options.gd" id="1_jemuq"]
+[ext_resource type="AudioStream" uid="uid://ucx700ywdvnp" path="res://Assets/Sounds/SFX/safeOpen.wav" id="2_msrf3"]
+[ext_resource type="AudioStream" uid="uid://d3ns0x35t7gi2" path="res://Assets/Sounds/SFX/safeClose.wav" id="3_dp47q"]
+[ext_resource type="AudioStream" uid="uid://pu1vgwbuw63p" path="res://Assets/Sounds/SFX/safeLockOpen.wav" id="4_ib8o8"]
+[ext_resource type="AudioStream" uid="uid://djb11rnhabuyl" path="res://Assets/Sounds/SFX/takeStuff.wav" id="5_dp47q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnq4"]
 
@@ -8,12 +12,24 @@
 top_level = true
 script = ExtResource("1_jemuq")
 
-[node name="Open" type="Button" parent="." unique_id=1951817072]
+[node name="Open_Close" type="Button" parent="." unique_id=1951817072]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
-text = "Open safe"
+text = "Open/Close safe"
 metadata/floatOptionId = "openClose"
+
+[node name="SafeOpen" type="AudioStreamPlayer" parent="Open_Close" unique_id=763293346]
+stream = ExtResource("2_msrf3")
+volume_db = 3.0
+
+[node name="SafeClose" type="AudioStreamPlayer" parent="Open_Close" unique_id=623841295]
+stream = ExtResource("3_dp47q")
+volume_db = 3.0
+
+[node name="SafeLock" type="AudioStreamPlayer" parent="Open_Close" unique_id=1590227146]
+stream = ExtResource("4_ib8o8")
+volume_db = 1.0
 
 [node name="Crack" type="Button" parent="." unique_id=1093985498]
 layout_mode = 2
@@ -24,3 +40,7 @@ text = "Crack safe"
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Grab money"
+
+[node name="GrabStuff" type="AudioStreamPlayer" parent="Grab" unique_id=1962517295]
+stream = ExtResource("5_dp47q")
+volume_db = 1.0

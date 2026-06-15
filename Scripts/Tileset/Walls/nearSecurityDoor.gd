@@ -19,7 +19,7 @@ var isDrilling: bool = false
 var firstDrill: bool = true
 
 var powerDown: bool = false
-
+var rebooting: bool = false
 func _ready() -> void:
 	super()
 	GlobalSignal.turnLight.connect(_on_global_light_toggle)
@@ -44,7 +44,7 @@ func execute_action(action_name: String, button: Button) -> void:
 				showNotif.emit("Seems like it's locked")
 			else:
 				open = !open
-				if powerDown == false:
+				if powerDown == false && rebooting == false:
 					alarm.play()
 				if open:
 					update_tile_visual(open_door_atlas, 2)
@@ -113,4 +113,10 @@ func _on_global_light_toggle(broadcastedId: String, overload: bool):
 	if secDoorId == broadcastedId:
 		powerDown = !powerDown
 		if powerDown == false:
-			alarm.play()
+			rebooting = true
+			await get_tree().create_timer(15).timeout
+			rebooting = false
+			if powerDown == false && open:
+				alarm.play()
+		else:
+			alarm.stop()

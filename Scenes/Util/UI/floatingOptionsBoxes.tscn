@@ -103,6 +103,7 @@ text = "Switch on / off power"
 
 [node name="ElectricGridDown" type="AudioStreamPlayer" parent="SwitchPower" unique_id=1894658450]
 stream = ExtResource("13_77ccv")
+volume_db = 5.0
 
 [node name="PowerOff" type="AudioStreamPlayer" parent="SwitchPower" unique_id=693374190]
 stream = ExtResource("15_8a4my")
@@ -121,14 +122,14 @@ text = "Cause short circuit"
 
 [node name="ElectricGridDown" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=1838492141]
 stream = ExtResource("13_77ccv")
+volume_db = 5.0
 
 [node name="PowerOff" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=216282363]
 stream = ExtResource("15_8a4my")
-volume_db = 6.0
+volume_db = 3.0
 
 [node name="PowerShortCircuit" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=1394186398]
 stream = ExtResource("16_4nloj")
-volume_db = -2.0
 
 [node name="RewiringSFX" type="AudioStreamPlayer" parent="ShortCircuit" unique_id=1281743637]
 stream = ExtResource("6_1weav")

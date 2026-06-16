@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cgcwg8guqshf3"]
 
 [ext_resource type="Script" uid="uid://b4vdrptdnqueg" path="res://Scripts/Util/floating_options.gd" id="1_0gbnh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnq4"]
+[ext_resource type="AudioStream" uid="uid://bxv6uquyqcc0b" path="res://Assets/Sounds/SFX/searchFile.wav" id="2_ppc5l"]
 
 [node name="FloatingOption" type="VBoxContainer" unique_id=996052063]
 top_level = true
@@ -11,6 +10,9 @@ script = ExtResource("1_0gbnh")
 [node name="Search" type="Button" parent="." unique_id=1951817072]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
 text = "Search files"
 metadata/floatOptionId = "openClose"
+
+[node name="SearchSfx" type="AudioStreamPlayer" parent="Search" unique_id=1439737187]
+stream = ExtResource("2_ppc5l")
+volume_db = 1.0

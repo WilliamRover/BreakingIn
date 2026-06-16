@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0m2kbin6qw7d" path="res://Scripts/Tileset/Furniture/nearSafe.gd" id="1_kl0ts"]
 [ext_resource type="PackedScene" uid="uid://vh682djgbaf" path="res://Scenes/Util/UI/floatingOptionsSafe.tscn" id="2_qn2mq"]
 
-[node name="Area2D" type="Area2D" unique_id=1435179070]
+[node name="NearSafe" type="Area2D" unique_id=1435179070]
 script = ExtResource("1_kl0ts")
 
 [node name="UIAnchor" type="Marker2D" parent="." unique_id=883573284]
@@ -18,7 +18,8 @@ polygon = PackedVector2Array(3, -1, 58, 33, 116, -2, 53, -35)
 offset_right = 117.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 24
-text = "Hold E: options"
+text = "E: Open/Close
+Hold E: options"
 metadata/_edit_use_anchors_ = true
 
 [node name="FloatingOption" parent="CanvasLayer" unique_id=996052063 instance=ExtResource("2_qn2mq")]

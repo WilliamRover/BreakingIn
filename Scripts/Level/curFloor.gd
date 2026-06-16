@@ -1,4 +1,4 @@
-extends Node2D
+class_name CurrentFloor extends Node2D
 
 @export var targetPhysLayer := 2
 @export var visionLayer:= 10

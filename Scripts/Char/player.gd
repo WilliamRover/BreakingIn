@@ -4,6 +4,9 @@ class_name Player extends CharacterBody2D
 const SPEED = 300
 #const JUMP_VELOCITY = -400.0
 var movable: bool = true
+
+@onready var camera: Camera2D = $Camera2D
+
 @onready var notif: Label = $CanvasLayerNotif/Notification
 @onready var notifAnchor: Marker2D = $NotifAnchor
 @onready var flashlight: PointLight2D = $FlashLight
@@ -104,6 +107,7 @@ func _physics_process(_delta: float) -> void:
 		#print(obj.name + " " + str(visionRay.get_collider()))
 func _on_window_stop_moving(canMove: bool) -> void:
 	movable = canMove
+	camera.setZoom(canMove)
 	
 func _on_label_set_text(text: String) -> void:
 	notif.text = text

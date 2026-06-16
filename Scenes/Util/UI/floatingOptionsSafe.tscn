@@ -6,8 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://pu1vgwbuw63p" path="res://Assets/Sounds/SFX/safeLockOpen.wav" id="4_ib8o8"]
 [ext_resource type="AudioStream" uid="uid://djb11rnhabuyl" path="res://Assets/Sounds/SFX/takeStuff.wav" id="5_dp47q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnq4"]
-
 [node name="FloatingOption" type="VBoxContainer" unique_id=996052063]
 top_level = true
 script = ExtResource("1_jemuq")
@@ -15,7 +13,6 @@ script = ExtResource("1_jemuq")
 [node name="Open_Close" type="Button" parent="." unique_id=1951817072]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxFlat_5vnq4")
 text = "Open/Close safe"
 metadata/floatOptionId = "openClose"
 

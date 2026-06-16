@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dn1iqvfxeh0qn" path="res://Scripts/Tileset/Furniture/nearBookshelf.gd" id="1_wl4ee"]
 [ext_resource type="PackedScene" uid="uid://cgcwg8guqshf3" path="res://Scenes/Util/UI/floatingOptionsBookshelf.tscn" id="2_wl4ee"]
 
-[node name="Area2D" type="Area2D" unique_id=1435179070]
+[node name="NearBookshelf" type="Area2D" unique_id=1435179070]
 script = ExtResource("1_wl4ee")
 
 [node name="UIAnchor" type="Marker2D" parent="." unique_id=883573284]

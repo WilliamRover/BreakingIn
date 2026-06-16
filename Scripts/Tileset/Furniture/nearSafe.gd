@@ -11,12 +11,12 @@ var filled: bool
 var safeId: String = "safe"
 var safeGame: Node
 var isCracking: bool = false
-
+signal safeCodeGenerated(safeId: String)
 func _ready() -> void:
 	super()
 	safeId = "Safe" + str(randi() % 10000)
 	#print(safeId)
-	generateSafeCode()
+	#generateSafeCode()
 
 func interactAction() -> void:
 	_on_action_button_pressed("Open_Close", floatingOption.get_node("Open_Close"))
@@ -99,4 +99,5 @@ func generateSafeCode() -> void:
 		var ranNum = randi_range(0, 99)
 		var strNum = "%02d" % ranNum
 		genCode.append(strNum)
+	safeCodeGenerated.emit(genCode)
 	LevelStat.updLevelStat(safeId, "safeCode", genCode)

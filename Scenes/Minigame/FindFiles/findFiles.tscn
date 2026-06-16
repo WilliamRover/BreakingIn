@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b03x6sleiufdn"]
+
+[ext_resource type="Script" uid="uid://7xd17v0lplq8" path="res://Scripts/Minigame/FindFiles/find_files.gd" id="1_hsfku"]
+
+[sub_resource type="SystemFont" id="SystemFont_hsfku"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+
+[node name="FindFiles" type="Node2D" unique_id=592813098]
+script = ExtResource("1_hsfku")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=748313414]
+offset_right = 1918.0
+offset_bottom = 1087.0
+
+[node name="Control" type="Control" parent="ScrollContainer" unique_id=1545052371]
+custom_minimum_size = Vector2(1800, 3500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Paper" type="ColorRect" parent="ScrollContainer/Control" unique_id=1552184660]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 326.0
+offset_right = 1724.0
+offset_bottom = 1478.4707
+scale = Vector2(1.0289401, 1.7267252)
+color = Color(0.8125, 0.8125, 0.8125, 1)
+
+[node name="Intel" type="Label" parent="ScrollContainer/Control" unique_id=1033427816]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 413.0
+offset_right = 1612.0
+offset_bottom = 1829.0
+theme_override_colors/font_color = Color(0.13671875, 0.13671875, 0.13671875, 1)
+theme_override_fonts/font = SubResource("SystemFont_hsfku")
+theme_override_font_sizes/font_size = 32
+text = "lorem ipsum dolor sit amet alahu akbar nam mo adi da phat ching chong ding dong ur phone linging"
+autowrap_mode = 2
+
+[node name="Instruction" type="Label" parent="." unique_id=866431068]
+offset_left = 811.0
+offset_top = 958.0
+offset_right = 1075.0
+offset_bottom = 1003.0
+theme_override_colors/font_color = Color(0.51171875, 0.51171875, 0.51171875, 1)
+theme_override_font_sizes/font_size = 32
+text = "Press Q to cancel"

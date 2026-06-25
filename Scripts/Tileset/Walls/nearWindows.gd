@@ -19,16 +19,20 @@ var firstDrill: bool = true
 @onready var pointA: Marker2D = $PointA
 @onready var pointB: Marker2D = $PointB
 
-
+var curtain: bool
 # Overide thingy
 func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
 	actions.append("Open_Close")
 	if locked:
-		actions.append("Drill")
-		actions.append("Picklock")
-		actions.append("Pry")
-		actions.append("Kick_Break")
+		if PlayerStat.checkItemInLoadout("drill"):
+			actions.append("Drill")
+		if PlayerStat.checkItemInLoadout("lockPick"):
+			actions.append("Picklock")
+		if PlayerStat.checkItemInLoadout("crowbar"):
+			actions.append("Pry")
+		if PlayerStat.checkSkill("breaker"):
+			actions.append("Kick_Break")
 	else:
 		if open:
 			actions.append("Climb")
@@ -54,6 +58,7 @@ func execute_action(action_name: String, button: Button) -> void:
 				showNotif.emit("Seems like it's locked")
 			else:
 				open = !open
+				GlobalSignal.doorWinInteracted.emit(self, open)
 				if open:
 					update_tile_visual(open_win_atlas, 0)
 					awaitSfx("OpenWinSFX", button)
@@ -95,9 +100,13 @@ func execute_action(action_name: String, button: Button) -> void:
 			open = true
 		"Pry":
 			awaitSfx("PrySFX", button)
-			update_tile_visual(open_win_atlas, 0)
 			locked = false
-			open = true
+			if !PlayerStat.checkSkill("pryDoor"):
+				update_tile_visual(open_win_atlas, 0)
+				open = true
+		#"Curtain":
+			#if curtain:
+				#awaitSfx("OpenCurtainSFX", button)
 	stopMoving.emit(true)
 	enableFloatingOption()
 	
@@ -154,6 +163,17 @@ func cancelMinigame() -> void:
 		curPosDrill = drillGame.getDrillPos()
 		isDrilling = false
 	closeMinigame()
+
+func checkTileData():
+	super()
+	curTileMap = get_parent() as TileMapLayer
+	if curTileMap:
+		var local_pos = curTileMap.to_local(global_position)
+		map_pos = curTileMap.local_to_map(local_pos)
+		
+		var data = curTileMap.get_cell_tile_data(map_pos)
+		
+		curtain = data.get_custom_data("curtain")
 
 func _on_drill_success() -> void:
 	await get_tree().create_timer(0.55).timeout

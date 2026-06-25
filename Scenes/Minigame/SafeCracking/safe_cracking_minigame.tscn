@@ -75,15 +75,19 @@ hear a click"
 [node name="SafeTurn" type="AudioStreamPlayer" parent="." unique_id=1494972968]
 stream = ExtResource("4_a8x2m")
 volume_db = 2.0
+bus = &"Sfx"
 
 [node name="SafeCorrect" type="AudioStreamPlayer" parent="." unique_id=973286156]
 stream = ExtResource("5_54gr1")
 volume_db = 5.0
+bus = &"Sfx"
 
 [node name="SafeLocked" type="AudioStreamPlayer" parent="." unique_id=1815183207]
 stream = ExtResource("6_ldeif")
 volume_db = 2.0
+bus = &"Sfx"
 
 [node name="SafeUnlocked" type="AudioStreamPlayer" parent="." unique_id=461144176]
 stream = ExtResource("7_jk5og")
 volume_db = 2.0
+bus = &"Sfx"

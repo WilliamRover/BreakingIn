@@ -29,8 +29,8 @@
 	},
 	{
 		"id": "kickDoor",
-		"skillName": "Door kicker",
-		"desc": "Can kick door",
+		"skillName": "Breaker",
+		"desc": "Can kick door and break glasses",
 		"cost": 1,
 		"prerequisites": ["electricalEngineer", "slowDetect"]
 	},

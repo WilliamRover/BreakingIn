@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c44pi4ldaxtw7"]
 
 [ext_resource type="Script" uid="uid://b6jb5xyaepk65" path="res://Scripts/Char/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://j26ittf5q816" path="res://Scenes/Char/Player/levelUI.tscn" id="2_cqgd2"]
 [ext_resource type="Texture2D" uid="uid://56lv1vla2xti" path="res://Assets/Lights/VisionCone/visionCone.png" id="2_wymri"]
 [ext_resource type="Texture2D" uid="uid://oxoffntxy6n5" path="res://Assets/Character/Player/Idle/D-01.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bnt8n0nmoyb5b" path="res://Assets/Character/Player/Idle/S-01.png" id="3_3smsa"]
@@ -73,7 +74,10 @@ pivot_offset = Vector2(57.54, 32.82)
 size_flags_horizontal = 4
 text = "sdkfz notification"
 
+[node name="CanvasLayerSceenUI" parent="." unique_id=77139445 instance=ExtResource("2_cqgd2")]
+
 [node name="VisionRay" type="RayCast2D" parent="." unique_id=536727448]
+visible = false
 
 [node name="VisionPivot" type="Node2D" parent="." unique_id=892573128]
 position = Vector2(-9, -130)
@@ -153,6 +157,7 @@ script = ExtResource("8_htygx")
 [node name="Walk" type="AudioStreamPlayer" parent="." unique_id=2039280071]
 stream = ExtResource("10_ss382")
 volume_db = -5.0
+bus = &"Sfx"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="VisionCone/VisionDetect" to="." method="_on_vision_detect_body_entered"]

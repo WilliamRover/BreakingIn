@@ -19,9 +19,11 @@ text = "Picklock"
 
 [node name="UnlockSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=354841890]
 stream = ExtResource("5_5ubsp")
+bus = &"Sfx"
 
 [node name="lockpickingSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=464336154]
 stream = ExtResource("6_13bbs")
+bus = &"Sfx"
 
 [node name="Open_Close" type="Button" parent="." unique_id=1321874865]
 layout_mode = 2
@@ -31,14 +33,17 @@ text = "Open/Close"
 [node name="OpenDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1901076404]
 stream = ExtResource("3_384wm")
 volume_db = 5.0
+bus = &"Sfx"
 
 [node name="CloseDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=2081732309]
 stream = ExtResource("4_0jda7")
 volume_db = 5.0
+bus = &"Sfx"
 
 [node name="LockSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1758749691]
 stream = ExtResource("5_pn57u")
 volume_db = 5.0
+bus = &"Sfx"
 
 [node name="Drill" type="Button" parent="." unique_id=967714030]
 layout_mode = 2

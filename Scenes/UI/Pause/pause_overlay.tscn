@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://crmyiett3xbd3"]
+
+[ext_resource type="Script" uid="uid://bhoguxrq14aox" path="res://Scripts/UI/Pause/pause_overlay.gd" id="1_yk06d"]
+[ext_resource type="PackedScene" uid="uid://3hpjk3m3btby" path="res://Scenes/UI/Settings/settings.tscn" id="2_81etp"]
+
+[node name="PauseOverlay" type="Control" unique_id=9595380]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yk06d")
+
+[node name="BgColor" type="ColorRect" parent="." unique_id=197026140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11, 0.11, 0.11, 0.37254903)
+
+[node name="PauseMain" type="ColorRect" parent="." unique_id=1624276705]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 119.0
+offset_right = 1778.0
+offset_bottom = 966.0
+color = Color(0.58203125, 0.58203125, 0.58203125, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMain" unique_id=713401063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMain/MarginContainer" unique_id=733473397]
+layout_mode = 2
+theme_override_constants/separation = 66
+alignment = 1
+
+[node name="GamePaused" type="Label" parent="PauseMain/MarginContainer/VBoxContainer" unique_id=522263857]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 115
+text = "Game paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMain/MarginContainer/VBoxContainer" unique_id=2008396591]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 49
+
+[node name="Resume" type="Button" parent="PauseMain/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1558015117]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "RESUME"
+
+[node name="Settings" type="Button" parent="PauseMain/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1490536225]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
+[node name="Replay" type="Button" parent="PauseMain/MarginContainer/VBoxContainer/HBoxContainer" unique_id=332286924]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "REPLAY"
+
+[node name="Menu" type="Button" parent="PauseMain/MarginContainer/VBoxContainer/HBoxContainer" unique_id=971575947]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "RETURN TO MENU"
+
+[node name="Settings" parent="." unique_id=1617429620 instance=ExtResource("2_81etp")]
+visible = false
+layout_mode = 0

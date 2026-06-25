@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://bxl8bxtrbe5we"]
+
+[ext_resource type="Script" uid="uid://d4diiqucvbv46" path="res://Scripts/PoliceCar/police_car.gd" id="1_4xc7b"]
+[ext_resource type="AudioStream" uid="uid://bpaixbg2naqad" path="res://Assets/Sounds/SFX/policeSirenWall.wav" id="1_bapfw"]
+[ext_resource type="Texture2D" uid="uid://cjegq7e2h60p2" path="res://Assets/PoliceCar/blueLightBack.png" id="1_ej8k4"]
+[ext_resource type="Texture2D" uid="uid://b7gb08v5hbhnw" path="res://Assets/PoliceCar/redLightBack.png" id="2_4xc7b"]
+[ext_resource type="Texture2D" uid="uid://doxeey33gj1f5" path="res://Assets/PoliceCar/policeCar.png" id="3_4b23k"]
+[ext_resource type="Texture2D" uid="uid://dj8jw63fylhy2" path="res://Assets/PoliceCar/frontBulb.png" id="5_cmeoi"]
+[ext_resource type="Texture2D" uid="uid://da88to3o3d62s" path="res://Assets/Lights/Flashlight/flashlight texture.png" id="6_f3ktl"]
+[ext_resource type="Texture2D" uid="uid://5xq35uo0mbu7" path="res://Assets/PoliceCar/redBulb.png" id="7_p1ql8"]
+[ext_resource type="Texture2D" uid="uid://c75mvovqv6jvr" path="res://Assets/PoliceCar/redLightFront.png" id="8_wqf06"]
+[ext_resource type="Texture2D" uid="uid://ct4xfculojwuf" path="res://Assets/PoliceCar/blueBulb.png" id="9_haysh"]
+[ext_resource type="Texture2D" uid="uid://cajpu0ksn7k61" path="res://Assets/PoliceCar/blueLightFront.png" id="10_jxj54"]
+
+[sub_resource type="Animation" id="Animation_47c31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4xc7b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackLight:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SurroundLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TopLight:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.1]
+}
+
+[sub_resource type="Animation" id="Animation_8tgdw"]
+resource_name = "frontLightAndBulb"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_ej8k4"), ExtResource("2_4xc7b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackLight:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-178.18, 100.455)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8.4, 3.0, 5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TopLight:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_haysh"), ExtResource("7_p1ql8")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SurroundLight:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_jxj54"), ExtResource("8_wqf06")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TopLight:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(56.475, -27.005), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SurroundLight:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(75, -32.635), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SurroundLight:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7.38, 3.0, 5.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TopLight:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.1, 1.5, 3.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej8k4"]
+_data = {
+&"RESET": SubResource("Animation_47c31"),
+&"frontLightAndBulb": SubResource("Animation_8tgdw")
+}
+
+[node name="PoliceCar" type="AnimatableBody2D" unique_id=573539653]
+script = ExtResource("1_4xc7b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2040059422]
+visible = false
+light_mask = 3
+offset_left = -527.0
+offset_top = -378.00003
+offset_right = 564.0
+offset_bottom = 404.99997
+scale = Vector2(3.5064366, 2.8064854)
+color = Color(0.23828125, 0.23828125, 0.23828125, 1)
+
+[node name="BackLight" type="PointLight2D" parent="." unique_id=1534351957]
+modulate = Color(1, 1, 1, 0.15)
+y_sort_enabled = true
+position = Vector2(139, -37)
+color = Color(0.94140625, 0.28315735, 0.28315735, 1)
+energy = 5.0
+texture = ExtResource("2_4xc7b")
+
+[node name="RedLightBack" type="PointLight2D" parent="." unique_id=1183611042]
+visible = false
+y_sort_enabled = true
+position = Vector2(-98, 75)
+color = Color(0.94140625, 0.28315735, 0.28315735, 1)
+energy = 5.0
+texture = ExtResource("2_4xc7b")
+
+[node name="PoliceCar" type="Sprite2D" parent="." unique_id=1966217544]
+light_mask = 1024
+y_sort_enabled = true
+texture = ExtResource("3_4b23k")
+
+[node name="SirenWail" type="AudioStreamPlayer2D" parent="." unique_id=669202654]
+stream = ExtResource("1_bapfw")
+volume_db = 5.0
+max_distance = 8500.0
+bus = &"Sfx"
+
+[node name="FrontBulb" type="PointLight2D" parent="." unique_id=1862016586]
+position = Vector2(216, 79)
+range_item_cull_mask = 1024
+texture = ExtResource("5_cmeoi")
+
+[node name="FrontBulbRay3" type="PointLight2D" parent="FrontBulb" unique_id=542373784]
+position = Vector2(516, 468)
+rotation = 0.66410434
+scale = Vector2(0.37846342, 0.28959438)
+range_item_cull_mask = 1025
+texture = ExtResource("6_f3ktl")
+
+[node name="FrontBulbRay4" type="PointLight2D" parent="FrontBulb" unique_id=1274160215]
+light_mask = 524288
+position = Vector2(669, 354)
+rotation = 0.56185186
+scale = Vector2(0.37846342, 0.28959438)
+range_item_cull_mask = 1025
+texture = ExtResource("6_f3ktl")
+
+[node name="TopLight" type="PointLight2D" parent="." unique_id=1224478255]
+light_mask = 524288
+position = Vector2(-65, -143)
+energy = 3.1
+range_item_cull_mask = 1024
+texture = ExtResource("9_haysh")
+offset = Vector2(56.475, -27.005)
+
+[node name="SurroundLight" type="PointLight2D" parent="." unique_id=1468036355]
+light_mask = 524288
+position = Vector2(-32, -24)
+color = Color(0.94140625, 0.28315735, 0.28315735, 1)
+energy = 5.0
+range_item_cull_mask = 1024
+texture = ExtResource("10_jxj54")
+offset = Vector2(75, -32.635)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1211139409]
+libraries/ = SubResource("AnimationLibrary_ej8k4")
+autoplay = &"frontLightAndBulb"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1099156901]
+visible = false
+polygon = PackedVector2Array(-355, -68, -169, -175, 321, 86, 123, 205)

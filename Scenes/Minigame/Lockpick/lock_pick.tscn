@@ -84,6 +84,7 @@ position = Vector2(1290, 48)
 [node name="PinPushed" type="AudioStreamPlayer" parent="." unique_id=1945045859]
 stream = ExtResource("6_xukpy")
 volume_db = -8.0
+bus = &"Sfx"
 
 [connection signal="body_entered" from="PinZone" to="PinZone" method="_on_body_entered"]
 [connection signal="pinEnter" from="PinZone" to="." method="_on_pin_zone_pin_enter"]

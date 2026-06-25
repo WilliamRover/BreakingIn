@@ -6,6 +6,7 @@ class_name UIMissions extends Control
 @onready var missionCardContainer: CenterContainer = $MissionCardContainer
 @onready var dotContainer: HBoxContainer = $TimelineScroll/DotContainer
 @onready var backMenuBtn: Button = $BackToMenu/Button
+@onready var missionDetail: Control = $MissionDetail
 var missions: Array = []
 var currentIdx := 0
 var insCard: Node
@@ -56,7 +57,16 @@ func changeMission(idx: int) -> void:
 		
 func updateUi() -> void:
 	var data = missions[currentIdx]
-	insCard.updateData(data["title"], data["time"], data["place"], data["thumbnail"], data["scenePath"])
+	if !insCard.missionChosen.is_connected(choseMission):
+		insCard.missionChosen.connect(choseMission)
+	
+	var bestTime: float = -1
+	var existMission = PlayerStat.data["missionStatus"].filter(func(m): return m.get("missionTitle") == data["title"])
+	#print(str(existMission[0]["missionTitle"]["bestTime"]))
+	#print(existMission)
+	if existMission.size() > 0:
+		bestTime = existMission[0]["bestTime"]
+	insCard.updateData(data["title"], data["time"], data["place"], data["thumbnail"], data["scenePath"], bestTime)
 	for i in range(dotContainer.get_child_count()):
 		var dot = dotContainer.get_child(i)
 		dot.setActive(i == currentIdx)
@@ -72,3 +82,9 @@ func updateUi() -> void:
 
 func backToMenu() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
+
+func choseMission() -> void:
+	var data = missions[currentIdx]
+	missionDetail.assignValues(data["thumbnail"], data["desc"], data["requiredLoadoutDesc"], data["requiredLoadout"])
+	missionDetail.visible = true
+	#get_tree().change_scene_to_file("res://Scenes/UI/Misc/loading_screen.tscn")

@@ -19,14 +19,17 @@ metadata/floatOptionId = "openClose"
 [node name="SafeOpen" type="AudioStreamPlayer" parent="Open_Close" unique_id=763293346]
 stream = ExtResource("2_msrf3")
 volume_db = 3.0
+bus = &"Sfx"
 
 [node name="SafeClose" type="AudioStreamPlayer" parent="Open_Close" unique_id=623841295]
 stream = ExtResource("3_dp47q")
 volume_db = 3.0
+bus = &"Sfx"
 
 [node name="SafeLock" type="AudioStreamPlayer" parent="Open_Close" unique_id=1590227146]
 stream = ExtResource("4_ib8o8")
 volume_db = 1.0
+bus = &"Sfx"
 
 [node name="Crack" type="Button" parent="." unique_id=1093985498]
 layout_mode = 2
@@ -41,3 +44,4 @@ text = "Grab money"
 [node name="GrabStuff" type="AudioStreamPlayer" parent="Grab" unique_id=1962517295]
 stream = ExtResource("5_dp47q")
 volume_db = 1.0
+bus = &"Sfx"

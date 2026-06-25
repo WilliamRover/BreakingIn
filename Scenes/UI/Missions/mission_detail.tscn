@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dsxhkqurn2cwb"]
+
+[ext_resource type="Texture2D" uid="uid://cs77b1e1rbljs" path="res://Assets/Placebo/tutorial placebo-01.png" id="1_mjmh1"]
+[ext_resource type="Script" uid="uid://cv6vdw5bw3ouo" path="res://Scripts/UI/Missions/mission_detail.gd" id="1_v6bsi"]
+
+[node name="MissionDetail" type="Control" unique_id=1465102130]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6bsi")
+
+[node name="Bg" type="ColorRect" parent="." unique_id=383444454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34, 0.34, 0.34, 0.5176471)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=229868783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 85
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 85
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=845156357]
+layout_mode = 2
+color = Color(0.73828125, 0.73828125, 0.73828125, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect" unique_id=496392147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 42
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer" unique_id=932523328]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Return" type="Button" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1016961251]
+custom_minimum_size = Vector2(154.6, 59.185)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 1487
+theme_override_font_sizes/font_size = 22
+text = "<- Return"
+
+[node name="MissionImg" type="TextureRect" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1107923854]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_mjmh1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Desc" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1417168235]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.05859375, 0.05859375, 0.05859375, 1)
+theme_override_font_sizes/font_size = 30
+text = "You simply break into a resident house. 
+Simple job: just steal a few valuables and get out (placebo)"
+
+[node name="RecLoadout" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=369126476]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_font_sizes/font_size = 28
+text = "Recommended loadout: 
+Electrical Engineer: Wire x5 and Drill; 
+Mechanical Engineer: Lockpick (placebo)"
+
+[node name="Start" type="Button" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1240042124]
+custom_minimum_size = Vector2(177.09, 60.425)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Start mission"

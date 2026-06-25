@@ -7,8 +7,11 @@ var movable: bool = true
 
 @onready var camera: Camera2D = $Camera2D
 
+# UI HERE
 @onready var notif: Label = $CanvasLayerNotif/Notification
 @onready var notifAnchor: Marker2D = $NotifAnchor
+@onready var screenUI: LevelUI = $CanvasLayerSceenUI
+
 @onready var flashlight: PointLight2D = $FlashLight
 @onready var flashLight2: PointLight2D = $FlashLight/PointLight2D2
 @onready var visionCone: PointLight2D = $VisionCone
@@ -26,15 +29,18 @@ var curFloor := startingFloor
 @export var inside: bool = false
 @export var onStair: bool = false
 var climbing: bool = false
+
 func _ready() -> void:
 	flashlight.visible = false
 	notif.visible = false
 	updateLightningFloor(startingFloor)
+	
+	
 func _physics_process(_delta: float) -> void:
 	var screen_pos = notifAnchor.get_global_transform_with_canvas().origin
 	#notif.position = originalNotifPosition
 	notif.global_position = screen_pos - (notif.size / 2.0)
-	if Input.is_action_just_pressed("ILLUMINATOR MENU - T"):
+	if Input.is_action_just_pressed("ILLUMINATOR MENU - T") && PlayerStat.checkItemInLoadout("flashlight"):
 		flashlight.visible = !flashlight.visible
 	var direction := Input.get_vector("PLAYER - A", "PLAYER - D", "PLAYER - W", "PLAYER - S")
 	if movable:
@@ -131,6 +137,7 @@ func updateLightningFloor(floorLayer: int) -> void:
 	#print(z_index)
 	curFloor = floorLayer
 	#print(curFloor)
+	#print(curFloor)
 	var floorBitmask:= 1 << (floorLayer - 1)
 	var wallBitmask := 1 << ((floorLayer - 1) + 10)
 	var visionBitmask := 1 << ((visionLayer - 1) + 5)
@@ -142,11 +149,18 @@ func updateLightningFloor(floorLayer: int) -> void:
 	if flashlight:
 		flashlight.range_item_cull_mask = combinedMask
 		flashlight.shadow_item_cull_mask = combinedMask
-		
+	
 	var shineMask := wallBitmask
 	if visionCone2:
 		visionCone2.range_item_cull_mask = shineMask
 	if flashLight2:
+		#print(shineMask)
 		flashLight2.range_item_cull_mask = shineMask
 	light_mask = floorBitmask
 	animSprite.light_mask = wallBitmask
+
+func startTimer(sec: int) -> void:
+	screenUI.startTimer(sec)
+
+func saveElapsedTime() -> void:
+	screenUI.recordElapsedTime()

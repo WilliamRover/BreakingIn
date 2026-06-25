@@ -52,6 +52,7 @@ func execute_action(action_name: String, button: Button) -> void:
 			awaitSfx("GrabStuff", button)
 			update_tile_visual(open_empty_safe_atlas, 0)
 			filled = false
+			GlobalSignal.safeItemRetrieved.emit(self)
 			
 	stopMoving.emit(true)
 	enableFloatingOption()
@@ -85,6 +86,7 @@ func cancelMinigame() -> void:
 	
 func _on_safe_cracked() -> void:
 	await get_tree().create_timer(0.55).timeout
+	GlobalSignal.safeCracked.emit(self)
 	stopMoving.emit(true)
 	minigameProg = false
 	locked = false

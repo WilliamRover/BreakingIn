@@ -28,8 +28,10 @@ func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
 	actions.append("Open_Close")
 	if locked:
-		actions.append("Drill")
-		actions.append("Picklock")
+		if PlayerStat.checkItemInLoadout("drill"):
+			actions.append("Drill")
+		if PlayerStat.checkItemInLoadout("lockPick"):
+			actions.append("Picklock")
 	return actions
 
 func interactAction() -> void:
@@ -44,8 +46,10 @@ func execute_action(action_name: String, button: Button) -> void:
 				showNotif.emit("Seems like it's locked")
 			else:
 				open = !open
+				GlobalSignal.doorWinInteracted.emit(self, open)
 				if powerDown == false && rebooting == false:
 					alarm.play()
+					get_tree().create_timer(1.5).timeout.connect(callPolice)
 				if open:
 					update_tile_visual(open_door_atlas, 2)
 					awaitSfx("OpenDoorSFX", button)
@@ -109,7 +113,7 @@ func cancelMinigame() -> void:
 		isDrilling = false
 	closeMinigame()
 
-func _on_global_light_toggle(broadcastedId: String, overload: bool):
+func _on_global_light_toggle(broadcastedId: String, _overload: bool):
 	if secDoorId == broadcastedId:
 		powerDown = !powerDown
 		if powerDown == false:
@@ -120,3 +124,6 @@ func _on_global_light_toggle(broadcastedId: String, overload: bool):
 				alarm.play()
 		else:
 			alarm.stop()
+
+func callPolice() -> void:
+	GlobalSignal.triggerCallPoliceSignal()

@@ -3,7 +3,13 @@
 	"title": "The rookie (TUTORIAL)",
 	"time": "00:45, 12th October, 1010",
 	"place": "Lavanda, United Island",
-	"desc": "You simply break into a resident house. Simple job: just steal a few valuables and get out",
+	"desc": "You simply break into a resident house. \nSimple job: just steal a few valuables and get out",
+	"requiredLoadoutDesc": "Required loadout: \nGeneral: Flashlight\nElectrical Engineer: Wire x5 and Drill; \nMechanical Engineer: Lockpick",
+	"requiredLoadout": {
+		"general": ["flashlight"],
+		"electricalEngineer": ["wirex5", "drill"],
+		"mechanicalEngineer": ["lockPick"]
+	},
 	"thumbnail": "res://Assets/Placebo/tutorial placebo-01.png",
 	"scenePath": "res://Scenes/Levels/Tutorial/main-tutorial.tscn"
   },
@@ -12,6 +18,7 @@
 	"time": "11:30, 20th November, 1011",
 	"place": "Lavanda, United Island",
 	"desc": "",
+	"requiredLoadout": "Electrical Engineer: Wire x5 and Drill; Mechanical Engineer: Lockpick",
 	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
 	"scenePath": ""
   },
@@ -20,6 +27,7 @@
 	"time": "18:30, 26th Feburary, 1011",
 	"place": "Lavanda, United Island",
 	"desc": "",
+	"recommendLoadout": "Electrical Engineer: Wire x5 and Drill; Mechanical Engineer: Lockpick",
 	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
 	"scenePath": ""
   }

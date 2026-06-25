@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://dw4vmhrjiymcy"]
 
+[ext_resource type="Script" uid="uid://bai2x0wuuqb54" path="res://Scripts/Char/Security/security.gd" id="1_3iocf"]
 [ext_resource type="Texture2D" uid="uid://bud6l1a2wabsj" path="res://Assets/Character/Security/Idle/D-01.png" id="1_keqea"]
 [ext_resource type="Texture2D" uid="uid://coiwblssc4tj6" path="res://Assets/Character/Security/Idle/S-01.png" id="2_3iocf"]
 [ext_resource type="Texture2D" uid="uid://bhc70wfpuqa5m" path="res://Assets/Character/Security/Idle/SD-01.png" id="3_tf0yh"]
 [ext_resource type="Texture2D" uid="uid://bm1q2s2vjl8qi" path="res://Assets/Character/Security/Idle/W-01.png" id="4_8j6kj"]
 [ext_resource type="Texture2D" uid="uid://btharkgk3lg7d" path="res://Assets/Character/Security/Idle/WD-01.png" id="5_th83v"]
+[ext_resource type="AudioStream" uid="uid://cj0gre4kgxt2r" path="res://Assets/Sounds/SFX/walk.wav" id="7_tf0yh"]
+[ext_resource type="Script" uid="uid://chornviwio24r" path="res://Scripts/Char/Security/StateMachine/state_machine.gd" id="8_8j6kj"]
+[ext_resource type="AudioStream" uid="uid://dkkbht5kix0ig" path="res://Assets/Sounds/SFX/surprise.wav" id="8_xowax"]
+[ext_resource type="Script" uid="uid://dalrkyh3iesip" path="res://Scripts/Char/Security/StateMachine/stateIdle.gd" id="9_th83v"]
+[ext_resource type="Script" uid="uid://cov4ajvjo751y" path="res://Scripts/Char/Security/StateMachine/stateRandomWalk.gd" id="10_7e8ee"]
+[ext_resource type="Script" uid="uid://xoemu01sloj8" path="res://Scripts/Char/Security/StateMachine/stateNoticing.gd" id="11_0ynl6"]
+[ext_resource type="Script" uid="uid://cyirhuh3ukiev" path="res://Scripts/Char/Security/StateMachine/stateDisabled.gd" id="11_uj81u"]
+[ext_resource type="Script" uid="uid://bab4i7p8pcuwv" path="res://Scripts/Char/Security/StateMachine/stateAlert.gd" id="13_oycuo"]
+[ext_resource type="Script" uid="uid://c4uhb4vwmg5cj" path="res://Scripts/Char/Security/StateMachine/stateCallPolice.gd" id="14_oycuo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tf0yh"]
+radius = 29.046019
+height = 120.124
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e8ee"]
+bg_color = Color(0.47869873, 0.98828125, 0.6364268, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_keqea"]
 light_mode = 2
@@ -53,15 +70,66 @@ animations = [{
 }]
 
 [node name="Security" type="CharacterBody2D" unique_id=954244259 groups=["Obj"]]
-modulate = Color(0.578125, 0.578125, 0.578125, 1)
+y_sort_enabled = true
+script = ExtResource("1_3iocf")
+
+[node name="KnockoutArea" type="Area2D" parent="." unique_id=1343759392]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockoutArea" unique_id=1953877014]
+rotation = 1.5999881
+scale = Vector2(1.7270471, 1.0695301)
+shape = SubResource("CapsuleShape2D_tf0yh")
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=464577583]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=107746345]
+position = Vector2(13, 21)
+scale = Vector2(1.0961827, 0.9481821)
+polygon = PackedVector2Array(-28.684494, -32.320786, 1346.8698, -743.528, 1351.9941, 660.21075)
+
+[node name="VisionRay" type="RayCast2D" parent="." unique_id=904254165]
+
+[node name="DetectionBar" type="ProgressBar" parent="." unique_id=772363003]
+visible = false
+z_index = 10
+offset_left = -32.0
+offset_top = -167.0
+offset_right = 31.0
+offset_bottom = -163.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_7e8ee")
+max_value = 2.0
+show_percentage = false
+
+[node name="Notif" type="Label" parent="." unique_id=68702150]
+visible = false
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -187.0
+offset_right = 57.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(54.315, 10.28)
+text = "blah blah blah"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1960599523]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143571185]
+modulate = Color(0.8359375, 0.8359375, 0.8359375, 1)
 light_mask = 16384
 material = SubResource("CanvasItemMaterial_keqea")
-position = Vector2(-3.999999, -79)
+position = Vector2(-1, -4)
 scale = Vector2(0.077, 0.077)
 sprite_frames = SubResource("SpriteFrames_7e8ee")
 animation = &"Idle - S"
+offset = Vector2(4.345, -1000)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1860881941]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2079732075]
 z_index = 1
@@ -69,3 +137,37 @@ y_sort_enabled = true
 position = Vector2(-1.59326, -5.943888)
 scale = Vector2(0.8292193, 0.5312378)
 polygon = PackedVector2Array(-25.815536, -3.8704176, 16, -6, 21, -5, 24, -2, 24, 2, 23, 6, 22, 6, 17, 8, 13, 10, -29.4334, 7.4239607)
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="." unique_id=870042362]
+stream = ExtResource("7_tf0yh")
+volume_db = 5.765
+bus = &"Sfx"
+
+[node name="Surprised" type="AudioStreamPlayer2D" parent="." unique_id=1833527149]
+stream = ExtResource("8_xowax")
+bus = &"Sfx"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1050606243 node_paths=PackedStringArray("innitState")]
+script = ExtResource("8_8j6kj")
+innitState = NodePath("StateRandomWalk")
+
+[node name="StateIdle" type="Node" parent="StateMachine" unique_id=1563569828]
+script = ExtResource("9_th83v")
+
+[node name="StateRandomWalk" type="Node" parent="StateMachine" unique_id=528245046]
+script = ExtResource("10_7e8ee")
+
+[node name="StateDisabled" type="Node" parent="StateMachine" unique_id=1225173053]
+script = ExtResource("11_uj81u")
+
+[node name="StateNoticing" type="Node" parent="StateMachine" unique_id=1310327688]
+script = ExtResource("11_0ynl6")
+
+[node name="StateAlert" type="Node" parent="StateMachine" unique_id=1054503876]
+script = ExtResource("13_oycuo")
+
+[node name="StateCallPolice" type="Node" parent="StateMachine" unique_id=920283081]
+script = ExtResource("14_oycuo")
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]

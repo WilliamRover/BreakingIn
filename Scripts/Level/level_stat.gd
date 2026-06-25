@@ -8,7 +8,9 @@ func _ready() -> void:
 
 func defaultSave() -> void:
 	# create save file for the first time here
+	confFile.set_value("missionTitle", "title", "")
 	confFile.set_value("completion", "complete", false)
+	confFile.set_value("elapsedTime", "time", 0)
 	#confFile.set_value("safeCode", "safeCode", [])
 	saveGame()
 

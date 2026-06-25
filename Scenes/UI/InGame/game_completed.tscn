@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://2vu61jo7eu8v"]
+
+[ext_resource type="Script" uid="uid://ir5c4mbmkfcn" path="res://Scripts/UI/Level/game_completed.gd" id="1_svltd"]
+
+[node name="GameCompleted" type="CanvasLayer" unique_id=125859723]
+visible = false
+script = ExtResource("1_svltd")
+
+[node name="Control" type="Control" parent="." unique_id=1907609928]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=979814550]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 0.39607844)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1451224374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -264.5
+offset_right = 375.0
+offset_bottom = 264.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 95
+
+[node name="GameCompleted" type="Label" parent="Control/VBoxContainer" unique_id=1240283995]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "MISSION SUCCESS"
+horizontal_alignment = 1
+
+[node name="TimeElapsed" type="Label" parent="Control/VBoxContainer" unique_id=1353384876]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "15:03"
+horizontal_alignment = 1
+
+[node name="TaskCompleted" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=503779157]
+layout_mode = 2
+
+[node name="Task" type="VBoxContainer" parent="Control/VBoxContainer/TaskCompleted" unique_id=1943984569]
+layout_mode = 2
+
+[node name="Task1" type="Label" parent="Control/VBoxContainer/TaskCompleted/Task" unique_id=677917661]
+visible = false
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Money and next mission intel retrieved"
+
+[node name="ExpGained" type="VBoxContainer" parent="Control/VBoxContainer/TaskCompleted" unique_id=2099542090]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Exp1" type="Label" parent="Control/VBoxContainer/TaskCompleted/ExpGained" unique_id=1184302746]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+ 20XP"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1189722031]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 79
+
+[node name="Replay" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=24991729]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Replay"
+
+[node name="Menu" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=141543936]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Return to menu"

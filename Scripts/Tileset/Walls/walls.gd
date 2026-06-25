@@ -29,6 +29,8 @@ func spawnChild() -> void:
 			var secDoorIns = instantiateArea(nearSecDoor, cell)
 			secDoorIns.set("secDoorId", linkId)
 		else:
+			if data.get_custom_data("tree"):
+				continue
 			instantiateArea(nearWall, cell)
 func clearArea2D():
 	for child in get_children():

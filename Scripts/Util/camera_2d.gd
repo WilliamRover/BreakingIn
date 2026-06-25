@@ -6,6 +6,9 @@ extends Camera2D
 
 var canZoom: bool = true
 
+func _ready() -> void:
+	make_current()
+
 func _input(event: InputEvent) -> void:
 	if canZoom:
 		var newZoom: Vector2 = zoom

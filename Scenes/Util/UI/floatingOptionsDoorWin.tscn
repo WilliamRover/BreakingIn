@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://h5kvjcfmcae3" path="res://Assets/Sounds/SFX/doorKick.wav" id="8_6qd70"]
 [ext_resource type="AudioStream" uid="uid://cab2d37xmicnq" path="res://Assets/Sounds/SFX/windowSmash.wav" id="9_uvbg8"]
 [ext_resource type="AudioStream" uid="uid://xuvfhifig8xw" path="res://Assets/Sounds/SFX/entryPry.wav" id="10_lf52h"]
+[ext_resource type="AudioStream" uid="uid://3v0gwt8vt2pt" path="res://Assets/Sounds/SFX/curtainOpen.wav" id="13_x81nk"]
+[ext_resource type="AudioStream" uid="uid://b1njpvnwxdhnm" path="res://Assets/Sounds/SFX/curtainClose.wav" id="14_grui1"]
 
 [node name="FloatingOption" type="VBoxContainer" unique_id=996052063]
 top_level = true
@@ -25,18 +27,23 @@ metadata/floatOptionId = "openClose"
 
 [node name="OpenWinSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1073947596]
 stream = ExtResource("2_h6mat")
+bus = &"Sfx"
 
 [node name="CloseWinSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=2019885151]
 stream = ExtResource("3_3klgt")
+bus = &"Sfx"
 
 [node name="OpenDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1123784789]
 stream = ExtResource("4_4r4n5")
+bus = &"Sfx"
 
 [node name="CloseDoorSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=1646894031]
 stream = ExtResource("5_y3obm")
+bus = &"Sfx"
 
 [node name="LockedSFX" type="AudioStreamPlayer" parent="Open_Close" unique_id=796652744]
 stream = ExtResource("6_3klgt")
+bus = &"Sfx"
 
 [node name="Drill" type="Button" parent="." unique_id=1093985498]
 layout_mode = 2
@@ -51,6 +58,7 @@ metadata/floatOptionId = "openClose"
 
 [node name="ClimbThroughSFX" type="AudioStreamPlayer" parent="Climb" unique_id=548402019]
 stream = ExtResource("7_4r4n5")
+bus = &"Sfx"
 
 [node name="Picklock" type="Button" parent="." unique_id=1712361188]
 layout_mode = 2
@@ -60,9 +68,11 @@ metadata/floatOptionId = "picklock"
 
 [node name="UnlockSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=1068486414]
 stream = ExtResource("6_spb4q")
+bus = &"Sfx"
 
 [node name="lockpickingSFX" type="AudioStreamPlayer" parent="Picklock" unique_id=213553240]
 stream = ExtResource("7_aw6x7")
+bus = &"Sfx"
 
 [node name="Kick_Break" type="Button" parent="." unique_id=1575599554]
 layout_mode = 2
@@ -72,10 +82,12 @@ text = "Kick/Break"
 [node name="KickSFX" type="AudioStreamPlayer" parent="Kick_Break" unique_id=993518874]
 stream = ExtResource("8_6qd70")
 volume_db = 1.0
+bus = &"Sfx"
 
 [node name="SmashSFX" type="AudioStreamPlayer" parent="Kick_Break" unique_id=1486177187]
 stream = ExtResource("9_uvbg8")
 volume_db = 10.0
+bus = &"Sfx"
 
 [node name="Pry" type="Button" parent="." unique_id=1603070566]
 layout_mode = 2
@@ -84,3 +96,17 @@ text = "Pry"
 
 [node name="PrySFX" type="AudioStreamPlayer" parent="Pry" unique_id=1519300042]
 stream = ExtResource("10_lf52h")
+bus = &"Sfx"
+
+[node name="Curtain" type="Button" parent="." unique_id=2019365667]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Open/Close curtain"
+
+[node name="OpenCurtainSFX" type="AudioStreamPlayer" parent="Curtain" unique_id=766358081]
+stream = ExtResource("13_x81nk")
+bus = &"Sfx"
+
+[node name="CloseCurtainSFX" type="AudioStreamPlayer" parent="Curtain" unique_id=1445646729]
+stream = ExtResource("14_grui1")
+bus = &"Sfx"

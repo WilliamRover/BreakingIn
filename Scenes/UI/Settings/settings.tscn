@@ -1,9 +1,129 @@
-[gd_scene format=3 uid="uid://bm63180tin6pa"]
+[gd_scene format=3 uid="uid://3hpjk3m3btby"]
 
-[node name="Settings" type="Control" unique_id=1230351198]
+[ext_resource type="Script" uid="uid://dctfguo3bv3dn" path="res://Scripts/UI/Settings/settings.gd" id="1_0axse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn73p"]
+bg_color = Color(0.8627451, 0.8627451, 0.8627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvllm"]
+bg_color = Color(0.86328125, 0.86328125, 0.86328125, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0axse"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Settings" type="Control" unique_id=1617429620]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0axse")
+
+[node name="Bg" type="ColorRect" parent="." unique_id=831283690]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 119.0
+offset_right = 1778.0
+offset_bottom = 966.0
+color = Color(0.58203125, 0.58203125, 0.58203125, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Bg" unique_id=530825787]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/MarginContainer" unique_id=1390836590]
+layout_mode = 2
+theme_override_constants/separation = 66
+alignment = 1
+
+[node name="Return" type="Button" parent="Bg/MarginContainer/VBoxContainer" unique_id=129957437]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "< Return"
+
+[node name="MarginContainer" type="MarginContainer" parent="Bg/MarginContainer/VBoxContainer" unique_id=2133461405]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 230
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg/MarginContainer/VBoxContainer" unique_id=1413099417]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2006800206]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=422426152]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Master:"
+
+[node name="BgMusic" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=920740426]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Background music:"
+
+[node name="Sfx" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1702967197]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Sound effect:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer" unique_id=663368868]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 66
+
+[node name="Master" type="HSlider" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=533029530]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_sn73p")
+value = 100.0
+
+[node name="BgMusic" type="HSlider" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=283884750]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yvllm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_0axse")
+value = 100.0
+
+[node name="Sfx" type="HSlider" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1496572100]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_sn73p")
+value = 100.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1104708155]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Master" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=712446038]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "100"
+
+[node name="BgMusic" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1414923332]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "100"
+
+[node name="Sfx" type="Label" parent="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=632960107]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "100"
+
+[connection signal="value_changed" from="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/BgMusic" to="." method="_on_bg_music_value_changed"]
+[connection signal="value_changed" from="Bg/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Sfx" to="." method="_on_sfx_value_changed"]

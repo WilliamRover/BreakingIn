@@ -49,17 +49,21 @@ polygon = PackedVector2Array(831, 638, 853, 630, 873, 625, 895, 621, 923, 619, 9
 
 [node name="DrillStart" type="AudioStreamPlayer" parent="Drill" unique_id=2104531466]
 stream = ExtResource("4_5bc5w")
+bus = &"Sfx"
 
 [node name="DrillEnd" type="AudioStreamPlayer" parent="Drill" unique_id=1617934758]
 stream = ExtResource("5_ibeyo")
+bus = &"Sfx"
 
 [node name="DrillLoop" type="AudioStreamPlayer" parent="Drill" unique_id=350019177]
 stream = ExtResource("6_uk1ix")
 volume_db = -3.841
+bus = &"Sfx"
 
 [node name="LockBreak" type="AudioStreamPlayer" parent="." unique_id=296009322]
 stream = ExtResource("8_uk1ix")
 volume_db = 8.864
+bus = &"Sfx"
 
 [node name="Label2" type="Label" parent="." unique_id=1016924083]
 offset_left = 811.0

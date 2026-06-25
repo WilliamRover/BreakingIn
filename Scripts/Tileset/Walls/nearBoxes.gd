@@ -41,16 +41,21 @@ func get_available_actions() -> Array[String]:
 	var actions: Array[String] = []
 	actions.append("Open_Close_Box")
 	if locked:
-		actions.append("Drill")
-		actions.append("Picklock")
-		actions.append("Pry")
+		if PlayerStat.checkItemInLoadout("drill"):
+			actions.append("Drill")
+		if PlayerStat.checkItemInLoadout("lockPick"):
+			actions.append("Picklock")
+		if PlayerStat.checkItemInLoadout("crowbar"):
+			actions.append("Pry")
 	else:
 		if open && !rewire && smallBox:
-			actions.append("Rewire")
+			if PlayerStat.checkItemInLoadout("wirex5") && PlayerStat.checkSufficientWire(1):
+				actions.append("Rewire")
 		elif open && !rewire && bigBox:
 			if !shortCircuit:
 				actions.append("SwitchPower")
-				actions.append("ShortCircuit")
+				if PlayerStat.checkItemInLoadout("wirex5") && PlayerStat.checkSkill("overloadPower") && PlayerStat.checkSufficientWire(1) && PlayerStat.checkItemInLoadout("multimeter"):
+					actions.append("ShortCircuit")
 	if rewire && open && smallBox:
 		actions.append("Open_Close_Garage")
 	return actions
@@ -67,6 +72,7 @@ func execute_action(action_name: String, button: Button) -> void:
 				showNotif.emit("Seems like it's locked")
 			else:
 				open = !open
+				GlobalSignal.doorWinInteracted.emit(self, open)
 				if open:
 					if smallBox:
 						update_tile_visual(open_small_box_atlas, 3)
@@ -208,6 +214,7 @@ func _on_finished_shortCircuit(flag: bool, btn: Button) -> void:
 		shortCircuit = true
 		isRewiring = false
 		
+	PlayerStat.usedWire()
 	GlobalSignal.turnLight.emit(target_powerId, shortCircuit)
 func _on_rewire_success(btn: Button) -> void:
 	#rewireGarageGame.paused = true
@@ -220,7 +227,8 @@ func _on_rewire_success(btn: Button) -> void:
 		rewireGarageGame.queue_free()
 	isRewiring = false
 	rewire = true
-
+	PlayerStat.usedWire()
+	
 func _on_rewire_fail(btn: Button) -> void:
 	awaitSfx("RewireFailSFX", btn)
 

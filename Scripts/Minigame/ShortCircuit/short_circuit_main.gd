@@ -56,7 +56,7 @@ func _on_wire_tip_entered(body: Node2D, origin: Node2D, boxNode: Node2D):
 	checkShortCircuitStat()
 	#print(pair)
 
-func _on_wire_tip_exited(body: Node2D, origin: Node2D, boxNode: Node2D):
+func _on_wire_tip_exited(body: Node2D, _origin: Node2D, boxNode: Node2D):
 	if activeMultimeterTip.has(body) && activeMultimeterTip[body] == boxNode:
 		activeMultimeterTip.erase(body)
 		multiMetering = false

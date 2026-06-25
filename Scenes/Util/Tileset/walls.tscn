@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://eowluwc7m7d" path="res://Assets/Tileset/wall.tres" id="4_qaixm"]
 [ext_resource type="Script" uid="uid://dcaufptljew8p" path="res://Scripts/Tileset/Walls/walls.gd" id="4_xxu2k"]
 [ext_resource type="Texture2D" uid="uid://dq5tnslmajjvj" path="res://Assets/Tileset/Texture/powerbox-01.png" id="5_sgi4p"]
+[ext_resource type="Texture2D" uid="uid://csj7ajdatxuve" path="res://Assets/Tileset/Texture/fence-01.png" id="6_ar8xr"]
+[ext_resource type="Texture2D" uid="uid://bh3r4jiwnjp65" path="res://Assets/Tileset/Texture/tree-01.png" id="7_avu56"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ha5x"]
 polygon = PackedVector2Array(-51.954655, -11.335363, -72.5, 0, 0, 40, 19.237259, 29.386341)
@@ -88,6 +90,7 @@ texture_region_size = Vector2i(143, 246)
 0:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_b3n6q")
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.188498, -26.102898, -72.5, 0, 0, 40, 44.761166, 15.304184)
 0:4/0/custom_data_0 = true
+0:4/0/custom_data_12 = true
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, 82)
 2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ukbaq")
@@ -97,6 +100,9 @@ texture_region_size = Vector2i(143, 246)
 1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1eg3g")
 1:1/0/custom_data_1 = true
 1:1/0/custom_data_3 = true
+12:0/0 = 0
+12:0/0/texture_origin = Vector2i(0, 82)
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -72.5, 0, 0, 40, 72.5, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3pxo1"]
 polygon = PackedVector2Array(-54.36693, -10.004454, -72.5, 0, -60.650406, 6.5377083, -44.53247, -0.8196106)
@@ -263,6 +269,46 @@ texture_region_size = Vector2i(143, 246)
 1:0/1/custom_data_7 = true
 1:0/1/custom_data_9 = "Garage1"
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2dmde"]
+polygon = PackedVector2Array(0, -6.834633, -16.906715, 1.4388695, 0.5395813, 10.611664, 17.446297, 1.7985878)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_52yv2"]
+polygon = PackedVector2Array(0, -6.834633, -16.906715, 1.4388695, 0.5395813, 10.611664, 17.446297, 1.7985878)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sha73"]
+polygon = PackedVector2Array(0, -6.834633, -16.906715, 1.4388695, 0.5395813, 10.611664, 17.446297, 1.7985878)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssf1q"]
+texture = ExtResource("6_ar8xr")
+margins = Vector2i(74, 20)
+separation = Vector2i(0, 75)
+texture_region_size = Vector2i(143, 246)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 82)
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_2dmde")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.35971832, -7.194351, -16.007423, 2.3381615, 0.5395813, 11.3311, 16.187286, 2.5180206)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 82)
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_sha73")
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(55.76039, -32.500343, -16.007423, 2.3381615, 0.5395813, 11.3311, 71.37329, -22.304153)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 82)
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_52yv2")
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(72.64783, 25.012512, 2.15831, -5.3957634, -13.30954, 2.5180206, 63.72615, 41.26268)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kryka"]
+polygon = PackedVector2Array(5.7554855, -26.079514, -56.11592, 3.057598, -43.34595, 2.877739, -42.806374, 6.295059, -31.834991, 1.7985878, -30.9357, 9.172798, -27.274605, 24.951942, -21.043472, 37.950195, -2.697876, 19.604599, 6.295059, 49.101433, 10.431808, 45.68412, 20.863617, 33.273865, 33.453728, 16.187286, 39.02935, 27.518387, 43.885536, 19.784462, 48.022285, 6.834633, 49.641014, 2.1583061, 52.698616, 5.935341, 61.15197, 11.151245, 67.44703, 15.108131, 72.84278, 17.446297, 73.20251, 6.65477, 72.5, 0, 73.20251, -5.215904, 82.91488, -5.755478, 75.72053, -16.007427)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dx8x"]
+texture = ExtResource("7_avu56")
+margins = Vector2i(87, 88)
+texture_region_size = Vector2i(239, 510)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 194)
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_kryka")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(10.971382, -31.295418, -6.65477, -27.878101, -37.770332, -15.827568, -52.518745, -2.6978798, -55.576344, 3.057598, -44.78482, 2.5180244, -41.367508, 7.3742065, -32.914146, 1.978447, -30.216263, 13.489403, -26.694527, 25.271986, -19.784454, 37.770332, -3.4173126, 20.503899, 8.093643, 51.439598, 34.35302, 16.367142, 40.288353, 26.259377, 44.06539, 19.604599, 47.122993, 8.633217, 49.46116, 1.4388695, 55.59834, 9.325054, 65.28872, 14.748413, 72.12336, 16.187286, 74.46151, -8.273502, 84.35375, -5.036045, 76.26011, -15.647709, 67.26717, -16.547, 47.30285, -21.043472, 30.21627, -25.899658)
+0:0/0/custom_data_11 = true
+
 [sub_resource type="TileSet" id="TileSet_8krmg"]
 tile_shape = 1
 tile_layout = 5
@@ -292,10 +338,16 @@ custom_data_layer_9/name = "linkId"
 custom_data_layer_9/type = 4
 custom_data_layer_10/name = "securityDoor"
 custom_data_layer_10/type = 1
+custom_data_layer_11/name = "tree"
+custom_data_layer_11/type = 1
+custom_data_layer_12/name = "curtain"
+custom_data_layer_12/type = 1
 sources/0 = SubResource("TileSetAtlasSource_ca201")
 sources/1 = SubResource("TileSetAtlasSource_vmacb")
 sources/2 = SubResource("TileSetAtlasSource_sgi4p")
 sources/3 = SubResource("TileSetAtlasSource_avu56")
+sources/4 = SubResource("TileSetAtlasSource_ssf1q")
+sources/6 = SubResource("TileSetAtlasSource_0dx8x")
 
 [node name="Wall" type="TileMapLayer" unique_id=706943602]
 light_mask = 31

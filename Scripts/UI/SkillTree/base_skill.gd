@@ -21,8 +21,12 @@ func _ready() -> void:
 	mechanicalEngBtn.pressed.connect(_on_base_skill_selected.bind("mechanicalEngineer")) 
 	electricalEngBtn.pressed.connect(_on_base_skill_selected.bind("electricalEngineer"))
 	backBtn.pressed.connect(backToMenu)
+	loadSkill()
 	for child in baseSkillContainer.get_children():
 		if child is SkillNode:
+			var data = jsonSkillDict[child.skillId]
+			child.assignData(data)
+			
 			skillDict[child.skillId] = child
 			child.mouse_entered.connect(_on_skill_hover.bind(child))
 			child.mouse_exited.connect(_on_skill_unhover)
@@ -68,6 +72,7 @@ func _on_skill_unhover() -> void:
 		floatingDesc.hide()
 	
 func _upd_floating_panel(skillNode: SkillNode) -> void:
+	#print(skillNode.skillId)
 	floatSkillName.text = skillNode.skillName
 	floatSkillDesc.text = skillNode.desc
 	floatingSkillCost.text = "Cost: " + str(skillNode.cost) + " skill points"

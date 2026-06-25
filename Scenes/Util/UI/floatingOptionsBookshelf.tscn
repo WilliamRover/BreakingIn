@@ -16,3 +16,4 @@ metadata/floatOptionId = "openClose"
 [node name="SearchSfx" type="AudioStreamPlayer" parent="Search" unique_id=1439737187]
 stream = ExtResource("2_ppc5l")
 volume_db = 1.0
+bus = &"Sfx"

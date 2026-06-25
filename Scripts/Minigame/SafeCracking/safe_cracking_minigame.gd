@@ -76,6 +76,7 @@ func _process(delta: float) -> void:
 	else:
 		holdTime = 0
 
+@warning_ignore("narrowing_conversion")
 func doStuff(dir: int, fast: bool) -> void:
 	#if dir == 1:
 		#if startFlag:
@@ -85,7 +86,7 @@ func doStuff(dir: int, fast: bool) -> void:
 			#return
 	if fast:
 		safeDial.rotation_degrees += deg * dir * spinMultiplier
-		safeNum -= dir * spinMultiplier
+		safeNum -= dir * int(spinMultiplier)
 	else:
 		safeDial.rotation_degrees += deg * dir
 		safeNum -= dir
@@ -99,7 +100,8 @@ func doStuff(dir: int, fast: bool) -> void:
 	numToStr(turn, safeNum)
 	if turn < 3:
 		if safeNum == int(ranCode[turn]):
-			correctCode()
+			if PlayerStat.checkSkill("safeCrack"):
+				correctCode()
 	if dir == 1:
 		if fast:
 			leftRotate += spinMultiplier
@@ -129,14 +131,14 @@ func resetSafe() -> void:
 	passCodeLabel.modulate = Color.WHITE
 	
 # pass code has 6 numbers total. Each dial turn returns 2 numbers (so 3 turns)
-func numToStr(turn: int, number: int) -> void:
+func numToStr(turnNum: int, number: int) -> void:
 	if turn >= 3:
 		return
 	if number < 10:
-		code[turn] = " 0 " + str(number)
+		code[turnNum] = " 0 " + str(number)
 	else:
 		var strNum = str(number)
-		code[turn] = " " + strNum[0] + " " + strNum[1]
+		code[turnNum] = " " + strNum[0] + " " + strNum[1]
 	passCodeLabel.text = code[0] + code[1] + code[2]
 	
 func checkCode() -> bool:

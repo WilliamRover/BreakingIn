@@ -13,6 +13,7 @@ position = Vector2(-43, 7)
 polygon = PackedVector2Array(3, -1, 58, 33, 116, -2, 53, -35)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=8144893]
+layer = 5
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=678435781]
 offset_right = 117.0

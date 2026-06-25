@@ -15,6 +15,7 @@ position = Vector2(-43, 7)
 polygon = PackedVector2Array(-49, 11, 11, 55, 91, -14, 28, -49)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=248189918]
+layer = 5
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=750260530]
 offset_right = 117.0
@@ -39,10 +40,10 @@ scale = Vector2(1.9067588, 1.9067575)
 texture = ExtResource("2_tr64c")
 
 [node name="PointA" type="Marker2D" parent="." unique_id=1920475033]
-position = Vector2(-61, 37)
+position = Vector2(-68, 43)
 
 [node name="PointB" type="Marker2D" parent="." unique_id=545391971]
-position = Vector2(10, -26)
+position = Vector2(17, -30)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

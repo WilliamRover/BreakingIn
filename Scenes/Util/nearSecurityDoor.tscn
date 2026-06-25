@@ -14,6 +14,7 @@ position = Vector2(-43, 7)
 polygon = PackedVector2Array(-83, 1, 11, 55, 91, -14, 11, -63)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56106077]
+layer = 5
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1749787463]
 offset_right = 117.0
@@ -30,6 +31,9 @@ offset_bottom = 116.0
 [node name="Alarm" type="AudioStreamPlayer2D" parent="." unique_id=1686412254]
 stream = ExtResource("3_73vk2")
 max_distance = 4000.0
+bus = &"Sfx"
+
+[node name="Timer" type="Timer" parent="." unique_id=1838422449]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

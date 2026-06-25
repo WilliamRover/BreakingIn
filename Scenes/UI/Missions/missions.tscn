@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1tfcanpj68eq"]
 
 [ext_resource type="Script" uid="uid://8py85c7cayq4" path="res://Scripts/UI/Missions/missions.gd" id="1_twqck"]
+[ext_resource type="PackedScene" uid="uid://dsxhkqurn2cwb" path="res://Scenes/UI/Missions/mission_detail.tscn" id="2_rm3yj"]
 
 [node name="Missions" type="Control" unique_id=2132577320]
 layout_mode = 3
@@ -133,3 +134,7 @@ custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "< Back to menu"
+
+[node name="MissionDetail" parent="." unique_id=1465102130 instance=ExtResource("2_rm3yj")]
+visible = false
+layout_mode = 1

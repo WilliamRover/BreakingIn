@@ -23,7 +23,7 @@ func _on_top_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if body.get_collision_mask_value(nxtFloor) or body.get_collision_mask_value(stairsLayer):
 			tempPlayer = body
-			body.z_index = nxtFloor
+			body.z_index = nxtFloor - 1
 			body.set_collision_mask_value(nxtFloor, true)
 			body.set_collision_mask_value(stairsLayer, true)
 
@@ -83,6 +83,7 @@ func _on_stair_zone_body_exited(body: Node2D) -> void:
 	if body is Player && body == tempPlayer:
 		body.onStair = false
 		if bottom.overlaps_body(body):
+			#body
 			body.updateLightningFloor(curFloor)
 			if !body.inside:
 				GlobalSignal.updRoofVisibility.emit(0)

@@ -5,11 +5,13 @@ class_name Poles extends TileSetGen
 @export var lightpole_bulb2: PackedScene = preload("res://Scenes/Util/Lights/Lightpole/lightpole_bulb_2.tscn")
 @export var lightpole_beam: PackedScene = preload("res://Scenes/Util/Lights/Lightpole/lightpole_beam.tscn")
 # Called when the node enters the scene tree for the first time.
+
 func spawnChild() -> void:
+	await GlobalSignal.iniLoaded
 	var cells = get_used_cells()
 	for cell in cells:
 		var data = get_cell_tile_data(cell)
-		if data.get_custom_data("lightPole"):
+		if data.get_custom_data("lightPole") && DatabaseManager.getLevelProperty("environment", "lightPoleOn"):
 			instantiateArea(lightpole_cast, cell)
 			if data.get_custom_data("bulb1"):
 				instantiateArea(lightpole_bulb1, cell)

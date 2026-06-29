@@ -4,6 +4,7 @@ class_name LevelUI extends CanvasLayer
 @onready var countdownLabel: Label = $CountdownTimer
 @onready var countdownTimer: Timer = $Timer
 @onready var pauseOverlay: Control = $PauseOverlay
+@onready var missionObjCont: Label = $MissionObjectiveContent
 
 var elapsedTime: float = 0
 var elapsedTimeRunning: bool = true
@@ -43,3 +44,7 @@ func _on_timer_timeout():
 func recordElapsedTime() -> void:
 	elapsedTimeRunning = false
 	LevelStat.updLevelStat("elapsedTime", "time", elapsedTime)
+
+
+func setMissionObjectiveContent(cont: String) -> void:
+	missionObjCont.text = cont

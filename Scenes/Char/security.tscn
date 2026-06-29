@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cj0gre4kgxt2r" path="res://Assets/Sounds/SFX/walk.wav" id="7_tf0yh"]
 [ext_resource type="Script" uid="uid://chornviwio24r" path="res://Scripts/Char/Security/StateMachine/state_machine.gd" id="8_8j6kj"]
 [ext_resource type="AudioStream" uid="uid://dkkbht5kix0ig" path="res://Assets/Sounds/SFX/surprise.wav" id="8_xowax"]
+[ext_resource type="AudioStream" uid="uid://bqe82y21cmdb3" path="res://Assets/Sounds/SFX/knockout.wav" id="9_750vw"]
 [ext_resource type="Script" uid="uid://dalrkyh3iesip" path="res://Scripts/Char/Security/StateMachine/stateIdle.gd" id="9_th83v"]
 [ext_resource type="Script" uid="uid://cov4ajvjo751y" path="res://Scripts/Char/Security/StateMachine/stateRandomWalk.gd" id="10_7e8ee"]
 [ext_resource type="Script" uid="uid://xoemu01sloj8" path="res://Scripts/Char/Security/StateMachine/stateNoticing.gd" id="11_0ynl6"]
@@ -73,6 +74,14 @@ animations = [{
 y_sort_enabled = true
 script = ExtResource("1_3iocf")
 
+[node name="Knockout" type="Label" parent="." unique_id=1703264285]
+visible = false
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 124.0
+offset_bottom = -23.0
+text = "Press F to knockout"
+
 [node name="KnockoutArea" type="Area2D" parent="." unique_id=1343759392]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockoutArea" unique_id=1953877014]
@@ -85,7 +94,7 @@ shape = SubResource("CapsuleShape2D_tf0yh")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=107746345]
 position = Vector2(13, 21)
 scale = Vector2(1.0961827, 0.9481821)
-polygon = PackedVector2Array(-28.684494, -32.320786, 1346.8698, -743.528, 1351.9941, 660.21075)
+polygon = PackedVector2Array(-12.771593, 89.645226, -13.68385, -81.20802, 1352.8767, -1142.1855, 1364.736, 969.2231)
 
 [node name="VisionRay" type="RayCast2D" parent="." unique_id=904254165]
 
@@ -147,6 +156,11 @@ bus = &"Sfx"
 stream = ExtResource("8_xowax")
 bus = &"Sfx"
 
+[node name="KnockoutSfx" type="AudioStreamPlayer2D" parent="." unique_id=625881863]
+stream = ExtResource("9_750vw")
+volume_db = 10.0
+bus = &"Sfx"
+
 [node name="StateMachine" type="Node" parent="." unique_id=1050606243 node_paths=PackedStringArray("innitState")]
 script = ExtResource("8_8j6kj")
 innitState = NodePath("StateRandomWalk")
@@ -169,5 +183,7 @@ script = ExtResource("13_oycuo")
 [node name="StateCallPolice" type="Node" parent="StateMachine" unique_id=920283081]
 script = ExtResource("14_oycuo")
 
+[connection signal="body_entered" from="KnockoutArea" to="." method="_on_knockout_area_body_entered"]
+[connection signal="body_exited" from="KnockoutArea" to="." method="_on_knockout_area_body_exited"]
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
 [connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]

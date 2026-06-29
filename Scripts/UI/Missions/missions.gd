@@ -60,13 +60,26 @@ func updateUi() -> void:
 	if !insCard.missionChosen.is_connected(choseMission):
 		insCard.missionChosen.connect(choseMission)
 	
+#	 Check best time
 	var bestTime: float = -1
 	var existMission = PlayerStat.data["missionStatus"].filter(func(m): return m.get("missionTitle") == data["title"])
 	#print(str(existMission[0]["missionTitle"]["bestTime"]))
 	#print(existMission)
 	if existMission.size() > 0:
 		bestTime = existMission[0]["bestTime"]
-	insCard.updateData(data["title"], data["time"], data["place"], data["thumbnail"], data["scenePath"], bestTime)
+		
+#	Check if mission is unlocked
+	var missionUnlocked: bool = PlayerStat.checkMissionAvailable(data["title"])
+	#print(missionUnlocked)
+	insCard.updateData(
+		data["title"], 
+		data["time"], 
+		data["place"], 
+		data["thumbnail"], 
+		data["scenePath"], 
+		data["requirement"],
+		missionUnlocked,
+		bestTime)
 	for i in range(dotContainer.get_child_count()):
 		var dot = dotContainer.get_child(i)
 		dot.setActive(i == currentIdx)

@@ -31,7 +31,7 @@ func get_available_actions() -> Array[String]:
 			actions.append("Picklock")
 		if PlayerStat.checkItemInLoadout("crowbar"):
 			actions.append("Pry")
-		if PlayerStat.checkSkill("breaker"):
+		if PlayerStat.checkSkill("kickDoor"):
 			actions.append("Kick_Break")
 	else:
 		if open:
@@ -147,10 +147,10 @@ func climb() -> void:
 	tempPlayer.inside = enteringHouse
 	tempPlayer.set_collision_mask_value(tempPlayer.curFloor, true)
 	stopMoving.emit(true)
-	if enteringHouse:
-		GlobalSignal.updRoofVisibility.emit(tempPlayer.curFloor)
-	else:
-		GlobalSignal.updRoofVisibility.emit(0)
+	#if enteringHouse:
+		#GlobalSignal.updRoofVisibility.emit(tempPlayer.curFloor)
+	#else:
+		#GlobalSignal.updRoofVisibility.emit(0)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	tempPlayer.climbing = false

@@ -150,11 +150,20 @@ polygon = PackedVector2Array(-51.001358, -11.8613205, -65.296906, -3.974121, 7.4
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_avu56"]
 polygon = PackedVector2Array(-55.869354, -9.1755295, -72.5, 0, 0, 40, 17.061506, 30.586756)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h2pep"]
+polygon = PackedVector2Array(-54.509506, -9.925789, -72.5, 0, 0, 40, 17.703396, 30.232609)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ssf1q"]
 polygon = PackedVector2Array(-50.767567, -11.990309, -72.5, 0, -59.316505, 7.273652, -44.604965, -3.95689)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0dx8x"]
 polygon = PackedVector2Array(-11.213234, 33.81339, 0, 40, 16.80951, 30.725788, 5.3957596, 25.899658)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f5usv"]
+polygon = PackedVector2Array(-54.509506, -9.925789, -72.5, 0, -60.79522, 6.45781, -43.705673, -4.0468216)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8jhw5"]
+polygon = PackedVector2Array(-12.197456, 33.27037, 0, 40, 16.98543, 30.628727, 5.755478, 23.11185)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgi4p"]
 texture = ExtResource("4_j1uxr")
@@ -185,7 +194,7 @@ texture_region_size = Vector2i(143, 246)
 0:0/1/custom_data_4 = true
 0:0/1/custom_data_5 = true
 0:0/1/custom_data_9 = "Garage1"
-1:0/next_alternative_id = 2
+1:0/next_alternative_id = 3
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, 82)
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47.18728, -13.965641, -72.5, 0, 0, 40, 22.881254, 27.37586)
@@ -198,7 +207,14 @@ texture_region_size = Vector2i(143, 246)
 1:0/1/custom_data_4 = true
 1:0/1/custom_data_9 = "Power1"
 1:0/1/custom_data_10 = true
-1:1/next_alternative_id = 2
+1:0/2 = 2
+1:0/2/texture_origin = Vector2i(0, 82)
+1:0/2/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_h2pep")
+1:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-50.605904, -12.079502, -72.5, 0, 0, 40, 17.508451, 30.340164)
+1:0/2/custom_data_4 = true
+1:0/2/custom_data_9 = "SecDoor1"
+1:0/2/custom_data_10 = true
+1:1/next_alternative_id = 3
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 82)
 1:1/0/custom_data_3 = true
@@ -210,6 +226,13 @@ texture_region_size = Vector2i(143, 246)
 1:1/1/custom_data_3 = true
 1:1/1/custom_data_9 = "Power1"
 1:1/1/custom_data_10 = true
+1:1/2 = 2
+1:1/2/texture_origin = Vector2i(0, 82)
+1:1/2/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_f5usv")
+1:1/2/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_8jhw5")
+1:1/2/custom_data_3 = true
+1:1/2/custom_data_9 = "SecDoor1"
+1:1/2/custom_data_10 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu56"]
 texture = ExtResource("5_sgi4p")
@@ -228,7 +251,7 @@ texture_region_size = Vector2i(143, 246)
 0:0/1/custom_data_6 = true
 0:0/1/custom_data_7 = true
 0:0/1/custom_data_9 = "Garage1"
-0:1/next_alternative_id = 2
+0:1/next_alternative_id = 3
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, 82)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.561409, -37.48336, -12.74523, -27.083614, 47.794613, 7.0098763, 66.45806, -3.3334816)
@@ -242,7 +265,14 @@ texture_region_size = Vector2i(143, 246)
 0:1/1/custom_data_6 = true
 0:1/1/custom_data_8 = true
 0:1/1/custom_data_9 = "Power1"
-1:1/next_alternative_id = 4
+0:1/2 = 2
+0:1/2/texture_origin = Vector2i(0, 82)
+0:1/2/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -17.565512, -30.308683, 55.85033, 9.186024, 72.5, 0)
+0:1/2/custom_data_4 = true
+0:1/2/custom_data_6 = true
+0:1/2/custom_data_8 = true
+0:1/2/custom_data_9 = "SecDoor1"
+1:1/next_alternative_id = 5
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 82)
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.561409, -37.48336, -12.74523, -27.083614, 47.794613, 7.0098763, 66.45806, -3.3334816)
@@ -256,6 +286,13 @@ texture_region_size = Vector2i(143, 246)
 1:1/1/custom_data_6 = true
 1:1/1/custom_data_8 = true
 1:1/1/custom_data_9 = "Power1"
+1:1/2 = 2
+1:1/2/texture_origin = Vector2i(0, 82)
+1:1/2/physics_layer_0/polygon_0/points = PackedVector2Array(0, -40, -17.565512, -30.308683, 55.85033, 9.186024, 72.5, 0)
+1:1/2/custom_data_3 = true
+1:1/2/custom_data_6 = true
+1:1/2/custom_data_8 = true
+1:1/2/custom_data_9 = "SecDoor1"
 1:0/next_alternative_id = 3
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, 82)

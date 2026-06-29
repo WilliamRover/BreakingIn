@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 
-const SPEED = 300
+var SPEED = 300
 #const JUMP_VELOCITY = -400.0
 var movable: bool = true
 
@@ -23,6 +23,9 @@ var objInCones: Array[Node2D] = []
 @onready var walkSfx: AudioStreamPlayer = $Walk
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var exfilDir: Node2D = $ExfiltrateDirCL/ExfiltrateDir
+@onready var exfilAnchor: Marker2D = $ExfilDirAnchor
+
 @export var startingFloor := 1
 var curFloor := startingFloor
 
@@ -30,16 +33,29 @@ var curFloor := startingFloor
 @export var onStair: bool = false
 var climbing: bool = false
 
+var exfilPos = Vector2(0, 0)
+
+var securityInRange: Array[Security] = []
+
 func _ready() -> void:
 	flashlight.visible = false
 	notif.visible = false
 	updateLightningFloor(startingFloor)
-	
-	
+	GlobalSignal.exfilPos.connect(retrieveExfilPos)
+	if PlayerStat.checkSkill("runFast"):
+		SPEED = 500
+
+func _process(delta: float) -> void:
+	var screen_pos = exfilAnchor.get_global_transform_with_canvas().origin
+	exfilDir.global_position = screen_pos
+	var dir = exfilPos - exfilAnchor.global_position
+	exfilDir.rotation = dir.angle()
+
 func _physics_process(_delta: float) -> void:
 	var screen_pos = notifAnchor.get_global_transform_with_canvas().origin
 	#notif.position = originalNotifPosition
 	notif.global_position = screen_pos - (notif.size / 2.0)
+	
 	if Input.is_action_just_pressed("ILLUMINATOR MENU - T") && PlayerStat.checkItemInLoadout("flashlight"):
 		flashlight.visible = !flashlight.visible
 	var direction := Input.get_vector("PLAYER - A", "PLAYER - D", "PLAYER - W", "PLAYER - S")
@@ -111,6 +127,9 @@ func _physics_process(_delta: float) -> void:
 		if visionRay.is_colliding() && visionRay.get_collider() == obj:
 			pass
 		#print(obj.name + " " + str(visionRay.get_collider()))
+	
+	if Input.is_action_just_pressed("F- KNOCKOUT"):
+		takedown()
 func _on_window_stop_moving(canMove: bool) -> void:
 	movable = canMove
 	camera.setZoom(canMove)
@@ -164,3 +183,22 @@ func startTimer(sec: int) -> void:
 
 func saveElapsedTime() -> void:
 	screenUI.recordElapsedTime()
+
+
+func retrieveExfilPos(pos: Vector2) -> void:
+	exfilPos = pos
+	#print(pos)
+
+func startExfiltrate() -> void:
+	exfilDir.visible = true
+
+func takedown() -> void:
+	if !PlayerStat.checkSkill("knockOut"):
+		return
+	if securityInRange.size() == 0:
+		return
+	var security = securityInRange[0]
+	var success = security.receiveTakedown()
+	
+	if success:
+		securityInRange.erase(security)

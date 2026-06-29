@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ta5tguvtq0ek"]
+
+[ext_resource type="Script" uid="uid://dt4kvbr6stbdp" path="res://Scripts/Tileset/Fence/fence.gd" id="2_pc3yp"]
+[ext_resource type="Texture2D" uid="uid://csj7ajdatxuve" path="res://Assets/Tileset/Texture/fence-01.png" id="6_ae3rd"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2nyyy"]
+polygon = PackedVector2Array(0.35971832, -6.2950554, -14.928276, 1.978447, 1.0791473, 10.431808, 16.547005, 2.5180244)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pc3yp"]
+polygon = PackedVector2Array(0.35971832, -6.2950554, -14.928276, 1.978447, 1.0791473, 10.431808, 16.547005, 2.5180244)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_njkc8"]
+polygon = PackedVector2Array(0.35971832, -6.2950554, -14.928276, 1.978447, 1.0791473, 10.431808, 16.547005, 2.5180244)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nyyy"]
+texture = ExtResource("6_ae3rd")
+margins = Vector2i(74, 20)
+separation = Vector2i(2, 75)
+texture_region_size = Vector2i(143, 246)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 82)
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_2nyyy")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.17985535, -5.2159004, -15.108131, 2.6978836, -0.17986298, 10.07209, 16.547005, 2.3381653)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 82)
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_njkc8")
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(59.17352, -35.97175, -15.108131, 2.6978836, -0.17986298, 10.07209, 71.58377, -26.619091)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 82)
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_pc3yp")
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.53957367, -5.0360413, -15.108131, 2.6978836, 55.576347, 30.755844, 71.403915, 22.122623)
+
+[sub_resource type="TileSet" id="TileSet_pc3yp"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(145, 80)
+occlusion_layer_0/light_mask = 3
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2nyyy")
+
+[node name="Fence" type="TileMapLayer" unique_id=706943602]
+light_mask = 31
+tile_set = SubResource("TileSet_pc3yp")
+rendering_quadrant_size = 4
+script = ExtResource("2_pc3yp")

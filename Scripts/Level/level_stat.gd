@@ -1,5 +1,6 @@
 extends Node
 
+# THIS SINGLETON IS DYNAMIC DATA, MEANING DATA FLOWS DURING THE GAME
 const SAVE_PATH = "user://level_stat.ini"
 var confFile := ConfigFile.new()
 # Called when the node enters the scene tree for the first time.

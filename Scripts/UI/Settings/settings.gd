@@ -33,7 +33,9 @@ func closeSettings() -> void:
 	if get_parent() is PauseOverlay:
 		visible = false
 		return
-
+	else:
+		get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
+	
 func _on_master_value_changed(value: float) -> void:
 	var linearVol = value / 100
 	var dbVol = linear_to_db(linearVol)
@@ -47,7 +49,7 @@ func _on_bg_music_value_changed(value: float) -> void:
 	var dbVol = linear_to_db(linearVol)
 	AudioServer.set_bus_volume_db(busIdxBgMusic, dbVol)
 	sliderBgMusicNum.text = str(int(sliderBgMusic.value))
-	SettingSaves.data["bgMusicVol"] = str(int(sliderMaster.value))
+	SettingSaves.data["bgMusicVol"] = str(int(sliderBgMusic.value))
 	SettingSaves.saveGame()
 
 func _on_sfx_value_changed(value: float) -> void:
@@ -55,6 +57,6 @@ func _on_sfx_value_changed(value: float) -> void:
 	var dbVol = linear_to_db(linearVol)
 	AudioServer.set_bus_volume_db(busIdxSfx, dbVol)
 	sliderSfxNum.text = str(int(sliderSfx.value))
-	SettingSaves.data["sfxVol"] = str(int(sliderMaster.value))
+	SettingSaves.data["sfxVol"] = str(int(sliderSfx.value))
 	SettingSaves.saveGame()
 	

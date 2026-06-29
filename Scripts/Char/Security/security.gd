@@ -20,6 +20,11 @@ const SPEED = 100
 			curNavIdx = clampi(curNavIdx, 0, dest.size() - 1)
 			nav.target_position = dest[curNavIdx]
 		
+@onready var stateMachine: StateMachine = $StateMachine
+@onready var knockoutLabel: Label = $Knockout
+@onready var knockOutSfx: AudioStreamPlayer2D = $KnockoutSfx
+
+var knockout: bool = false
 
 var curNavIdx := 0
 var objInSight: Node2D = null
@@ -27,6 +32,7 @@ var objInSight: Node2D = null
 func _ready() -> void:
 	curNavIdx = 0
 	nav.target_position = dest[curNavIdx]
+	nav.navigation_layers = 1 << (curFloor - 1)
 	#visionRay.collision_mask = 1 << ((curFloor - 1) + 10)
 
 func updateAnimation(dir: Vector2) -> void:
@@ -72,7 +78,7 @@ func updateAnimation(dir: Vector2) -> void:
 func _on_vision_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		objInSight = body
-
+		
 
 func _on_vision_area_body_exited(body: Node2D) -> void:
 	if body == objInSight:
@@ -92,6 +98,7 @@ func seePlayer() -> bool:
 		if visionRay.is_colliding():
 			var collider = visionRay.get_collider()
 			#print(collider)
+			#print(objInSight)
 			if collider == objInSight:
 				return true
 			elif collider is Furniture:
@@ -104,3 +111,27 @@ func seePlayer() -> bool:
 		else: 
 			return false
 	return false
+
+
+func _on_knockout_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.securityInRange.append(self)
+		if knockout == false && PlayerStat.checkSkill("knockOut"):
+			knockoutLabel.visible = true
+
+
+func _on_knockout_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.securityInRange.erase(self)
+		knockoutLabel.visible = false
+
+func receiveTakedown() -> bool:
+	var curStateName = stateMachine.curState.name
+	if curStateName == "StateIdle" || curStateName == "StateRandomWalk":
+		stateMachine.curState.transitionState.emit(stateMachine.curState, "StateDisabled")
+		knockOutSfx.play()
+		knockoutLabel.visible = false
+		knockout = true
+		return true
+	else:
+		return false

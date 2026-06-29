@@ -19,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 			#for level in transparentLevel:
 				#level.visible = false
 		if body.curFloor == curFloorLayer:
+			#print(curFloorLayer)
 			GlobalSignal.updRoofVisibility.emit(curFloorLayer)
 
 
@@ -26,6 +27,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		#if body.climbing:
 			#return
+		#print("exit interior")
 		body.inside = false
 		#print(curFloorLayer)
 		#print(body.curFloor)

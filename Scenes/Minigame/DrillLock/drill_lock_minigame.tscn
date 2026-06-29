@@ -14,10 +14,16 @@
 radius = 160.32779
 
 [node name="DrillLockMinigame" type="Node2D" unique_id=1622614129]
-position = Vector2(108, 0)
 script = ExtResource("1_ibeyo")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=395338511]
+offset_right = 1916.0
+offset_bottom = 1084.0
+color = Color(0.21, 0.21, 0.21, 0.65882355)
+
 [node name="Lock" type="Area2D" parent="." unique_id=650285333]
+collision_layer = 2147483648
+collision_mask = 2147483648
 
 [node name="Lock" type="Sprite2D" parent="Lock" unique_id=1213059349]
 position = Vector2(924.00006, 346)
@@ -36,6 +42,8 @@ texture = ExtResource("2_jfnm7")
 
 [node name="Drill" type="CharacterBody2D" parent="." unique_id=199312021]
 position = Vector2(0, 371)
+collision_layer = 2147483648
+collision_mask = 2147483648
 script = ExtResource("4_r6di4")
 
 [node name="Drill" type="Sprite2D" parent="Drill" unique_id=1576419105]

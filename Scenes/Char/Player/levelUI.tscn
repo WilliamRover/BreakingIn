@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crmyiett3xbd3" path="res://Scenes/UI/Pause/pause_overlay.tscn" id="2_n48pw"]
 
 [node name="CanvasLayerSceenUI" type="CanvasLayer" unique_id=77139445]
-layer = 10
+layer = 4
 script = ExtResource("1_nysuq")
 
 [node name="Timer" type="Timer" parent="." unique_id=93057039]
@@ -28,9 +28,6 @@ pivot_offset = Vector2(40.605, 0)
 theme_override_font_sizes/font_size = 32
 text = "00:00"
 
-[node name="PauseOverlay" parent="." unique_id=9595380 instance=ExtResource("2_n48pw")]
-visible = false
-
 [node name="PressEsc" type="Label" parent="." unique_id=1292173438]
 offset_left = 54.0
 offset_top = 44.0
@@ -38,3 +35,24 @@ offset_right = 270.0
 offset_bottom = 78.0
 theme_override_font_sizes/font_size = 24
 text = "Press ESC to pause"
+
+[node name="MissionObjectiveHeader" type="Label" parent="." unique_id=1474997675]
+offset_left = 53.0
+offset_top = 220.0
+offset_right = 381.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 32
+text = "MISSION OBJECTIVES:"
+
+[node name="MissionObjectiveContent" type="Label" parent="." unique_id=1137485892]
+offset_left = 53.0
+offset_top = 285.0
+offset_right = 544.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 24
+text = "Enter the house:
+	- Lockpick a door/window
+	- OR rewire the garage door blah blah blah"
+
+[node name="PauseOverlay" parent="." unique_id=9595380 instance=ExtResource("2_n48pw")]
+visible = false

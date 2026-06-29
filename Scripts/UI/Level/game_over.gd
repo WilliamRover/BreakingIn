@@ -12,10 +12,10 @@ func _ready() -> void:
 func replay() -> void:
 	get_tree().reload_current_scene()
 
-@warning_ignore("integer_division")
 func returnToMenu() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
 
+@warning_ignore("integer_division")
 func gameOver() -> void:
 	var totalSec: int = int(LevelStat.getLevelStat("elapsedTime", "time"))
 	var mins: int = totalSec / 60

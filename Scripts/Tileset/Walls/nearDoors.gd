@@ -25,7 +25,7 @@ func get_available_actions() -> Array[String]:
 			actions.append("Picklock")
 		if PlayerStat.checkItemInLoadout("crowbar"):
 			actions.append("Pry")
-		if PlayerStat.checkSkill("breaker"):
+		if PlayerStat.checkSkill("kickDoor"):
 			actions.append("Kick_Break")
 			
 	return actions

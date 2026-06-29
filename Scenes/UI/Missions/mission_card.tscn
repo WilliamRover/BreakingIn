@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvk0x2fmfyxa4" path="res://Scripts/UI/Missions/mission_card.gd" id="1_k0hgq"]
 [ext_resource type="Texture2D" uid="uid://cs77b1e1rbljs" path="res://Assets/Placebo/tutorial placebo-01.png" id="1_yj7g7"]
+[ext_resource type="Texture2D" uid="uid://ddhtiv4l7htle" path="res://Assets/Mission/missionLock.png" id="3_pdm1x"]
 
 [node name="MissionCard" type="TextureButton" unique_id=33882229]
 custom_minimum_size = Vector2(1000, 600)
@@ -65,6 +66,7 @@ theme_override_font_sizes/font_size = 28
 text = "Lavanda, United Island"
 
 [node name="MissionLocked" type="Control" parent="." unique_id=1315166825]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,3 +82,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.02, 0.02, 0.02, 0.5803922)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionLocked" unique_id=1850782376]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -170.0
+offset_right = 147.5
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="MarginContainer" type="MarginContainer" parent="MissionLocked/VBoxContainer" unique_id=874208525]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 65
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="MissionLocked/VBoxContainer/MarginContainer" unique_id=791940841]
+layout_mode = 2
+texture = ExtResource("3_pdm1x")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Required" type="Label" parent="MissionLocked/VBoxContainer" unique_id=1825934128]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Completing \"The Rookie\" Required"
+horizontal_alignment = 1

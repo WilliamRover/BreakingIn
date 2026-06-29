@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cv26kxtqvg7bq"]
 
+[ext_resource type="Script" uid="uid://c4bax0rteng7a" path="res://Scripts/UI/Credits/credits.gd" id="1_ypl5r"]
+
 [node name="Credits" type="Control" unique_id=1680107961]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ypl5r")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1848460442]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 63
+theme_override_constants/margin_top = 83
+
+[node name="BackToMenu" type="Button" parent="MarginContainer" unique_id=110400182]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "< Back to menu"
+
+[node name="Credits" type="Label" parent="." unique_id=209882288]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 177.0
+offset_right = 107.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 29
+text = "TEXTURE ASSETS: Nguyen Minh Thuan Bui
+
+CODE: Nguyen Minh Thuan Bui
+
+MUSIC USED:
+- Pariah by Scott Buckley – released under CC-BY 4.0. www.scottbuckley.com.au 
+- Parasite by Scott Buckley – released under CC-BY 4.0. www.scottbuckley.com.au 
+- Contagion by Scott Buckley – released under CC-BY 4.0. www.scottbuckley.com.au 
+
+SFX USED:
+- Every SFX is from the game Project Zomboid
+Thanks to The Indie Stone for creating Project Zomboid, which made this possible. This is an 
+unofficial fan production for non-commercial purposes made under the Indie Stone Terms (Terms 2.2)
+- Sound Effect by freesound_community from Pixabay
+
+For more information please view the project on Github:
+https://github.com/WilliamRover/BreakingIn
+"

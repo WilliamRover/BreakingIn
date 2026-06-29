@@ -56,6 +56,7 @@ func recursConfLight(curNode: Node, floorMask: int, wallMask: int) -> void:
 		recursConfLight(child, floorMask, wallMask)
 
 func changeRoofVisibility(aboveFloors: int) -> void:
+	#print(aboveFloors)
 	if aboveFloors == 0:
 		visible = true
 	else:

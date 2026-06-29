@@ -12,8 +12,8 @@ texture_region_size = Vector2i(440, 404)
 0:0/0/texture_origin = Vector2i(-75, 120)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-146.88878, -3.5049438, -141.52039, 4.507889, 126.494095, -146.57468, 262.00397, -71.7164, -1.8154602, 78.99837, 0, 80, 270.74652, -69.25757, 126.76729, -149.30673)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(91.25061, -293.83237, -144.06744, -144.9459, -14.479889, -56.143707, 268.2871, -216.66891, 263.50763, -222.7229, -13.884277, -61.652893, -135.71121, -142.72809, 97.77278, -290.3332)
-0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-144.33974, 18.16195, 101.3246, -292.82166, 81, -299, -148, -37)
-0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(266.3753, -238.97307, -6.2571716, 76.54777, 0, 80, 275.6156, -229.41415)
+0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-144.33974, 18.16195, 125.3132, -315.82312, 97.08951, -311.87183, -148, -37)
+0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(254.5777, -245.26389, -21.273186, 68.26307, 0, 80, 275.6156, -229.41415)
 0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSet" id="TileSet_384xp"]

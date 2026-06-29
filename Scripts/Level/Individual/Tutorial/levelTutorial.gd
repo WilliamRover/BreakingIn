@@ -39,6 +39,37 @@ var secDoorOpened: bool = false
 var canExfiltrate: bool = false
 var exfiltrate: bool = false
 
+var missionObjCont: Array[String] = [
+	'''Enter the house:
+		- Lockpick a door/window
+		- OR rewire the garage door
+	''',
+	'''Find the safe:
+		- Locate the saferoom
+		- Find security door system configuration
+	''',
+	'''Safe cracking 101:
+		- Locate the safe code
+			- Search the bookshelf downstair
+		- OR crack the safe (if you have the skill of course)
+		- Open the safe
+	''',
+	'''Exfiltrate at where you came from'''
+]
+#var missionObjCont: String = '''Enter the house:
+		#- Lockpick a door/window
+		#- OR rewire the garage door
+	#Find the safe:
+		#- Locate the saferoom
+		#- Find security door system configuration
+	#Safe cracking 101:
+		#- Locate the safe code
+			#- Search the bookshelf downstair
+		#- OR crack the safe (if you have the skill of course)
+		#- Open the safe
+	#Exfiltrate
+#'''
+
 func _enter_tree() -> void:
 	super()
 	LevelStat.updLevelStat("missionTitle", "title", "The rookie (TUTORIAL)")
@@ -46,8 +77,10 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	super()
+	player.screenUI.setMissionObjectiveContent(missionObjCont[0])
 	GlobalSignal.safeItemRetrieved.connect(itemRetrieved)
 	GlobalSignal.doorWinInteracted.connect(secDoorInteracted)
+	GlobalSignal.exfilPos.emit(exfiltrateZone.global_position)
 	bgMusic.play()
 	var tree = get_tree().root
 	var bookshelves = findNearBookshelf(tree)
@@ -225,6 +258,7 @@ func policeArrived() -> void:
 	cutsceneCam.make_current()
 	if exfiltrate == false:
 		escapeMusic.stop()
+		GlobalSignal.updRoofVisibility.emit(0)
 	
 		player.movable = false
 		await get_tree().create_timer(7.5).timeout
@@ -232,7 +266,7 @@ func policeArrived() -> void:
 		gameOverOverlayScene.gameOver()
 	#print("police arrived")
 
-
+var firstTimev2: bool = true
 func _on_interior_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if floor1 == true && safeCracked == false:
@@ -248,6 +282,9 @@ func _on_interior_zone_body_entered(body: Node2D) -> void:
 				gameInstructions[8].visible = false
 				gameInstructions[10].visible = true
 			gameInstructions[11].visible = true
+			if firstTimev2:
+				player.screenUI.setMissionObjectiveContent(missionObjCont[0] + missionObjCont[1])
+				firstTimev2 = false
 		if safeCracked:
 			pass
 
@@ -263,13 +300,16 @@ func _on_interior_zone_body_exited(_body: Node2D) -> void:
 			#gameInstructions[11].visible = false
 			#gameInstructions[12].visible = true
 
-
+var firstTime: bool = true
 func secDoorInteracted(secDoor: Near, _open: bool) -> void:
 	if secDoor is NearSecurityDoor:
 		gameInstructions[12].visible = false
 		gameInstructions[13].visible = true
 		gameInstructions[14].visible = true
 		secDoorOpened = true
+		if firstTime:
+			player.screenUI.setMissionObjectiveContent(missionObjCont[0] + missionObjCont[1] + missionObjCont[2])
+			firstTime = false
 
 func safeIsCracked(_safe: NearSafe) -> void:
 	safeCracked = true
@@ -277,7 +317,6 @@ func safeIsCracked(_safe: NearSafe) -> void:
 	gameInstructions[14].visible = false
 	gameInstructions[15].visible = true
 	gameInstructions[16].visible = true
-	
 	await get_tree().create_timer(20).timeout
 	GlobalSignal.triggerCallPoliceSignal()
 
@@ -294,7 +333,8 @@ func _on_entered_2_nd_floor_body_entered(body: Node2D) -> void:
 func itemRetrieved(_safe: NearSafe) -> void:
 	canExfiltrate = true
 	exfiltrateZone.visible = true
-	
+	player.startExfiltrate()
+	player.screenUI.setMissionObjectiveContent(missionObjCont[0] + missionObjCont[1] + missionObjCont[2] + missionObjCont[3])
 
 
 func _on_exfiltrate_zone_body_entered(_body: Node2D) -> void:
@@ -305,4 +345,4 @@ func _on_exfiltrate_zone_body_entered(_body: Node2D) -> void:
 		await get_tree().create_timer(1).timeout
 		player.movable = false
 		gameCompletedOverlayScene.gameCompleted()
-		PlayerStat.unlockNextMission("The scout")
+		PlayerStat.unlockNextMission("The intel")

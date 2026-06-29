@@ -16,6 +16,7 @@ func _ready() -> void:
 	
 	
 func spawnChild() -> void:
+	#await GlobalSignal.iniLoaded
 	var cells = get_used_cells()
 	for cell in cells:
 		var data = get_cell_tile_data(cell)
@@ -24,8 +25,9 @@ func spawnChild() -> void:
 		if !lightGroup.has(linkId):
 			lightGroup[linkId] = {"on": true, "pairs": []}
 		var castLight = instantiateArea(ceilinglight_cast, cell)
+		#if DatabaseManager.getLevelProperty("interior", "lightsOn"):
 		var bulb: Node2D = null
-		#lightCastIns = ins
+	#lightCastIns = ins
 		match data.get_custom_data("lightType"):
 			"lightBar1":
 				bulb = instantiateArea(lightBarBulb1, cell)
@@ -37,8 +39,8 @@ func spawnChild() -> void:
 				bulb = instantiateArea(hangLightBulb, cell)
 			"domeLight":
 				bulb = instantiateArea(domeLightBulb, cell)
-		#bulbArr.append(bulb)
-		#bulb.set("powerId", linkId)
+	#bulbArr.append(bulb)
+	#bulb.set("powerId", linkId)
 		if bulb:
 			lightGroup[linkId]["pairs"].append({
 				"cast": castLight,

@@ -8,6 +8,8 @@ var prevStateName: String
 func _ready() -> void:
 	await owner.ready
 	security = owner as Security
+	if PlayerStat.checkSkill("slowDetect"):
+		alertTime = 5
 	
 func _on_enter() -> void:
 	noticeTimer = 0

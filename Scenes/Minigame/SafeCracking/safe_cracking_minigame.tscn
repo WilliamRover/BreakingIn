@@ -11,6 +11,11 @@
 [node name="SafeCracking" type="Node2D" unique_id=163404556]
 script = ExtResource("1_pxyvb")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1885593383]
+offset_right = 1916.0
+offset_bottom = 1084.0
+color = Color(0.15, 0.15, 0.15, 0.8666667)
+
 [node name="SafeMark" type="Sprite2D" parent="." unique_id=720184154]
 position = Vector2(970, 453.75)
 scale = Vector2(0.23138212, 0.23138212)

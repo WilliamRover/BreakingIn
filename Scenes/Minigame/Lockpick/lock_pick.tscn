@@ -13,6 +13,11 @@ size = Vector2(1183, 71)
 [node name="LockPick" type="Node2D" unique_id=2073764957]
 script = ExtResource("1_f52an")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=118298432]
+offset_right = 1916.0
+offset_bottom = 1084.0
+color = Color(0.21, 0.21, 0.21, 0.21176471)
+
 [node name="Bg" type="StaticBody2D" parent="." unique_id=1512689495]
 collision_layer = 256
 collision_mask = 256
@@ -23,13 +28,13 @@ scale = Vector2(0.89860386, 0.8986038)
 texture = ExtResource("1_fifvq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bg" unique_id=469378912]
-polygon = PackedVector2Array(-3, 751, -5, 1116, 1281, 1116, 1291, 746)
+polygon = PackedVector2Array(-3, 751, -5, 1116, 1281, 1116, 1972, 1042, 1284, 996, 1291, 746)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bg" unique_id=1560067631]
 polygon = PackedVector2Array(-1, -73, 3, 1102, 88, 1116, 78, -69)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bg" unique_id=899480399]
-polygon = PackedVector2Array(-4, -324, 1296, -330, 1292, 439, 1, 440)
+polygon = PackedVector2Array(-4, -324, 1296, -330, 2174, 11, 1298.0448, 5.2895203, 1292, 439, 1, 440)
 
 [node name="Ceiling" type="StaticBody2D" parent="." unique_id=1108557737]
 collision_layer = 8

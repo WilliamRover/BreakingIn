@@ -4,6 +4,9 @@ class_name NearBookShelf extends Near
 var findFileGame: Node
 var isSearching: bool = false
 var assignedIntel: String = ""
+var assignedId: String = ""
+
+signal intelFound(intelId: String)
 
 func _ready() -> void:
 	super()
@@ -20,7 +23,7 @@ func execute_action(action_name: String, button: Button) -> void:
 			awaitSfx("SearchSfx", button)
 			isSearching = true
 			findFileGame = innitMinigame(findFilesScene)
-			findFileGame.provideIntel.emit(assignedIntel)
+			findFileGame.provideIntel.emit(getIntel())
 			minigameProg = true
 			await findFileGame.tree_exited
 			#if locked:
@@ -53,5 +56,12 @@ func cancelMinigame() -> void:
 		isSearching = false
 	closeMinigame()
 	
-func assignIntel(intel: String) -> void:
+func assignIntel(intel: String, id: String = "") -> void:
 	assignedIntel = intel
+	assignedId = id
+
+func getIntel() -> String:
+	if assignedId != "":
+		intelFound.emit(assignedId)
+		assignedId = ""
+	return assignedIntel

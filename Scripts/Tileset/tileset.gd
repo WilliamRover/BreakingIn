@@ -2,6 +2,7 @@ class_name TileSetGen extends TileMapLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_parent().ready
 	spawnChild()
 
 #Override this thing

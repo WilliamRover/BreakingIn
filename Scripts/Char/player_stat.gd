@@ -135,3 +135,8 @@ func checkSufficientWire(amount: int) -> bool:
 
 func resetWireAmount() -> void:
 	wire = 5
+
+func checkMissionAvailable(mission: String) -> bool:
+	if data["unlockMission"].has(mission):
+		return true
+	return false

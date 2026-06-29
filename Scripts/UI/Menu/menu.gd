@@ -5,6 +5,8 @@ class_name Menu extends Control
 @onready var skillBtn: Button = $MarginContainer/HBoxContainer/VBoxContainer/SkillTree
 @onready var settingsBtn: Button = $MarginContainer/HBoxContainer/VBoxContainer/Settings
 @onready var creditBtn: Button = $MarginContainer/HBoxContainer/VBoxContainer/Credits
+@onready var quitBtn: Button = $MarginContainer/HBoxContainer/VBoxContainer/Exit
+
 @onready var xpBar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer2/Exp/XpBar
 @onready var level: Label = $MarginContainer/HBoxContainer/VBoxContainer2/Exp/Level
 @onready var curXp: Label = $MarginContainer/HBoxContainer/VBoxContainer2/XpTxt
@@ -14,6 +16,9 @@ func _ready() -> void:
 	missionsBtn.pressed.connect(loadScene.bind("Missions"))
 	skillBtn.pressed.connect(loadScene.bind("SkillTree"))
 	loadoutBtn.pressed.connect(loadScene.bind("Loadout"))
+	settingsBtn.pressed.connect(loadScene.bind("Settings"))
+	creditBtn.pressed.connect(loadScene.bind("Credits"))
+	quitBtn.pressed.connect(loadScene.bind("Exit"))
 	skillPoint.text = str(int(PlayerStat.data["skillPoint"]))
 	updateXp()
 	
@@ -28,6 +33,12 @@ func loadScene(sceneName: String) -> void:
 			get_tree().change_scene_to_file("res://Scenes/UI/SkillTree/skillTree.tscn")
 		"Loadout":
 			get_tree().change_scene_to_file("res://Scenes/UI/Loadout/loadout.tscn")
+		"Settings":
+			get_tree().change_scene_to_file("res://Scenes/UI/Settings/settings.tscn")
+		"Credits":
+			get_tree().change_scene_to_file("res://Scenes/UI/Credits/credits.tscn")
+		"Exit":
+			get_tree().quit()
 func updateXp() -> void:
 	level.text = "Level " + str(int(PlayerStat.data["level"]))
 	xpBar.max_value = PlayerStat.getMaxExp()

@@ -10,25 +10,21 @@
 		"electricalEngineer": ["wirex5", "drill"],
 		"mechanicalEngineer": ["lockPick"]
 	},
+	"requirement": "",
 	"thumbnail": "res://Assets/Placebo/tutorial placebo-01.png",
 	"scenePath": "res://Scenes/Levels/Tutorial/main-tutorial.tscn"
   },
   {
-	"title": "The scout",
-	"time": "11:30, 20th November, 1011",
-	"place": "Lavanda, United Island",
-	"desc": "",
-	"requiredLoadout": "Electrical Engineer: Wire x5 and Drill; Mechanical Engineer: Lockpick",
-	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
-	"scenePath": ""
-  },
-  {
 	"title": "The intel",
-	"time": "18:30, 26th Feburary, 1011",
+	"time": "11:30, 20th November, 1010",
 	"place": "Lavanda, United Island",
-	"desc": "",
-	"recommendLoadout": "Electrical Engineer: Wire x5 and Drill; Mechanical Engineer: Lockpick",
-	"thumbnail": "res://Assets/Placebo/Screenshot 2026-05-13 232621.png",
-	"scenePath": ""
+	"desc": "So the previous mission gave us some money with some intel with it. Apparently the owner\nis working in a security company. Intel said that there will be a deliver of gold on 20th November, so it's\nbest to hit the premise during their lunch.\nThough keep in mind that police patrol is nearby, so response time will be imminent",
+	"requiredLoadoutDesc": "",
+	"requiredLoadout": {
+		"general": []
+	},
+	"requirement": "Required completing \"The Rookie\"",
+	"thumbnail": "res://Assets/Placebo/Screenshot 2026-06-27 132220.png",
+	"scenePath": "res://Scenes/Levels/TheIntel/main-the-intel.tscn"
   }
 ]

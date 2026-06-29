@@ -19,7 +19,7 @@ You are a post-graduate master student that just graduated right in a crisis per
 Game is set in the imaginative city of Lavanda, of country United Island.
 
 ## INSTALLATION
-Click on the Releases section or download from the Exports folder
+Click on the Releases section
 
 - Windows: download the BreakingIn.exe  
 - Linux: download the BreakingIn.x86_64

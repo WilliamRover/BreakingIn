@@ -16,7 +16,7 @@
 
 You are a post-graduate master student that just graduated right in a crisis period. Unemployment spiked, everything is expensive and no one is hiring you. You applied to more than hundred companies already, but none of them is hiring you (even small shops!). You are forced to the last resort: attempt burglary
 
-Game is set in the imaginative city of Lavanda, of country United Island.
+Game is set in the imaginative city of Hermana, of region Lavanda, of country United Island.
 
 ## INSTALLATION
 Click on the Releases section
